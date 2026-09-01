@@ -1,0 +1,26 @@
+<svg viewBox="0 0 600 380" xmlns="http://www.w3.org/2000/svg">
+  <rect width="600" height="380" fill="#EAF3E4"/>
+  <circle cx="480" cy="90" r="140" fill="#7FC4D9" opacity="0.18"/>
+  <circle cx="90" cy="320" r="110" fill="#2D4A3E" opacity="0.08"/>
+  <!-- stylized map grid -->
+  <g stroke="#2D4A3E" stroke-opacity="0.12" stroke-width="1">
+    <path d="M60 60 L60 320"/><path d="M160 40 L160 340"/><path d="M260 30 L260 350"/>
+    <path d="M360 40 L360 340"/><path d="M460 60 L460 320"/><path d="M540 90 L540 290"/>
+    <path d="M40 100 L560 100"/><path d="M30 180 L570 180"/><path d="M40 260 L560 260"/>
+  </g>
+  <!-- location pins -->
+  <g>
+    <path d="M180 150 c0 22 -22 30 -22 55 c0 -25 -22 -33 -22 -55 a22 22 0 1 1 44 0z" fill="#E06B6B"/>
+    <circle cx="158" cy="150" r="8" fill="#FDFBF7"/>
+  </g>
+  <g>
+    <path d="M420 110 c0 22 -22 30 -22 55 c0 -25 -22 -33 -22 -55 a22 22 0 1 1 44 0z" fill="#E8A93A"/>
+    <circle cx="398" cy="110" r="8" fill="#FDFBF7"/>
+  </g>
+  <g>
+    <path d="M320 220 c0 20 -20 27 -20 50 c0 -23 -20 -30 -20 -50 a20 20 0 1 1 40 0z" fill="#2D4A3E"/>
+    <circle cx="300" cy="220" r="7" fill="#FDFBF7"/>
+  </g>
+  <path d="M158 175 Q260 260 300 245" stroke="#2D4A3E" stroke-width="2" stroke-dasharray="6 6" fill="none" opacity="0.4"/>
+  <path d="M300 245 Q360 200 398 133" stroke="#2D4A3E" stroke-width="2" stroke-dasharray="6 6" fill="none" opacity="0.4"/>
+</svg>

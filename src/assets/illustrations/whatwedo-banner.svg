@@ -1,0 +1,19 @@
+<svg viewBox="0 0 600 380" xmlns="http://www.w3.org/2000/svg">
+  <rect width="600" height="380" fill="#EAF0E0"/>
+  <circle cx="140" cy="100" r="130" fill="#639922" opacity="0.10"/>
+  <!-- network / node diagram -->
+  <g stroke="#2D4A3E" stroke-opacity="0.35" stroke-width="2">
+    <line x1="300" y1="190" x2="180" y2="110"/>
+    <line x1="300" y1="190" x2="420" y2="100"/>
+    <line x1="300" y1="190" x2="440" y2="250"/>
+    <line x1="300" y1="190" x2="170" y2="270"/>
+    <line x1="300" y1="190" x2="300" y2="90"/>
+  </g>
+  <circle cx="300" cy="190" r="26" fill="#2D4A3E"/>
+  <circle cx="180" cy="110" r="16" fill="#E06B6B"/>
+  <circle cx="420" cy="100" r="16" fill="#E8A93A"/>
+  <circle cx="440" cy="250" r="16" fill="#7FC4D9"/>
+  <circle cx="170" cy="270" r="16" fill="#A8D5A0"/>
+  <circle cx="300" cy="90" r="14" fill="#639922"/>
+  <text x="300" y="196" font-family="Georgia, serif" font-size="16" fill="#FDFBF7" text-anchor="middle">V</text>
+</svg>
