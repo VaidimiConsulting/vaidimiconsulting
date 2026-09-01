@@ -16,7 +16,7 @@ export default function Careers() {
     <>
       <PageBanner
         eyebrow="Who We Are / Careers"
-        title="Build your career on real client outcomes"
+        title="Build your career on real client outcome"
         description="We hire people who'd rather be measured by what changed in a client's business than by hours billed."
         accent="accent-sage"
         crumbs={[{ label: 'Who We Are', to: '/who-we-are' }, { label: 'Careers' }]}
