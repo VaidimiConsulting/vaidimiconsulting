@@ -39,7 +39,7 @@ src/
   pages/
     Home.tsx
     Contact.tsx, Careers.tsx, Privacy.tsx, Terms.tsx, NotFound.tsx
-    services/   -> ServicesListing.tsx + 5 individual service pages
+    services/   -> ServicesListing.tsx + 6 individual service pages
     sector/     -> SectorListing.tsx + 6 individual sector pages
     insights/   -> InsightsListing.tsx + 6 individual insight pages
     who-we-are/ -> OurStory.tsx (index) + LeadershipTeam, MissionValues, Newsroom, CorporateResponsibility
@@ -49,11 +49,9 @@ src/
 
 ## How to edit a page's content
 
-Open its file directly — e.g. `src/pages/services/DigitalTechnology.tsx`. Near the top
-you'll see a `const data = { ... }` object with plain text fields: `title`, `description`,
-`overview` (paragraphs), `highlights` (cards), `stats`, `quote`, `related` links, and the
-closing CTA text. Edit those strings directly — the page layout, animations, and colors
-update automatically because they're driven by `DetailPageTemplate`.
+Service content now lives in `src/data/services.ts`. Edit that single data file to update
+service names, descriptions, sub-services, images, navigation, service cards, and detail
+page content.
 
 Pages like `OurStory.tsx`, `LeadershipTeam.tsx`, `Careers.tsx`, `Contact.tsx`, and the
 `*Listing.tsx` pages don't use the shared template — they're fully custom, so their content
@@ -61,9 +59,8 @@ is inline JSX further down in the same file (look for comments marked `{/* Edit 
 
 ## How to add a brand-new page
 
-1. Copy the closest existing example (e.g. copy `services/DigitalTechnology.tsx` for another
-   simple content page).
-2. Edit the `data` object.
+1. Add the service content to `src/data/services.ts`.
+2. Copy one of the thin wrapper files in `src/pages/services/`.
 3. In `App.tsx`, import the new file and add a `<Route path="..." element={<YourPage />} />`.
 4. If it should appear in the navbar, add it to the relevant menu list in `Navbar.tsx`
    (and to `Footer.tsx` if it should appear in the footer sitemap too).
@@ -102,8 +99,9 @@ or updating the `import ... from '@/assets/illustrations/...'` line in that temp
 
 - `/` — Home
 - `/contact`, `/careers`, `/privacy-policy`, `/terms`
-- `/services`, `/services/strategy-consulting`, `/services/digital-technology`,
-  `/services/operations-consulting`, `/services/financial-advisory`, `/services/talent-organization`
+- `/services`, `/services/marketing-consulting`, `/services/it-consulting`,
+  `/services/promotion-advertisement`, `/services/hr-consulting`,
+  `/services/financial-consulting`, `/services/event-management`
 - `/sector`, `/sector/msme`, `/sector/sme`, `/sector/agribusiness`, `/sector/logistics`,
   `/sector/financial-services`, `/sector/retail`
 - `/insights`, `/insights/latest-articles`, `/insights/research-reports`, `/insights/whitepapers`,

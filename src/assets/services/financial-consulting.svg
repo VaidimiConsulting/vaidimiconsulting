@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
+  <title id="title">Financial consulting placeholder</title>
+  <desc id="desc">Abstract finance dashboard illustration.</desc>
+  <rect width="1200" height="720" fill="#fbf7ec"/>
+  <rect x="96" y="92" width="1008" height="536" rx="38" fill="#213b2e"/>
+  <rect x="186" y="174" width="310" height="372" rx="28" fill="#ffffff" opacity=".9"/>
+  <path d="M250 464V356M342 464V280M434 464V220" stroke="#e8a93a" stroke-width="38" stroke-linecap="round"/>
+  <path d="M594 468c88-152 188-212 300-180 52 14 88 44 120 88" fill="none" stroke="#a8d5a0" stroke-width="24" stroke-linecap="round"/>
+  <circle cx="870" cy="282" r="94" fill="#e06b6b"/>
+</svg>

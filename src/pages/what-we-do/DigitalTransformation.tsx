@@ -20,7 +20,7 @@ const data: DetailPageData = {
     { icon: ShieldAlert, title: 'Cybersecurity', desc: 'Practical risk controls that satisfy auditors without slowing product velocity.' },
   ],
   related: [
-    { label: 'Digital & Technology (Service)', to: '/services/digital-technology' },
+    { label: 'IT Consulting (Service)', to: '/services/it-consulting' },
     { label: 'Strategy & Growth', to: '/what-we-do/strategy-growth' },
     { label: 'Industry Solutions', to: '/what-we-do/industry-solutions' },
   ],

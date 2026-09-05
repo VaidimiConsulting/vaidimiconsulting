@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { Search, Menu, X, ChevronDown } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 import logo from '@/assets/logo.png';
+import { services } from '@/data/services';
 
 const slugify = (text: string) =>
   text.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)+/g, '');
@@ -22,7 +23,7 @@ const MENUS = {
     label: 'Services',
     type: 'single',
     accent: 'accent',
-    items: ['Strategy Consulting', 'Digital & Technology', 'Operations Consulting', 'Financial Advisory', 'Talent & Organization'],
+    items: services,
     bottomLink: { text: 'View all services', to: '/services' },
   },
   sector: {
@@ -63,6 +64,10 @@ const ROUTE_BASE: Record<string, string> = {
   'who-we-are': '/who-we-are',
   'what-we-do': '/what-we-do',
 };
+
+const itemLabel = (item: string | { title: string }) => (typeof item === 'string' ? item : item.title);
+const itemPath = (menuKey: string, item: string | { slug: string }) =>
+  typeof item === 'string' ? `${ROUTE_BASE[menuKey]}/${slugify(item)}` : `${ROUTE_BASE[menuKey]}/${item.slug}`;
 
 const linkTo = (menuKey: string, item: string) => `${ROUTE_BASE[menuKey]}/${slugify(item)}`;
 
@@ -139,8 +144,8 @@ export default function Navbar() {
             <div className="grid grid-cols-2 gap-x-10 gap-y-1 max-w-md">
               {menu.items.map((item, idx) => (
                 <motion.div key={idx} initial={{ opacity: 0, x: -4 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: idx * 0.03 }}>
-                  <Link to={linkTo('sector', item)} className="text-sm font-medium text-text-secondary hover:text-accent-blue transition-colors block py-2.5">
-                    {item}
+                  <Link to={linkTo('sector', itemLabel(item))} className="text-sm font-medium text-text-secondary hover:text-accent-blue transition-colors block py-2.5">
+                    {itemLabel(item)}
                   </Link>
                 </motion.div>
               ))}
@@ -148,15 +153,24 @@ export default function Navbar() {
           )}
 
           {menu.type === 'single' && 'items' in menu && (
-            <div className="flex flex-col space-y-1 max-w-xs">
+            <div className="flex flex-col space-y-1 max-w-sm">
               {menu.items.map((item, idx) => (
-                <motion.div key={idx} initial={{ opacity: 0, x: -4 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: idx * 0.03 }}>
+                <motion.div key={itemLabel(item)} initial={{ opacity: 0, x: -4 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: idx * 0.03 }}>
                   <Link
-                    to={linkTo(activeMenu, item)}
+                    to={itemPath(activeMenu, item)}
                     className={`text-sm font-medium text-text-secondary hover:text-${menu.accent} transition-colors block py-2`}
                   >
-                    {item}
+                    {itemLabel(item)}
                   </Link>
+                  {activeMenu === 'services' && typeof item !== 'string' && (
+                    <div className="pl-3 pb-2 flex flex-wrap gap-x-3 gap-y-1">
+                      {item.subServices.map((sub) => (
+                        <Link key={sub.title} to={`/services/${item.slug}/${sub.slug}`} className="text-xs text-text-muted hover:text-accent transition-colors">
+                          {sub.title}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
                 </motion.div>
               ))}
             </div>
@@ -165,11 +179,12 @@ export default function Navbar() {
           {menu.type === 'single-compact' && 'items' in menu && (
             <div className="flex flex-col space-y-1 max-w-xs">
               {menu.items.map((item, idx) => {
-                const path = item === 'Careers' ? '/careers' : item === 'Our Story' ? '/who-we-are' : linkTo('who-we-are', item);
+                const label = itemLabel(item);
+                const path = label === 'Careers' ? '/careers' : label === 'Our Story' ? '/who-we-are' : linkTo('who-we-are', label);
                 return (
                   <motion.div key={idx} initial={{ opacity: 0, x: -4 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: idx * 0.03 }}>
                     <Link to={path} className="text-sm text-text-secondary hover:text-accent-sage transition-colors block py-2">
-                      {item}
+                      {label}
                     </Link>
                   </motion.div>
                 );
@@ -292,17 +307,27 @@ export default function Navbar() {
                             ) : 'items' in menu ? (
                               <ul className="space-y-3">
                                 {menu.items.map((item, idx) => {
+                                  const label = itemLabel(item);
                                   const path =
                                     key === 'who-we-are'
-                                      ? item === 'Careers'
+                                      ? label === 'Careers'
                                         ? '/careers'
-                                        : item === 'Our Story'
+                                        : label === 'Our Story'
                                         ? '/who-we-are'
-                                        : linkTo(key, item)
-                                      : linkTo(key, item);
+                                        : linkTo(key, label)
+                                      : itemPath(key, item);
                                   return (
-                                    <li key={idx}>
-                                      <Link to={path} className="text-text-secondary text-base block">{item}</Link>
+                                    <li key={label}>
+                                      <Link to={path} className="text-text-secondary text-base block">{label}</Link>
+                                      {key === 'services' && typeof item !== 'string' && (
+                                        <div className="mt-2 pl-3 space-y-1">
+                                          {item.subServices.map((sub) => (
+                                            <Link key={sub.title} to={`/services/${item.slug}/${sub.slug}`} className="text-text-muted text-sm block">
+                                              {sub.title}
+                                            </Link>
+                                          ))}
+                                        </div>
+                                      )}
                                     </li>
                                   );
                                 })}

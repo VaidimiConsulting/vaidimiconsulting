@@ -29,7 +29,7 @@ const data: DetailPageData = {
   related: [
     { label: 'SME', to: '/sector/sme' },
     { label: 'Agribusiness', to: '/sector/agribusiness' },
-    { label: 'Talent & Organization', to: '/services/talent-organization' },
+    { label: 'HR Consulting', to: '/services/hr-consulting' },
   ],
   ctaTitle: 'Ready to formalize your growth?',
   ctaDesc: 'Book a free assessment \u2014 most MSME engagements start there.',

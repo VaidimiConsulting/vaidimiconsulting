@@ -21,7 +21,7 @@ const data: DetailPageData = {
     { icon: BarChart3, title: 'Competitive Analysis', desc: 'Structured intelligence on where you win, and where you\u2019re exposed.' },
   ],
   related: [
-    { label: 'Strategy Consulting (Service)', to: '/services/strategy-consulting' },
+    { label: 'Marketing Consulting (Service)', to: '/services/marketing-consulting' },
     { label: 'Digital Transformation', to: '/what-we-do/digital-transformation' },
     { label: 'Consulting Practices', to: '/what-we-do/consulting-practices' },
   ],

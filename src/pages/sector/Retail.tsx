@@ -28,7 +28,7 @@ const data: DetailPageData = {
   quote: { text: 'They found three stores that were quietly losing money for two years. Nobody had run the numbers that way before.', author: 'VP Operations, Retail sector client' },
   related: [
     { label: 'SME', to: '/sector/sme' },
-    { label: 'Strategy Consulting', to: '/services/strategy-consulting' },
+    { label: 'Promotion & Advertisement', to: '/services/promotion-advertisement' },
     { label: 'Financial Services', to: '/sector/financial-services' },
   ],
   ctaTitle: 'Not sure which stores are actually profitable?',

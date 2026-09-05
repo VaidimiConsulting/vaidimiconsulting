@@ -1,23 +1,16 @@
 import { motion } from 'motion/react';
 import { Link } from 'react-router-dom';
 import {
-  ArrowUpRight, BarChart3, Lightbulb, Globe2, Users, ShieldCheck,
-  TrendingUp, Building2, Tractor, Truck, Store, Landmark,
+  ArrowUpRight, Lightbulb, Globe2,
+  Building2, Tractor, Truck, Store, Landmark,
 } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
+import { services } from '@/data/services';
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
   show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' } },
 };
-
-const SERVICES = [
-  { icon: TrendingUp, title: 'Strategy Consulting', desc: 'Market entry, strategic planning and competitive positioning.', to: '/services/strategy-consulting', accent: 'accent' },
-  { icon: BarChart3, title: 'Digital & Technology', desc: 'Cloud, data, AI and cybersecurity for a resilient business.', to: '/services/digital-technology', accent: 'accent-blue' },
-  { icon: ShieldCheck, title: 'Operations Consulting', desc: 'Process redesign and cost optimization that sticks.', to: '/services/operations-consulting', accent: 'accent-green' },
-  { icon: Landmark, title: 'Financial Advisory', desc: 'M&A, capital structuring and financial due diligence.', to: '/services/financial-advisory', accent: 'accent-gold' },
-  { icon: Users, title: 'Talent & Organization', desc: 'Org design, leadership development and culture change.', to: '/services/talent-organization', accent: 'accent-sage' },
-];
 
 const SECTORS = [
   { icon: Building2, label: 'MSME', to: '/sector/msme' },
@@ -176,7 +169,7 @@ export default function Home() {
           </motion.div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {SERVICES.map((s, i) => (
+            {services.map((s, i) => (
               <motion.div
                 key={s.title}
                 initial={{ opacity: 0, y: 24 }}
@@ -185,14 +178,14 @@ export default function Home() {
                 transition={{ duration: 0.5, delay: i * 0.06 }}
               >
                 <Link
-                  to={s.to}
+                  to={`/services/${s.slug}`}
                   className="group block h-full bg-card border border-border rounded-2xl p-7 hover:border-border-strong hover:shadow-card transition-all duration-300 hover:-translate-y-1"
                 >
                   <div className={`w-11 h-11 rounded-xl bg-${s.accent}/15 flex items-center justify-center mb-5`}>
                     <s.icon className={`w-5 h-5 text-${s.accent === 'accent' ? 'accent-dark' : 'primary'}`} />
                   </div>
                   <h3 className="font-medium text-text-primary text-lg mb-2">{s.title}</h3>
-                  <p className="text-sm text-text-secondary leading-relaxed mb-4">{s.desc}</p>
+                  <p className="text-sm text-text-secondary leading-relaxed mb-4">{s.shortDescription}</p>
                   <span className="inline-flex items-center gap-1 text-sm font-medium text-text-primary opacity-0 group-hover:opacity-100 transition-opacity">
                     Learn more <ArrowUpRight className="w-3.5 h-3.5" />
                   </span>

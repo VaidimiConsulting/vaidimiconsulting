@@ -21,7 +21,7 @@ const data: DetailPageData = {
   ],
   related: [
     { label: 'Strategy & Growth', to: '/what-we-do/strategy-growth' },
-    { label: 'Strategy Consulting (Service)', to: '/services/strategy-consulting' },
+    { label: 'Marketing Consulting (Service)', to: '/services/marketing-consulting' },
     { label: 'Our Story', to: '/who-we-are' },
   ],
   ctaTitle: 'Planning a cross-border move?',

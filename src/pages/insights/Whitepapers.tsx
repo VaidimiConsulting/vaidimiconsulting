@@ -22,7 +22,7 @@ const data: DetailPageData = {
   related: [
     { label: 'Research Reports', to: '/insights/research-reports' },
     { label: 'Case Studies', to: '/insights/case-studies' },
-    { label: 'Strategy Consulting', to: '/services/strategy-consulting' },
+    { label: 'Marketing Consulting', to: '/services/marketing-consulting' },
   ],
   ctaTitle: 'Want to apply a framework to your business?',
   ctaDesc: 'We\u2019re happy to walk your team through any of these directly.',

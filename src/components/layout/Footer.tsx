@@ -1,18 +1,13 @@
 import { Link } from 'react-router-dom';
 import { Linkedin, Twitter, Instagram, Mail, MapPin, Phone, ArrowUpRight } from 'lucide-react';
 import logo from '@/assets/logo.png';
+import { services } from '@/data/services';
 
 const FOOTER_COLUMNS = [
   {
     title: 'Services',
     accent: 'accent',
-    links: [
-      { label: 'Strategy Consulting', to: '/services/strategy-consulting' },
-      { label: 'Digital & Technology', to: '/services/digital-technology' },
-      { label: 'Operations Consulting', to: '/services/operations-consulting' },
-      { label: 'Financial Advisory', to: '/services/financial-advisory' },
-      { label: 'Talent & Organization', to: '/services/talent-organization' },
-    ],
+    links: services.map((service) => ({ label: service.title, to: `/services/${service.slug}` })),
   },
   {
     title: 'Sector',

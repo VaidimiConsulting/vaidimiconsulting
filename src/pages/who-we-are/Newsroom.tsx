@@ -6,7 +6,7 @@ const NEWS = [
   { date: 'Jul 2026', title: 'Vaidimi Consulting opens new advisory desk for MSME credit access' },
   { date: 'May 2026', title: 'Partner R. Verma named to Top 40 Operations Consultants list' },
   { date: 'Feb 2026', title: 'Vaidimi crosses 200 MSME clients supported milestone' },
-  { date: 'Nov 2025', title: 'New Financial Advisory practice launched, led by A. Sharma' },
+  { date: 'Nov 2025', title: 'New Financial Consulting practice launched, led by A. Sharma' },
 ];
 
 export default function Newsroom() {

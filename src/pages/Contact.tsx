@@ -2,6 +2,7 @@ import { motion } from 'motion/react';
 import { Mail, Phone, MapPin } from 'lucide-react';
 import PageBanner from '@/components/ui/PageBanner';
 import { Button } from '@/components/ui/Button';
+import { services } from '@/data/services';
 
 export default function Contact() {
   return (
@@ -73,11 +74,9 @@ export default function Contact() {
             <div>
               <label className="text-xs font-medium text-text-secondary mb-1.5 block">What are you looking for help with?</label>
               <select className="w-full border border-border rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:border-primary bg-white">
-                <option>Strategy Consulting</option>
-                <option>Digital & Technology</option>
-                <option>Operations Consulting</option>
-                <option>Financial Advisory</option>
-                <option>Talent & Organization</option>
+                {services.map((service) => (
+                  <option key={service.slug}>{service.title}</option>
+                ))}
                 <option>Not sure yet</option>
               </select>
             </div>

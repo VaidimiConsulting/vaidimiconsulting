@@ -27,7 +27,7 @@ const data: DetailPageData = {
   statsDesc: 'We\u2019ve never had a client fail an audit on something we built.',
   related: [
     { label: 'Retail', to: '/sector/retail' },
-    { label: 'Financial Advisory', to: '/services/financial-advisory' },
+    { label: 'Financial Consulting', to: '/services/financial-consulting' },
     { label: 'MSME', to: '/sector/msme' },
   ],
   ctaTitle: 'Balancing growth against regulatory risk?',

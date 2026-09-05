@@ -22,7 +22,7 @@ const data: DetailPageData = {
   related: [
     { label: 'Strategy & Growth', to: '/what-we-do/strategy-growth' },
     { label: 'Digital Transformation', to: '/what-we-do/digital-transformation' },
-    { label: 'Operations Consulting (Service)', to: '/services/operations-consulting' },
+    { label: 'HR Consulting (Service)', to: '/services/hr-consulting' },
   ],
   ctaTitle: 'Not sure which practice your problem falls under?',
   ctaDesc: 'Most real problems span more than one \u2014 let\u2019s map yours together.',

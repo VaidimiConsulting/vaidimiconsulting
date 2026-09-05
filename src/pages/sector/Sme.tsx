@@ -28,7 +28,7 @@ const data: DetailPageData = {
   related: [
     { label: 'MSME', to: '/sector/msme' },
     { label: 'Retail', to: '/sector/retail' },
-    { label: 'Strategy Consulting', to: '/services/strategy-consulting' },
+    { label: 'Marketing Consulting', to: '/services/marketing-consulting' },
   ],
   ctaTitle: 'Hit a growth ceiling?',
   ctaDesc: 'Let\u2019s find the structural fix, not just another strategy deck.',

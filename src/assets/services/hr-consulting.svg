@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
+  <title id="title">HR consulting placeholder</title>
+  <desc id="desc">Abstract talent and team development illustration.</desc>
+  <rect width="1200" height="720" fill="#f5fbf3"/>
+  <rect x="110" y="90" width="980" height="540" rx="38" fill="#2d4a3e"/>
+  <circle cx="392" cy="292" r="84" fill="#a8d5a0"/>
+  <circle cx="602" cy="246" r="96" fill="#7fc4d9"/>
+  <circle cx="812" cy="292" r="84" fill="#e8a93a"/>
+  <path d="M260 536c42-104 126-156 252-156s210 52 252 156" fill="#ffffff" opacity=".9"/>
+  <path d="M592 536c30-78 92-118 186-118s156 40 186 118" fill="#ffffff" opacity=".64"/>
+  <path d="M236 536c30-78 92-118 186-118s156 40 186 118" fill="#ffffff" opacity=".64"/>
+</svg>

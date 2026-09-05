@@ -27,8 +27,8 @@ const data: DetailPageData = {
   statsDesc: 'Most of our logistics engagements pay for themselves within the first two quarters.',
   related: [
     { label: 'Agribusiness', to: '/sector/agribusiness' },
-    { label: 'Digital & Technology', to: '/services/digital-technology' },
-    { label: 'Operations Consulting', to: '/services/operations-consulting' },
+    { label: 'IT Consulting', to: '/services/it-consulting' },
+    { label: 'Event Management', to: '/services/event-management' },
   ],
   ctaTitle: 'Cost per delivery creeping up?',
   ctaDesc: 'We\u2019ll map where your network is bleeding margin.',

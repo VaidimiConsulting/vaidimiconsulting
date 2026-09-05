@@ -28,7 +28,7 @@ const data: DetailPageData = {
   related: [
     { label: 'Logistics', to: '/sector/logistics' },
     { label: 'MSME', to: '/sector/msme' },
-    { label: 'Operations Consulting', to: '/services/operations-consulting' },
+    { label: 'Promotion & Advertisement', to: '/services/promotion-advertisement' },
   ],
   ctaTitle: 'Losing margin to spoilage or delays?',
   ctaDesc: 'A supply chain audit usually surfaces the fix within weeks.',

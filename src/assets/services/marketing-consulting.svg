@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
+  <title id="title">Marketing consulting placeholder</title>
+  <desc id="desc">Abstract brand strategy workspace illustration.</desc>
+  <rect width="1200" height="720" fill="#fdfbf7"/>
+  <rect x="96" y="88" width="1008" height="544" rx="38" fill="#2d4a3e"/>
+  <circle cx="928" cy="210" r="92" fill="#e06b6b"/>
+  <circle cx="1000" cy="504" r="72" fill="#e8a93a"/>
+  <rect x="178" y="170" width="370" height="60" rx="18" fill="#ffffff" opacity=".92"/>
+  <rect x="178" y="270" width="610" height="26" rx="13" fill="#ffffff" opacity=".72"/>
+  <rect x="178" y="325" width="500" height="26" rx="13" fill="#ffffff" opacity=".5"/>
+  <path d="M194 506c120-132 248-132 384 0 112-118 232-118 360 0" fill="none" stroke="#a8d5a0" stroke-width="26" stroke-linecap="round"/>
+</svg>

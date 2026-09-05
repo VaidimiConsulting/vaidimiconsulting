@@ -9,11 +9,13 @@ import Terms from '@/pages/Terms';
 import NotFound from '@/pages/NotFound';
 
 import ServicesListing from '@/pages/services/ServicesListing';
-import StrategyConsulting from '@/pages/services/StrategyConsulting';
-import DigitalTechnology from '@/pages/services/DigitalTechnology';
-import OperationsConsulting from '@/pages/services/OperationsConsulting';
-import FinancialAdvisory from '@/pages/services/FinancialAdvisory';
-import TalentOrganization from '@/pages/services/TalentOrganization';
+import MarketingConsulting from '@/pages/services/MarketingConsulting';
+import ITConsulting from '@/pages/services/ITConsulting';
+import PromotionAdvertisement from '@/pages/services/PromotionAdvertisement';
+import HRConsulting from '@/pages/services/HRConsulting';
+import FinancialConsulting from '@/pages/services/FinancialConsulting';
+import EventManagement from '@/pages/services/EventManagement';
+import SubServiceDetail from '@/pages/services/SubServiceDetail';
 
 import SectorListing from '@/pages/sector/SectorListing';
 import Msme from '@/pages/sector/Msme';
@@ -61,11 +63,13 @@ export default function App() {
 
           {/* Services */}
           <Route path="/services" element={<ServicesListing />} />
-          <Route path="/services/strategy-consulting" element={<StrategyConsulting />} />
-          <Route path="/services/digital-technology" element={<DigitalTechnology />} />
-          <Route path="/services/operations-consulting" element={<OperationsConsulting />} />
-          <Route path="/services/financial-advisory" element={<FinancialAdvisory />} />
-          <Route path="/services/talent-organization" element={<TalentOrganization />} />
+          <Route path="/services/marketing-consulting" element={<MarketingConsulting />} />
+          <Route path="/services/it-consulting" element={<ITConsulting />} />
+          <Route path="/services/promotion-advertisement" element={<PromotionAdvertisement />} />
+          <Route path="/services/hr-consulting" element={<HRConsulting />} />
+          <Route path="/services/financial-consulting" element={<FinancialConsulting />} />
+          <Route path="/services/event-management" element={<EventManagement />} />
+          <Route path="/services/:serviceSlug/:subServiceSlug" element={<SubServiceDetail />} />
 
           {/* Sector */}
           <Route path="/sector" element={<SectorListing />} />

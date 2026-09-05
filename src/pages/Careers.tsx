@@ -5,10 +5,10 @@ import { Button } from '@/components/ui/Button';
 
 // Edit the OPENINGS array with your real job listings.
 const OPENINGS = [
-  { title: 'Senior Consultant, Strategy', location: 'Lucknow · Full-time' },
-  { title: 'Consultant, Digital & Technology', location: 'Lucknow · Full-time' },
-  { title: 'Analyst, Financial Advisory', location: 'Lucknow · Full-time' },
-  { title: 'Associate, Operations Consulting', location: 'Remote · Full-time' },
+  { title: 'Senior Consultant, Marketing Consulting', location: 'Lucknow · Full-time' },
+  { title: 'Consultant, IT Consulting', location: 'Lucknow · Full-time' },
+  { title: 'Analyst, Financial Consulting', location: 'Lucknow · Full-time' },
+  { title: 'Associate, HR Consulting', location: 'Remote · Full-time' },
 ];
 
 export default function Careers() {

@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
+  <title id="title">Event management placeholder</title>
+  <desc id="desc">Abstract events and distribution network illustration.</desc>
+  <rect width="1200" height="720" fill="#f4fbfd"/>
+  <rect x="102" y="88" width="996" height="544" rx="38" fill="#2d4a3e"/>
+  <rect x="210" y="190" width="280" height="340" rx="30" fill="#7fc4d9"/>
+  <rect x="548" y="190" width="440" height="76" rx="24" fill="#ffffff" opacity=".9"/>
+  <rect x="548" y="324" width="180" height="180" rx="24" fill="#e8a93a"/>
+  <rect x="808" y="324" width="180" height="180" rx="24" fill="#a8d5a0"/>
+  <path d="M350 530v72M638 504v98M898 504v98M350 602h548" stroke="#ffffff" stroke-width="20" stroke-linecap="round"/>
+</svg>

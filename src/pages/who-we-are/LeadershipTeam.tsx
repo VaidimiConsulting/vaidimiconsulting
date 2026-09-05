@@ -3,10 +3,10 @@ import PageBanner from '@/components/ui/PageBanner';
 
 // Edit the LEADERS array with real names, titles, and bios.
 const LEADERS = [
-  { name: 'A. Sharma', title: 'Managing Partner', bio: 'Leads firm strategy and the Financial Advisory practice. 18 years in corporate finance and M&A.' },
-  { name: 'P. Nair', title: 'Partner, Strategy & Digital', bio: 'Heads Strategy Consulting and Digital & Technology. Former operations lead at a national retail chain.' },
-  { name: 'R. Verma', title: 'Partner, Operations', bio: 'Runs the Operations Consulting practice. Specializes in supply chain and cost transformation.' },
-  { name: 'S. Iyer', title: 'Partner, Talent & Organization', bio: 'Leads org design and leadership development engagements across sectors.' },
+  { name: 'A. Sharma', title: 'Managing Partner', bio: 'Leads firm strategy and the Financial Consulting practice. 18 years in corporate finance and M&A.' },
+  { name: 'P. Nair', title: 'Partner, Marketing & IT', bio: 'Heads Marketing Consulting and IT Consulting. Former operations lead at a national retail chain.' },
+  { name: 'R. Verma', title: 'Partner, Promotion & Events', bio: 'Runs the Promotion & Advertisement and Event Management practices. Specializes in field execution and sales impact.' },
+  { name: 'S. Iyer', title: 'Partner, HR Consulting', bio: 'Leads recruitment, training, and leadership development engagements across sectors.' },
 ];
 
 export default function LeadershipTeam() {

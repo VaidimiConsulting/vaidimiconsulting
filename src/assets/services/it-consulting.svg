@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
+  <title id="title">IT consulting placeholder</title>
+  <desc id="desc">Abstract cloud and data systems illustration.</desc>
+  <rect width="1200" height="720" fill="#f4fbfd"/>
+  <rect x="104" y="92" width="992" height="536" rx="36" fill="#213b2e"/>
+  <rect x="190" y="184" width="330" height="250" rx="28" fill="#7fc4d9"/>
+  <rect x="570" y="184" width="440" height="72" rx="20" fill="#ffffff" opacity=".9"/>
+  <rect x="570" y="304" width="360" height="40" rx="20" fill="#ffffff" opacity=".64"/>
+  <rect x="570" y="390" width="430" height="40" rx="20" fill="#ffffff" opacity=".45"/>
+  <path d="M244 502h704" stroke="#e8a93a" stroke-width="24" stroke-linecap="round"/>
+  <path d="M280 244h150M280 302h190M280 360h115" stroke="#fdfbf7" stroke-width="18" stroke-linecap="round"/>
+</svg>
