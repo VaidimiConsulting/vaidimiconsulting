@@ -1,140 +1,251 @@
 import { Link } from 'react-router-dom';
-import { Linkedin, Twitter, Instagram, Mail, MapPin, Phone, ArrowUpRight } from 'lucide-react';
+import {
+  Linkedin,
+  Twitter,
+  Instagram,
+  Mail,
+  MapPin,
+  Phone,
+  ArrowUpRight,
+  Sparkles,
+} from 'lucide-react';
 import logo from '@/assets/logo.png';
 import { services } from '@/data/services';
 
-const FOOTER_COLUMNS = [
-  {
-    title: 'Services',
-    accent: 'accent',
-    links: services.map((service) => ({ label: service.title, to: `/services/${service.slug}` })),
-  },
-  {
-    title: 'Sector',
-    accent: 'accent-blue',
-    links: [
-      { label: 'MSME', to: '/sector/msme' },
-      { label: 'SME', to: '/sector/sme' },
-      { label: 'Agribusiness', to: '/sector/agribusiness' },
-      { label: 'Logistics', to: '/sector/logistics' },
-      { label: 'Retail', to: '/sector/retail' },
-    ],
-  },
-  {
-    title: 'Insights',
-    accent: 'accent-gold',
-    links: [
-      { label: 'Latest Articles', to: '/insights/latest-articles' },
-      { label: 'Research Reports', to: '/insights/research-reports' },
-      { label: 'Case Studies', to: '/insights/case-studies' },
-      { label: 'Webinars & Events', to: '/insights/webinars-events' },
-      { label: 'Podcasts', to: '/insights/podcasts' },
-    ],
-  },
-  {
-    title: 'Who We Are',
-    accent: 'accent-sage',
-    links: [
-      { label: 'Our Story', to: '/who-we-are' },
-      { label: 'Leadership Team', to: '/who-we-are/leadership-team' },
-      { label: 'Careers', to: '/careers' },
-      { label: 'Newsroom', to: '/who-we-are/newsroom' },
-      { label: 'Corporate Responsibility', to: '/who-we-are/corporate-responsibility' },
-    ],
-  },
+const QUICK_LINKS = [
+  { label: 'Home', to: '/' },
+  { label: 'About Vaidimi', to: '/who-we-are' },
+  { label: 'Leadership Team', to: '/who-we-are/leadership-team' },
+  { label: 'Blog & Insights', to: '/blog' },
+  { label: 'Careers', to: '/careers' },
+  { label: 'Contact Us', to: '/contact' },
+];
+
+const SECTORS = [
+  { label: 'MSME', to: '/sector/msme' },
+  { label: 'SME', to: '/sector/sme' },
+  { label: 'Agribusiness', to: '/sector/agribusiness' },
+  { label: 'Logistics & Supply', to: '/sector/logistics' },
+  { label: 'Financial Services', to: '/sector/financial-services' },
+  { label: 'Retail & Consumer', to: '/sector/retail' },
+];
+
+const SOCIAL_LINKS = [
+  { icon: Linkedin, href: '#', label: 'LinkedIn' },
+  { icon: Twitter, href: '#', label: 'Twitter' },
+  { icon: Instagram, href: '#', label: 'Instagram' },
+  { icon: Mail, href: 'mailto:info@vaidimiconsulting.in', label: 'Email' },
 ];
 
 export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="bg-primary text-white/90 relative overflow-hidden">
-      {/* subtle top divider curve */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/15 to-transparent" />
+    <footer className="relative overflow-hidden bg-[#10182d] text-slate-300">
+      <div className="pointer-events-none absolute inset-0">
+        <div className="absolute -left-40 -top-40 h-96 w-96 rounded-full bg-[#214d63]/20 blur-3xl" />
+        <div className="absolute right-[-12%] top-[28%] h-[420px] w-[420px] rounded-full bg-[#1b365b]/30 blur-3xl" />
+        <div className="absolute bottom-[-20%] left-[42%] h-80 w-80 rounded-full bg-[#173f39]/20 blur-3xl" />
+        <div
+          className="absolute inset-0 opacity-[0.035]"
+          style={{
+            backgroundImage:
+              'linear-gradient(rgba(255,255,255,.7) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.7) 1px, transparent 1px)',
+            backgroundSize: '72px 72px',
+          }}
+        />
+      </div>
 
-      <div className="max-w-7xl mx-auto px-6 lg:px-10 pt-20 pb-10">
-        {/* Top: brand + newsletter */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 pb-16 border-b border-white/10">
-          <div>
-            <img src={logo} alt="Vaidimi Consulting" className="h-10 w-auto object-contain brightness-0 invert opacity-90 mb-5" />
-            <p className="text-white/70 text-sm leading-relaxed max-w-sm">
-              Guidance, growth and success — we partner with ambitious businesses across strategy,
-              digital transformation and operations to turn plans into measurable results.
+      <div className="absolute left-0 right-0 top-0 h-px bg-gradient-to-r from-transparent via-[#b88a72] to-transparent opacity-70" />
+
+      <div className="relative mx-auto max-w-[1280px] px-6 sm:px-8 lg:px-10">
+        <div className="grid grid-cols-1 gap-10 border-b border-white/10 py-14 md:py-16 lg:grid-cols-12 lg:gap-16">
+          <div className="lg:col-span-6">
+
+
+            <p className="mt-7 max-w-[560px] text-[15px] leading-7 text-slate-200/80 sm:text-base">
+              Guidance, growth and success — we partner with ambitious
+              enterprises across strategy, digital infrastructure, corporate
+              finance, and operations to turn vision into measurable momentum.
             </p>
-            <div className="flex items-center gap-4 mt-6">
-              {[Linkedin, Twitter, Instagram].map((Icon, idx) => (
-                <a
-                  key={idx}
-                  href="#"
-                  aria-label="Social link"
-                  className="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center hover:bg-white/10 hover:border-white/40 transition-colors"
+
+            <div className="mt-7 flex items-center gap-3">
+              {SOCIAL_LINKS.map((item) => {
+                const Icon = item.icon;
+                return (
+                  <a
+                    key={item.label}
+                    href={item.href}
+                    aria-label={item.label}
+                    className="group flex h-11 w-11 items-center justify-center rounded-full border border-slate-300/70 bg-white/[0.025] text-slate-300 transition-all duration-300 hover:-translate-y-1 hover:border-[#c8a18d] hover:bg-white/[0.08] hover:text-white"
+                  >
+                    <Icon className="h-[17px] w-[17px] transition-transform duration-300 group-hover:scale-110" />
+                  </a>
+                );
+              })}
+            </div>
+          </div>
+
+          <div className="lg:col-span-6 lg:flex lg:justify-end">
+            <div className="w-full max-w-[485px] rounded-[22px] border border-white/10 bg-[#172644]/95 p-6 shadow-[0_22px_60px_rgba(0,0,0,.2)] sm:p-7">
+              <div className="mb-5 flex items-start gap-4">
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-[#b98e78]/30 bg-[#b98e78]/10">
+                  <Sparkles className="h-5 w-5 text-[#d2aa94]" />
+                </div>
+                <div>
+                  <h3 className="text-[17px] font-semibold tracking-[-0.01em] text-white">
+                    Subscribe to Monthly Advisory Insights
+                  </h3>
+                  <p className="mt-1.5 max-w-[390px] text-sm leading-5 text-slate-300/80">
+                    Field-tested frameworks on enterprise scale and technology
+                    straight to your inbox.
+                  </p>
+                </div>
+              </div>
+
+              <form onSubmit={(e) => e.preventDefault()} className="flex gap-2">
+                <label htmlFor="footer-email" className="sr-only">
+                  Email address
+                </label>
+                <input
+                  id="footer-email"
+                  type="email"
+                  placeholder="name@company.com"
+                  className="min-w-0 flex-1 rounded-xl border border-white/15 bg-[#0e1a31] px-4 py-3 text-sm text-white outline-none placeholder:text-slate-500 transition-colors focus:border-[#8ca7bd]"
+                />
+                <button
+                  type="submit"
+                  aria-label="Subscribe"
+                  className="flex h-[46px] w-[54px] shrink-0 items-center justify-center rounded-xl border border-[#bd957f] bg-transparent text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#bd957f]/15"
                 >
-                  <Icon className="w-4 h-4" />
-                </a>
+                  <ArrowUpRight className="h-5 w-5" />
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 gap-0 border-b border-white/10 py-12 sm:grid-cols-2 lg:grid-cols-4 lg:py-16">
+          <div className="pb-10 sm:pr-8 lg:border-r lg:border-white/10 lg:pb-0">
+            <h4 className="mb-6 text-[13px] font-semibold uppercase tracking-[0.05em] text-white/65">
+              Quick Links
+            </h4>
+            <ul className="space-y-4">
+              {QUICK_LINKS.map((link) => (
+                <li key={link.label}>
+                  <Link
+                    to={link.to}
+                    className="group inline-flex items-center text-[16px] leading-6 text-[#a9bfd6] transition-colors duration-200 hover:text-white"
+                  >
+                    <span>{link.label}</span>
+                    {link.label === 'About Vaidimi' && (
+                      <ArrowUpRight className="ml-1.5 h-4 w-4 text-[#c49a83] opacity-0 transition-all duration-200 group-hover:translate-x-0.5 group-hover:opacity-100" />
+                    )}
+                  </Link>
+                </li>
               ))}
+            </ul>
+          </div>
+
+          <div className="border-t border-white/10 py-10 sm:pl-8 sm:pr-8 lg:border-r lg:border-t-0 lg:py-0">
+            <h4 className="mb-6 text-[13px] font-semibold uppercase tracking-[0.05em] text-white/65">
+              Consulting Practices
+            </h4>
+            <ul className="space-y-4">
+              {services.map((service) => (
+                <li key={service.slug}>
+                  <Link
+                    to={`/services/${service.slug}`}
+                    className="text-[16px] leading-6 text-[#a9bfd6] transition-colors duration-200 hover:text-white"
+                  >
+                    {service.title}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="border-t border-white/10 py-10 sm:pr-8 lg:border-r lg:border-t-0 lg:py-0 lg:pl-8">
+            <h4 className="mb-6 text-[13px] font-semibold uppercase tracking-[0.05em] text-white/65">
+              Industry Sectors
+            </h4>
+            <ul className="space-y-4">
+              {SECTORS.map((sector) => (
+                <li key={sector.label}>
+                  <Link
+                    to={sector.to}
+                    className="group inline-flex items-center text-[16px] leading-6 text-[#a9bfd6] transition-colors duration-200 hover:text-white"
+                  >
+                    <span>{sector.label}</span>
+                    {sector.label === 'Retail & Consumer' && (
+                      <ArrowUpRight className="ml-1.5 h-4 w-4 text-[#c49a83] opacity-0 transition-all duration-200 group-hover:translate-x-0.5 group-hover:opacity-100" />
+                    )}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="border-t border-white/10 pt-10 sm:col-span-2 lg:col-span-1 lg:border-t-0 lg:pl-8 lg:pt-0">
+            <h4 className="mb-6 text-[13px] font-semibold uppercase tracking-[0.05em] text-white/65">
+              Corporate Office
+            </h4>
+            <div className="space-y-5 text-[16px] leading-6">
+              <div className="flex items-start gap-4">
+                <MapPin className="mt-0.5 h-5 w-5 shrink-0 text-[#c49a83]" />
+                <span className="text-[#e0e5ed]">
+                  SH 9/132, MAA Bhawani Nagar Colony,
+                  <br />
+                  Airport Road, Varanasi -
+                  <br />
+                  221002
+                </span>
+              </div>
+              <div className="flex items-center gap-4">
+                <Phone className="h-5 w-5 shrink-0 text-[#c49a83]" />
+                <a
+                  href="tel:+918869990973"
+                  className="text-[#e0e5ed] transition-colors hover:text-white"
+                >
+                  +91 8869990973
+                </a>
+              </div>
+              <div className="flex items-center gap-4">
+                <Mail className="h-5 w-5 shrink-0 text-[#c49a83]" />
+                <a
+                  href="mailto:info@vaidimiconsulting.in"
+                  className="break-all text-[#e0e5ed] transition-colors hover:text-white"
+                >
+                  info@vaidimiconsulting.in
+                </a>
+              </div>
             </div>
           </div>
-
-          <div className="flex flex-col justify-center lg:items-end">
-            <p className="text-sm font-medium text-white mb-1">Stay ahead of the curve</p>
-            <p className="text-xs text-white/60 mb-4">Monthly insights on strategy and growth, straight to your inbox.</p>
-            <form className="flex w-full max-w-sm gap-2">
-              <input
-                type="email"
-                placeholder="name@company.com"
-                className="flex-1 bg-white/10 border border-white/20 rounded-lg px-4 py-2.5 text-sm text-white placeholder:text-white/40 focus:outline-none focus:border-white/50"
-              />
-              <button
-                type="submit"
-                aria-label="Subscribe"
-                className="bg-accent hover:bg-accent-dark transition-colors rounded-lg px-4 flex items-center justify-center flex-shrink-0"
-              >
-                <ArrowUpRight className="w-4 h-4" />
-              </button>
-            </form>
-          </div>
         </div>
 
-        {/* Middle: link columns */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 py-16">
-          {FOOTER_COLUMNS.map((col) => (
-            <div key={col.title}>
-              <h4 className="text-xs font-medium uppercase tracking-wider text-white/50 mb-4">{col.title}</h4>
-              <ul className="space-y-3">
-                {col.links.map((link) => (
-                  <li key={link.label}>
-                    <Link to={link.to} className="text-sm text-white/80 hover:text-white transition-colors">
-                      {link.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
+        <div className="relative flex flex-col gap-5 py-8 sm:flex-row sm:items-center sm:justify-between">
+          <p className="text-xs text-slate-400">
+            © {year} Vaidimi Consulting. All rights reserved.
+          </p>
+          <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-xs text-slate-400">
+            <Link to="/privacy-policy" className="transition-colors hover:text-white">
+              Privacy Policy
+            </Link>
+            <Link to="/terms" className="transition-colors hover:text-white">
+              Terms of Service
+            </Link>
+            <Link to="/contact" className="transition-colors hover:text-white">
+              Contact
+            </Link>
+          </div>
+
+          <div className="pointer-events-none absolute -right-2 bottom-7 hidden md:block">
+            <div className="relative h-12 w-12">
+              <span className="absolute left-1/2 top-0 h-12 w-1 -translate-x-1/2 rotate-45 rounded-full bg-white/25" />
+              <span className="absolute left-1/2 top-0 h-12 w-1 -translate-x-1/2 -rotate-45 rounded-full bg-white/25" />
+              <span className="absolute left-1/2 top-1/2 h-12 w-1 -translate-x-1/2 -translate-y-1/2 rotate-90 rounded-full bg-white/25" />
+              <span className="absolute left-1/2 top-1/2 h-12 w-1 -translate-x-1/2 -translate-y-1/2 rounded-full bg-white/25" />
             </div>
-          ))}
-        </div>
-
-        {/* Contact strip */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 py-10 border-t border-white/10 text-sm text-white/70">
-          <div className="flex items-center gap-3">
-            <MapPin className="w-4 h-4 text-accent-sage flex-shrink-0" />
-            <span>Vibhuti Khand, Gomti Nagar, Lucknow, UP</span>
-          </div>
-          <div className="flex items-center gap-3">
-            <Mail className="w-4 h-4 text-accent-gold flex-shrink-0" />
-            <span>hello@vaidimiconsulting.com</span>
-          </div>
-          <div className="flex items-center gap-3">
-            <Phone className="w-4 h-4 text-accent-blue flex-shrink-0" />
-            <span>+91 522 000 0000</span>
-          </div>
-        </div>
-
-        {/* Bottom bar */}
-        <div className="flex flex-col md:flex-row items-center justify-between gap-3 pt-8 text-xs text-white/50">
-          <p>© {year} Vaidimi Consulting. All rights reserved.</p>
-          <div className="flex items-center gap-6">
-            <Link to="/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</Link>
-            <Link to="/terms" className="hover:text-white transition-colors">Terms of Service</Link>
           </div>
         </div>
       </div>

@@ -27,12 +27,13 @@ import {
   Users,
   type LucideIcon,
 } from 'lucide-react';
-import marketingImage from '@/assets/services/marketing-consulting.svg';
-import itImage from '@/assets/services/it-consulting.svg';
-import promotionImage from '@/assets/services/promotion-advertisement.svg';
-import hrImage from '@/assets/services/hr-consulting.svg';
-import financialImage from '@/assets/services/financial-consulting.svg';
-import eventImage from '@/assets/services/event-management.svg';
+import marketingImage from '@/assets/services/marketing-consulting.jpg';
+import itImage from '@/assets/services/it-consulting.jpg';
+import promotionImage from '@/assets/services/promotion-advertisement.jpg';
+import hrImage from '@/assets/services/hr-consulting.jpg';
+import financialImage from '@/assets/services/finance.jpg';
+import eventImage from '@/assets/services/managment1.webp';
+import eventProcessImage from '@/assets/services/manaement2.webp';
 
 export interface SubService {
   slug: string;
@@ -44,6 +45,18 @@ export interface SubService {
   image: string;
   icon: LucideIcon;
   children?: Omit<SubService, 'image' | 'children'>[];
+}
+
+export interface ServiceBenefit {
+  title: string;
+  desc: string;
+}
+
+export interface ServiceImpact {
+  metric: string;
+  metricLabel: string;
+  caseSnippet: string;
+  clientType: string;
 }
 
 export interface Service {
@@ -58,6 +71,9 @@ export interface Service {
   intro: string;
   subServices: SubService[];
   cta: string;
+  whoItsFor: string[];
+  keyBenefits: ServiceBenefit[];
+  impactSnapshot: ServiceImpact;
 }
 
 const subService = (
@@ -93,6 +109,23 @@ export const services: Service[] = [
       subService('digital-marketing', 'Digital Marketing', 'Run full-funnel digital campaigns across SEO, paid, email, and content.', 'Digital marketing helps your business grow visibility, traffic, leads, and repeat engagement through coordinated online channels. It works best for teams that want campaigns built around a funnel instead of scattered posts or ads. We plan and optimize digital activity across discovery, consideration, conversion, and retention.', ['SEO and content planning', 'Paid search and social campaign strategy', 'Email and lead-nurture campaigns', 'Performance tracking and optimization'], 'Our digital work is grounded in measurable outcomes, so campaigns can be improved based on evidence rather than guesswork.', marketingImage, TrendingUp),
     ],
     cta: "Need a brand or marketing strategy that actually works? Let's talk.",
+    whoItsFor: [
+      'Mid-market enterprises needing differentiated market positioning',
+      'Fast-growing consumer brands expanding across northern and central states',
+      'B2B firms looking to build an accountable demand-generation funnel',
+    ],
+    keyBenefits: [
+      { title: 'Sharpened Brand Differentiation', desc: 'Transform complex product features into clear commercial positioning that closes deals faster.' },
+      { title: 'Full-Funnel Campaign Accountability', desc: 'Connect every advertising rupee to lead qualification and measurable customer pipeline.' },
+      { title: 'Omnichannel Synergy', desc: 'Unify print, outdoor, digital ads, and field sales collateral into a consistent brand narrative.' },
+      { title: 'Sustainable Organic Discovery', desc: 'Drive lower blended customer acquisition cost (CAC) through SEO, content velocity, and word-of-mouth.' },
+    ],
+    impactSnapshot: {
+      metric: '+3.2x',
+      metricLabel: 'Qualified Inbound Pipeline',
+      caseSnippet: 'Repositioned a regional industrial equipment manufacturer, overhauling sales collateral and digital search funnels within 5 months.',
+      clientType: 'Industrial B2B Manufacturing Client',
+    },
   },
   {
     slug: 'it-consulting',
@@ -114,6 +147,23 @@ export const services: Service[] = [
       subService('ai-model', 'AI Model', 'Develop AI/ML models for automation, insight, and decision support.', 'AI model development helps organizations automate repetitive work, identify patterns, and improve decision-making with data-driven systems. We assess use cases, prepare data, and shape models around practical business outcomes. This is suited for teams that want AI to solve a defined problem rather than experiment without a clear path to value.', ['Use-case discovery and feasibility review', 'Data preparation and model design', 'Prototype and validation support', 'Deployment planning and monitoring guidance'], 'We focus on usable AI outcomes, pairing technical build with business context so models can be adopted responsibly.', itImage, Bot),
     ],
     cta: 'Ready to modernize your technology stack? Get in touch.',
+    whoItsFor: [
+      'Organizations outgrowing disconnected spreadsheets, paper records, and legacy software',
+      'Enterprises modernizing data architecture, cloud infrastructure, and cybersecurity',
+      'Leadership teams wanting pragmatic AI and workflow automation without bloated licensing',
+    ],
+    keyBenefits: [
+      { title: 'Tailored Software Architecture', desc: 'Custom software built precisely around your operational workflows, eliminating manual workarounds.' },
+      { title: 'Pragmatic AI & Machine Learning', desc: 'Deploy targeted machine learning models for inventory forecasting, lead scoring, and automated decisioning.' },
+      { title: 'Resilient Cloud Systems', desc: 'Migrate to modern AWS/Azure environments with enterprise security, automatic backups, and predictable cost.' },
+      { title: 'Structured Data Intelligence', desc: 'Turn scattered operational data into centralized dashboards that give leadership instant daily visibility.' },
+    ],
+    impactSnapshot: {
+      metric: '68%',
+      metricLabel: 'Reduction in Manual Processing Time',
+      caseSnippet: 'Architected a custom cloud dispatch portal for a multi-depot logistics operator, eliminating manual order entry delays.',
+      clientType: 'Logistics & Supply Chain Enterprise',
+    },
   },
   {
     slug: 'promotion-advertisement',
@@ -134,6 +184,23 @@ export const services: Service[] = [
       subService('print-digital-media-promotion', 'Print & Digital Media Promotion', 'Build reach and credibility across print and digital media outlets.', 'Print and digital media promotion supports wider credibility through newspapers, magazines, online publications, and media placements. It is useful for launches, reputation building, market education, and campaign reinforcement. We help shape the message and placement plan so media spend supports a clear business purpose.', ['Print media placement planning', 'Digital media promotion strategy', 'Campaign messaging for media formats', 'Reach and response review'], 'We align media promotion with brand and sales objectives, keeping visibility connected to real campaign intent.', promotionImage, Palette),
     ],
     cta: "Want your brand to be seen everywhere it matters? Let's plan your campaign.",
+    whoItsFor: [
+      'Brands launching new products or entering regional and Tier-2 consumer markets',
+      'Retailers requiring high-footfall on-ground activations, roadshows, and store visibility',
+      'Enterprises needing integrated media planning across hoardings, transit, print, and digital',
+    ],
+    keyBenefits: [
+      { title: 'High-Impact Ground Activations', desc: 'Direct experiential consumer touchpoints through pop-up kiosks, mall activations, and dealer meets.' },
+      { title: 'Hyper-Targeted Digital Visibility', desc: 'Localized paid search, social campaigns, and display ads designed for immediate footfall or enquiry.' },
+      { title: 'Strategic Physical Placements', desc: 'High-frequency outdoor hoardings and bus/metro transit media placed at critical commuter junctures.' },
+      { title: 'Verified Mass Media Reach', desc: 'Curated print advertorials and publication features that reinforce market leadership and trust.' },
+    ],
+    impactSnapshot: {
+      metric: '+45%',
+      metricLabel: 'Surge in Regional Footfall & Trial',
+      caseSnippet: 'Planned and executed a multi-city launch campaign across Varanasi, Lucknow, and Kanpur for an emerging consumer brand.',
+      clientType: 'Consumer Goods Client',
+    },
   },
   {
     slug: 'hr-consulting',
@@ -155,6 +222,23 @@ export const services: Service[] = [
       subService('hrms-human-resource-management-software-system', 'HRMS (Human Resource Management Software System)', 'Implement HR software to streamline operations, payroll, and employee data.', 'HRMS implementation helps organizations bring employee data, payroll processes, attendance, and HR workflows into a more organized system. We support requirement mapping, setup planning, process alignment, and adoption so the software fits the way your HR team works. This reduces manual effort and improves visibility across employee operations.', ['HR workflow and requirement mapping', 'System setup and data structure planning', 'Payroll, attendance, and employee data workflows', 'Adoption support and process documentation'], 'We focus on HRMS as an operating system for people processes, not just a software installation.', hrImage, Network),
     ],
     cta: "Looking to build a stronger, more capable team? Let's talk HR strategy.",
+    whoItsFor: [
+      'Companies expanding past 50+ staff without formalized HR governance or hiring routines',
+      'Enterprises facing high frontline attrition, recruitment bottlenecks, or managerial skill gaps',
+      'Leadership teams implementing modern HRMS software for attendance, payroll, and appraisals',
+    ],
+    keyBenefits: [
+      { title: 'Competency-Based Hiring Rigor', desc: 'Structured candidate screening and scorecard evaluation that reduces bad hires and shortens hiring time.' },
+      { title: 'Leadership Bench Strength', desc: 'Targeted coaching journeys that transform functional managers into proactive, accountable business leaders.' },
+      { title: 'Salesforce Enablement Routines', desc: 'Practical field training that sharpens objection handling, negotiation confidence, and daily sales discipline.' },
+      { title: 'Streamlined HRMS Adoption', desc: 'Seamless rollout of human resource management systems to automate payroll, compliance, and employee records.' },
+    ],
+    impactSnapshot: {
+      metric: '40%',
+      metricLabel: 'Decrease in 90-Day Early Attrition',
+      caseSnippet: 'Installed structured role scorecards and leadership routines for an expanding agribusiness with 200+ employees.',
+      clientType: 'Agribusiness Enterprise',
+    },
   },
   {
     slug: 'financial-consulting',
@@ -176,6 +260,23 @@ export const services: Service[] = [
       subService('financial-due-diligence', 'Financial Due Diligence', 'Assess financial health and risk before investment or acquisition decisions.', 'Financial due diligence helps buyers, investors, and leadership teams understand the financial reality behind a transaction or major decision. We review financial statements, earnings quality, risks, assumptions, and working capital considerations. This helps clients enter negotiations with clearer facts and fewer surprises.', ['Financial statement and trend review', 'Revenue, margin, and cost analysis', 'Risk and assumption validation', 'Deal findings and decision support'], 'We focus due diligence on decision-useful insight, translating financial analysis into clear implications for action.', financialImage, ShieldCheck),
     ],
     cta: 'Need expert guidance on your finances or investments? Reach out.',
+    whoItsFor: [
+      'Promoters preparing for institutional equity funding, venture rounds, or bank credit lines',
+      'Business owners seeking disciplined capital allocation, working capital control, and tax readiness',
+      'Buyers and investors requiring rigorous financial due diligence before M&A or equity infusion',
+    ],
+    keyBenefits: [
+      { title: 'Working Capital Optimization', desc: 'Identify locked capital in debtor cycles and inventory to fund ongoing expansion without expensive credit.' },
+      { title: 'Institutional Investor Readiness', desc: 'Stress-test unit economics, audited historical financials, and financial models to maximize deal valuation.' },
+      { title: 'Disciplined Capital Allocation', desc: 'Balance CAPEX reinvestment, operating reserves, and cash dividends for long-term balance sheet stability.' },
+      { title: 'Comprehensive Due Diligence', desc: 'Examine revenue quality, hidden liabilities, and asset integrity to protect commercial interests in deals.' },
+    ],
+    impactSnapshot: {
+      metric: '₹28Cr+',
+      metricLabel: 'Working Capital Unlocked',
+      caseSnippet: 'Restructured cash-flow cycles and renegotiated vendor creditor terms for an industrial manufacturing group.',
+      clientType: 'Manufacturing & Distribution Conglomerate',
+    },
   },
   {
     slug: 'event-management',
@@ -197,7 +298,7 @@ export const services: Service[] = [
         'Sales and distribution management brings event execution together with market expansion and sales capability. It is useful for brands that want events to generate stronger distributor relationships, better sales discipline, and clearer market reach. We plan programs around practical commercial outcomes, not attendance alone.',
         ['Sales and distribution program planning', 'Distributor engagement formats', 'Field team coordination', 'Sales outcome tracking and follow-up'],
         'We design events around business follow-through, helping every activity connect to market access, channel strength, or sales readiness.',
-        eventImage,
+        eventProcessImage,
         Network,
         [
           {
@@ -231,6 +332,23 @@ export const services: Service[] = [
       ),
     ],
     cta: "Planning an event that needs to deliver real business results? Let's organize it together.",
+    whoItsFor: [
+      'Enterprises organizing annual dealer conferences, vendor summits, and distributor recognition meets',
+      'Brands executing high-stakes multi-city product launches with media and trade attendees',
+      'Organizations running regional salesforce rallies and commercial alignment bootcamps',
+    ],
+    keyBenefits: [
+      { title: 'End-to-End Logistical Mastery', desc: 'Flawless venue scouting, stage production, AV technical management, and executive hospitality.' },
+      { title: 'Commercial Trade Conversion', desc: 'Program design engineered to secure spot distributor bookings, sign channel partners, and boost orders.' },
+      { title: 'Salesforce Momentum Rallies', desc: 'High-energy conventions that turn company strategy into motivated, measurable field execution.' },
+      { title: 'Quantitative Event ROI Tracking', desc: 'Measure post-event order volume, attendee NPS, and distributor onboarding metrics rigorously.' },
+    ],
+    impactSnapshot: {
+      metric: '100%',
+      metricLabel: 'Dealer Turnout & ₹14Cr Spot Orders',
+      caseSnippet: 'Organized a 2-day North India dealer conclave for a consumer durables manufacturer, exceeding booking targets.',
+      clientType: 'Consumer Durables Manufacturer',
+    },
   },
 ];
 

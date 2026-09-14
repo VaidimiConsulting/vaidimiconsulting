@@ -1,24 +1,238 @@
-@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&family=Caveat:wght@500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,800;1,9..144,400;1,9..144,600;1,9..144,700&family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600;1,700&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* ================================================
+   BRAND TOKENS
+   ================================================ */
+:root {
+  /* Core brand dark (navbar/footer "bookend" frame) */
+  --brand-dark: #16241D;
+  --brand-dark-light: #1E3328;
+  --brand-dark-deep: #0E1A14;
+
+  /* Legacy primary (emerald/forest) */
+  --primary: #1A4D3E;
+  --primary-light: #256653;
+  --primary-dark: #0F352A;
+
+  /* Accent palette */
+  --accent-coral: #E55B63;
+  --accent-blue: #0EA5E9;
+  --accent-gold: #F59E0B;
+  --accent-sage: #10B981;
+
+  /* 5 logo pen/brush colors — brand stripe */
+  --stripe-blue: #7FC4D9;
+  --stripe-yellow: #E8C84A;
+  --stripe-coral: #E06B6B;
+  --stripe-green: #8FBF6B;
+  --stripe-gold: #E8A93A;
+
+  /* Section rhythm */
+  --section-pad: 7.5rem;      /* 120px — default section padding */
+  --section-pad-lg: 8.5rem;   /* 136px — generous large screen padding */
+}
+
+/* ================================================
+   BASE TYPOGRAPHY
+   ================================================ */
 html {
   scroll-behavior: smooth;
 }
 
 body {
-  font-family: 'Inter', sans-serif;
-  background-color: #FDFBF7;
-  color: #2D4A3E;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: #FFFFFF;
+  color: #0F172A;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
+/* Display headings — Playfair Display luxury serif (Fraunces as fallback) */
+h1, h2, h3, h4, h5, h6, .font-display {
+  font-family: 'Playfair Display', 'Fraunces', Georgia, serif;
+  letter-spacing: -0.01em;
+}
+
+/* Tagline / editorial italic serif */
+.font-tagline {
+  font-family: 'Playfair Display', Georgia, serif;
+}
+
+/* Hand-drawn sketch captions — Caveat script (ONLY for margin notes + logo) */
+.font-sketch {
+  font-family: 'Caveat', cursive;
+}
+
+/* ================================================
+   SECTION RHYTHM UTILITIES
+   ================================================ */
+.section-pad {
+  padding-top: var(--section-pad);
+  padding-bottom: var(--section-pad);
+}
+
+@media (min-width: 1024px) {
+  .section-pad {
+    padding-top: var(--section-pad-lg);
+    padding-bottom: var(--section-pad-lg);
+  }
+}
+
+/* ================================================
+   LOGO RENDERING
+   ================================================ */
+.logo-crisp {
+  filter: contrast(1.18) saturate(1.2) brightness(0.96);
+  image-rendering: -webkit-optimize-contrast;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), filter 0.3s ease;
+}
+
+.logo-crisp:hover {
+  filter: contrast(1.24) saturate(1.25) brightness(0.98);
+}
+
+/* Logo on dark background — boost brightness */
+.logo-on-dark {
+  filter: contrast(1.1) saturate(1.15) brightness(1.05);
+  image-rendering: -webkit-optimize-contrast;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), filter 0.3s ease;
+}
+
+.logo-on-dark:hover {
+  filter: contrast(1.15) saturate(1.2) brightness(1.1);
+}
+
+/* ================================================
+   SELECTION
+   ================================================ */
+::selection {
+  background-color: #16241D;
+  color: #FFFFFF;
+}
+
+/* ================================================
+   SKETCH DRAW-ON ANIMATION
+   ================================================ */
+@keyframes drawLine {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.sketch-draw path,
+.sketch-draw line,
+.sketch-draw circle,
+.sketch-draw polyline,
+.sketch-draw polygon {
+  stroke-dasharray: var(--path-length, 1000);
+  stroke-dashoffset: var(--path-length, 1000);
+  animation: drawLine 1.8s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+  animation-play-state: paused;
+}
+
+/* Staggered draw for multi-path sketches */
+.sketch-draw path:nth-child(2),
+.sketch-draw line:nth-child(2),
+.sketch-draw circle:nth-child(2) {
+  animation-delay: 0.3s;
+}
+.sketch-draw path:nth-child(3),
+.sketch-draw line:nth-child(3),
+.sketch-draw circle:nth-child(3) {
+  animation-delay: 0.6s;
+}
+.sketch-draw path:nth-child(4),
+.sketch-draw line:nth-child(4),
+.sketch-draw circle:nth-child(4) {
+  animation-delay: 0.9s;
+}
+.sketch-draw path:nth-child(5),
+.sketch-draw line:nth-child(5),
+.sketch-draw circle:nth-child(5) {
+  animation-delay: 1.2s;
+}
+
+.sketch-draw.is-visible path,
+.sketch-draw.is-visible line,
+.sketch-draw.is-visible circle,
+.sketch-draw.is-visible polyline,
+.sketch-draw.is-visible polygon {
+  animation-play-state: running;
+}
+
+/* ================================================
+   HAIRLINE DIVIDERS
+   ================================================ */
+.hairline {
+  border: none;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #E2E8F0 20%, #E2E8F0 80%, transparent);
+}
+
+.hairline-dark {
+  border: none;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1) 20%, rgba(255,255,255,0.1) 80%, transparent);
+}
+
+/* ================================================
+   STICKY / PINNED SECTIONS
+   ================================================ */
+.sticky-section {
+  position: sticky;
+  top: 100px;
+  align-self: start;
+}
+
+/* Pinned process step — locks in viewport while siblings scroll */
+.pin-step {
+  position: sticky;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* ================================================
+   PARALLAX HELPERS
+   ================================================ */
+.parallax-slow {
+  will-change: transform;
+  transition: transform 0.1s linear;
+}
+
+/* ================================================
+   SKETCH WATERMARK (footer background pattern)
+   ================================================ */
+.sketch-watermark {
+  position: absolute;
+  inset: 0;
+  opacity: 0.03;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 200 200' fill='none'%3E%3Cpath d='M50 150 L50 50 M50 50 C60 30 80 30 90 50 M90 50 L90 150 M110 150 L110 50 M110 50 C120 30 140 30 150 50 M150 50 L150 150' stroke='white' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 120px;
+}
+
+/* ================================================
+   REDUCED MOTION
+   ================================================ */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+
+  .sketch-draw path,
+  .sketch-draw line,
+  .sketch-draw circle,
+  .sketch-draw polyline,
+  .sketch-draw polygon {
+    stroke-dashoffset: 0 !important;
+    animation: none !important;
   }
 }
