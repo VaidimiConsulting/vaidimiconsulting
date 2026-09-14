@@ -91,12 +91,12 @@ const fadeRight = {
 
 const STATS = [
   {
-    value: '120+',
+    value: '60+',
     label: 'Enterprises Guided',
     description: 'Across North & Central India',
   },
   {
-    value: '15+',
+    value: '7+',
     label: 'Years of Experience',
     description: 'Senior advisory leadership',
   },
@@ -106,7 +106,7 @@ const STATS = [
     description: 'Long-term relationships',
   },
   {
-    value: '₹500Cr+',
+    value: '₹20Cr+',
     label: 'Value Unlocked',
     description: 'Operational & market growth',
   },
