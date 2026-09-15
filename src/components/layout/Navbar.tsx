@@ -1285,11 +1285,11 @@ export default function Navbar() {
           </nav>
 
           {/* =============================================
-              GET IN TOUCH
+              ENQUIRE NOW
           ============================================= */}
 
           <Link
-            to="/contact"
+            to="/enquiry"
             onClick={() => setActiveMenu(null)}
             className="
               hidden
@@ -1311,7 +1311,7 @@ export default function Navbar() {
             "
             style={bodyFont}
           >
-            Get in Touch
+            Enquire Now
 
             <ArrowRight
               className="h-4 w-4"
@@ -1649,7 +1649,11 @@ export default function Navbar() {
               {/* CTA */}
 
               <Link
-                to="/contact"
+                to="/enquiry"
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  setActiveMenu(null);
+                }}
                 className="
                   mt-6
                   flex
@@ -1663,10 +1667,13 @@ export default function Navbar() {
                   text-[15px]
                   font-semibold
                   text-white
+                  transition-all
+                  duration-300
+                  hover:bg-[#0E3154]
                 "
                 style={bodyFont}
               >
-                Get in Touch
+                Enquire Now
 
                 <ArrowRight className="h-4 w-4" />
               </Link>

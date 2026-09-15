@@ -3,6 +3,7 @@ import Layout from "@/components/layout/Layout";
 
 import Home from "@/pages/Home";
 import Contact from "@/pages/Contact";
+import Enquiry from "@/pages/Enquiry";
 import Careers from "@/pages/Careers";
 import Blog from "@/pages/Blog";
 import BlogPostDetail from "@/pages/BlogPostDetail";
@@ -75,6 +76,7 @@ export default function App() {
 
           <Route path="/" element={<Home />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/enquiry" element={<Enquiry />} />
           <Route path="/careers" element={<Careers />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:id" element={<BlogPostDetail />} />
