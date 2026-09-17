@@ -271,126 +271,119 @@ app.post('/api/enquiries', rateLimitMiddleware, (req, res) => {
       const mailTo = process.env.MAIL_TO || 'info@vaidimiconsulting.in';
 
       if (smtpHost && smtpUser && smtpPass) {
-        const transporter = nodemailer.createTransport({
-          host: smtpHost,
-          port: Number(process.env.SMTP_PORT) || 587,
-          secure: process.env.SMTP_SECURE === 'true',
-          auth: {
-            user: smtpUser,
-            pass: smtpPass
-          }
-        });
+        try {
+          const transporter = nodemailer.createTransport({
+            host: smtpHost,
+            port: Number(process.env.SMTP_PORT) || 587,
+            secure: process.env.SMTP_SECURE === 'true',
+            auth: {
+              user: smtpUser,
+              pass: smtpPass
+            }
+          });
 
-        // Email to Vaidimi
-        const adminEmailHtml = `
-          <div style="font-family: Arial, sans-serif; max-width: 650px; margin: 0 auto; color: #1e293b; line-height: 1.6; border: 1px solid #e2e8f0; border-radius: 12px; overflow: hidden;">
-            <div style="background-color: #173F69; color: #ffffff; padding: 24px; text-align: center;">
-              <h1 style="margin: 0; font-size: 20px; letter-spacing: 1px;">VAIDIMI CONSULTING</h1>
-              <p style="margin: 4px 0 0 0; font-size: 13px; color: #93c5fd;">NEW WEBSITE ENQUIRY</p>
-            </div>
-            
-            <div style="padding: 24px;">
-              <h2 style="font-size: 14px; text-transform: uppercase; color: #64748b; border-bottom: 2px solid #e2e8f0; padding-bottom: 6px; margin-top: 0;">
-                CONTACT DETAILS
-              </h2>
-              <table style="width: 100%; font-size: 14px; margin-bottom: 20px;">
-                <tr><td style="width: 35%; color: #475569; font-weight: bold; padding: 4px 0;">Full Name:</td><td>${cleanData.full_name}</td></tr>
-                <tr><td style="color: #475569; font-weight: bold; padding: 4px 0;">Email Address:</td><td><a href="mailto:${cleanData.email}" style="color: #173F69;">${cleanData.email}</a></td></tr>
-                <tr><td style="color: #475569; font-weight: bold; padding: 4px 0;">Phone Number:</td><td><a href="tel:${cleanData.phone}" style="color: #173F69;">${cleanData.phone}</a></td></tr>
-                <tr><td style="color: #475569; font-weight: bold; padding: 4px 0;">Company:</td><td>${cleanData.company}</td></tr>
-                <tr><td style="color: #475569; font-weight: bold; padding: 4px 0;">Designation:</td><td>${cleanData.designation}</td></tr>
-              </table>
-
-              <h2 style="font-size: 14px; text-transform: uppercase; color: #64748b; border-bottom: 2px solid #e2e8f0; padding-bottom: 6px;">
-                ENQUIRY DETAILS
-              </h2>
-              <table style="width: 100%; font-size: 14px; margin-bottom: 20px;">
-                <tr><td style="width: 35%; color: #475569; font-weight: bold; padding: 4px 0;">Enquiry Type:</td><td style="font-weight: bold; color: #173F69;">${cleanData.enquiry_type}</td></tr>
-                <tr><td style="color: #475569; font-weight: bold; padding: 4px 0;">Services Required:</td><td>${cleanData.service_required}</td></tr>
-                <tr><td style="color: #475569; font-weight: bold; padding: 4px 0;">Preferred Contact:</td><td>${cleanData.preferred_contact_method}</td></tr>
-                <tr><td style="color: #475569; font-weight: bold; padding: 4px 0;">Preferred Time:</td><td>${cleanData.preferred_contact_time}</td></tr>
-                <tr><td style="color: #475569; font-weight: bold; padding: 4px 0;">Lead Source:</td><td>${cleanData.lead_source}</td></tr>
-              </table>
-
-              <h2 style="font-size: 14px; text-transform: uppercase; color: #64748b; border-bottom: 2px solid #e2e8f0; padding-bottom: 6px;">
-                REQUIREMENT
-              </h2>
-              <div style="background-color: #f8fafc; border: 1px solid #e2e8f0; padding: 16px; border-radius: 8px; font-size: 14px; white-space: pre-wrap; margin-bottom: 20px;">${cleanData.project_requirement}</div>
-
-              <h2 style="font-size: 14px; text-transform: uppercase; color: #64748b; border-bottom: 2px solid #e2e8f0; padding-bottom: 6px;">
-                DOCUMENT
-              </h2>
-              <p style="font-size: 14px; margin-bottom: 20px;">
-                Resume / Profile: <strong>${cleanData.resume_name ? `Attached (${cleanData.resume_name})` : 'Not provided'}</strong>
-              </p>
-
-              <h2 style="font-size: 14px; text-transform: uppercase; color: #64748b; border-bottom: 2px solid #e2e8f0; padding-bottom: 6px;">
-                SUBMISSION DETAILS
-              </h2>
-              <p style="font-size: 13px; color: #64748b; margin: 0;">
-                Submitted From: Vaidimi Consulting Website<br>
-                Submission Date: ${cleanData.submitted_at}
-              </p>
-            </div>
-          </div>
-        `;
-
-        const adminMailOptions = {
-          from: `"Vaidimi Website" <${process.env.MAIL_FROM || smtpUser}>`,
-          to: mailTo,
-          replyTo: cleanData.email,
-          subject: `New Website Enquiry – ${cleanData.full_name} – ${cleanData.enquiry_type}`,
-          html: adminEmailHtml,
-          attachments: req.file
-            ? [
-                {
-                  filename: req.file.originalname,
-                  path: req.file.path
-                }
-              ]
-            : []
-        };
-
-        // Customer Auto-reply
-        const customerEmailHtml = `
-          <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; color: #1e293b; line-height: 1.6; border: 1px solid #e2e8f0; border-radius: 12px; overflow: hidden;">
-            <div style="background-color: #173F69; color: #ffffff; padding: 24px; text-align: center;">
-              <h1 style="margin: 0; font-size: 20px; letter-spacing: 1px;">VAIDIMI CONSULTING</h1>
-              <p style="margin: 4px 0 0 0; font-size: 13px; color: #93c5fd;">Business & IT Consulting</p>
-            </div>
-            
-            <div style="padding: 28px;">
-              <p style="font-size: 15px; margin-top: 0;">Dear <strong>${cleanData.full_name}</strong>,</p>
+          // Email to Vaidimi
+          const adminEmailHtml = `
+            <div style="font-family: Arial, sans-serif; max-width: 650px; margin: 0 auto; color: #1e293b; line-height: 1.6; border: 1px solid #e2e8f0; border-radius: 12px; overflow: hidden;">
+              <div style="background-color: #173F69; color: #ffffff; padding: 24px; text-align: center;">
+                <h1 style="margin: 0; font-size: 20px; letter-spacing: 1px;">VAIDIMI CONSULTING</h1>
+                <p style="margin: 4px 0 0 0; font-size: 13px; color: #93c5fd;">NEW WEBSITE ENQUIRY</p>
+              </div>
               
-              <p style="font-size: 14px;">Thank you for contacting Vaidimi Consulting.</p>
-              
-              <p style="font-size: 14px;">We have successfully received your enquiry regarding <strong>${cleanData.enquiry_type}</strong>.</p>
-              
-              <p style="font-size: 14px;">Our team will review your requirement and get back to you shortly.</p>
-              
-              <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #e2e8f0; font-size: 13px; color: #475569;">
-                <p style="margin: 0; font-weight: bold; color: #173F69;">Regards,</p>
-                <p style="margin: 4px 0 0 0; font-weight: bold; color: #0f172a;">Vaidimi Consulting</p>
-                <p style="margin: 2px 0 0 0;">Business & IT Consulting</p>
-                <p style="margin: 2px 0 0 0;"><a href="mailto:info@vaidimiconsulting.in" style="color: #173F69;">info@vaidimiconsulting.in</a></p>
-                <p style="margin: 2px 0 0 0;">Airport Road, Varanasi, Uttar Pradesh, India</p>
+              <div style="padding: 24px;">
+                <h2 style="font-size: 14px; text-transform: uppercase; color: #64748b; border-bottom: 2px solid #e2e8f0; padding-bottom: 6px; margin-top: 0;">
+                  CONTACT DETAILS
+                </h2>
+                <table style="width: 100%; font-size: 14px; margin-bottom: 20px;">
+                  <tr><td style="width: 35%; color: #475569; font-weight: bold; padding: 4px 0;">Full Name:</td><td>${cleanData.full_name}</td></tr>
+                  <tr><td style="color: #475569; font-weight: bold; padding: 4px 0;">Email Address:</td><td><a href="mailto:${cleanData.email}" style="color: #173F69;">${cleanData.email}</a></td></tr>
+                  <tr><td style="color: #475569; font-weight: bold; padding: 4px 0;">Phone Number:</td><td><a href="tel:${cleanData.phone}" style="color: #173F69;">${cleanData.phone}</a></td></tr>
+                  <tr><td style="color: #475569; font-weight: bold; padding: 4px 0;">Company:</td><td>${cleanData.company}</td></tr>
+                  <tr><td style="color: #475569; font-weight: bold; padding: 4px 0;">Designation:</td><td>${cleanData.designation}</td></tr>
+                </table>
+
+                <h2 style="font-size: 14px; text-transform: uppercase; color: #64748b; border-bottom: 2px solid #e2e8f0; padding-bottom: 6px;">
+                  ENQUIRY DETAILS
+                </h2>
+                <table style="width: 100%; font-size: 14px; margin-bottom: 20px;">
+                  <tr><td style="width: 35%; color: #475569; font-weight: bold; padding: 4px 0;">Enquiry Type:</td><td style="font-weight: bold; color: #173F69;">${cleanData.enquiry_type}</td></tr>
+                  <tr><td style="color: #475569; font-weight: bold; padding: 4px 0;">Services Required:</td><td>${cleanData.service_required}</td></tr>
+                  <tr><td style="color: #475569; font-weight: bold; padding: 4px 0;">Preferred Contact:</td><td>${cleanData.preferred_contact_method}</td></tr>
+                  <tr><td style="color: #475569; font-weight: bold; padding: 4px 0;">Preferred Time:</td><td>${cleanData.preferred_contact_time}</td></tr>
+                  <tr><td style="color: #475569; font-weight: bold; padding: 4px 0;">Lead Source:</td><td>${cleanData.lead_source}</td></tr>
+                </table>
+
+                <h2 style="font-size: 14px; text-transform: uppercase; color: #64748b; border-bottom: 2px solid #e2e8f0; padding-bottom: 6px;">
+                  REQUIREMENT
+                </h2>
+                <div style="background-color: #f8fafc; border: 1px solid #e2e8f0; padding: 16px; border-radius: 8px; font-size: 14px; white-space: pre-wrap; margin-bottom: 20px;">${cleanData.project_requirement}</div>
+
+                <h2 style="font-size: 14px; text-transform: uppercase; color: #64748b; border-bottom: 2px solid #e2e8f0; padding-bottom: 6px;">
+                  SUBMISSION DETAILS
+                </h2>
+                <p style="font-size: 13px; color: #64748b; margin: 0;">
+                  Submitted From: Vaidimi Consulting Website<br>
+                  Submission Date: ${cleanData.submitted_at}
+                </p>
               </div>
             </div>
-          </div>
-        `;
+          `;
 
-        const customerMailOptions = {
-          from: `"Vaidimi Consulting" <${process.env.MAIL_FROM || smtpUser}>`,
-          to: cleanData.email,
-          subject: 'Thank You for Contacting Vaidimi Consulting',
-          html: customerEmailHtml
-        };
+          const adminMailOptions = {
+            from: `"Vaidimi Website" <${process.env.MAIL_FROM || smtpUser}>`,
+            to: mailTo,
+            replyTo: cleanData.email,
+            subject: `New Website Enquiry – ${cleanData.full_name} – ${cleanData.enquiry_type}`,
+            html: adminEmailHtml
+          };
 
-        await transporter.sendMail(adminMailOptions);
-        await transporter.sendMail(customerMailOptions);
-        console.log(`[EMAIL] Enquiry email & auto-reply sent successfully for ${cleanData.email}`);
+          // Customer Auto-reply
+          const customerEmailHtml = `
+            <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; color: #1e293b; line-height: 1.6; border: 1px solid #e2e8f0; border-radius: 12px; overflow: hidden;">
+              <div style="background-color: #173F69; color: #ffffff; padding: 24px; text-align: center;">
+                <h1 style="margin: 0; font-size: 20px; letter-spacing: 1px;">VAIDIMI CONSULTING</h1>
+                <p style="margin: 4px 0 0 0; font-size: 13px; color: #93c5fd;">Business & IT Consulting</p>
+              </div>
+              
+              <div style="padding: 28px;">
+                <p style="font-size: 15px; margin-top: 0;">Dear <strong>${cleanData.full_name}</strong>,</p>
+                
+                <p style="font-size: 14px;">Thank you for contacting Vaidimi Consulting.</p>
+                
+                <p style="font-size: 14px;">We have successfully received your enquiry regarding <strong>${cleanData.enquiry_type}</strong>.</p>
+                
+                <p style="font-size: 14px;">Our team will review your requirement and get back to you shortly.</p>
+                
+                <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #e2e8f0; font-size: 13px; color: #475569;">
+                  <p style="margin: 0; font-weight: bold; color: #173F69;">Regards,</p>
+                  <p style="margin: 4px 0 0 0; font-weight: bold; color: #0f172a;">Vaidimi Consulting</p>
+                  <p style="margin: 2px 0 0 0;">Business & IT Consulting</p>
+                  <p style="margin: 2px 0 0 0;"><a href="mailto:info@vaidimiconsulting.in" style="color: #173F69;">info@vaidimiconsulting.in</a></p>
+                  <p style="margin: 2px 0 0 0;">Airport Road, Varanasi, Uttar Pradesh, India</p>
+                </div>
+              </div>
+            </div>
+          `;
+
+          const customerMailOptions = {
+            from: `"Vaidimi Consulting" <${process.env.MAIL_FROM || smtpUser}>`,
+            to: cleanData.email,
+            subject: 'Thank You for Contacting Vaidimi Consulting',
+            html: customerEmailHtml
+          };
+
+          await transporter.sendMail(adminMailOptions);
+          await transporter.sendMail(customerMailOptions);
+          console.log(`[EMAIL] Enquiry email & auto-reply sent successfully for ${cleanData.email}`);
+        } catch (mailErr) {
+          console.error('[EMAIL ERROR] Failed to send email via SMTP:', mailErr);
+          return res.status(500).json({
+            success: false,
+            message: `Email sending failed: ${mailErr.message || 'SMTP Authentication / Network error'}. Please verify SMTP credentials in .env file.`
+          });
+        }
       } else {
-        console.log('[EMAIL] SMTP credentials not set. Form submitted successfully in local mode.');
+        console.log('[EMAIL] SMTP credentials not fully configured in .env. Submission logged to console.');
         console.log('Submitted Payload:', cleanData);
       }
 

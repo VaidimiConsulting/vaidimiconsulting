@@ -34,7 +34,7 @@ const IMAGE_PATHS = {
   hero: '/images/our-story-banner.jpg',
   story: '/images/our-story.jpg',
   challenge: '/images/unorganized.jpg',
-  software: '/images/software-solutions.jpg',
+  software: '/images/websoftware.jpg', 
   erp: '/images/erp-solutions.jpg',
   marketing: '/images/marketing-solutions.jpg',
   approach: '/images/our-approach.jpg',
