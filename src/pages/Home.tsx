@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
+﻿import { useState, useEffect } from 'react';
+import { motion, AnimatePresence, useReducedMotion } from 'motion/react';
 import { Link } from 'react-router-dom';
 import {
   ArrowRight,
@@ -106,7 +106,7 @@ const STATS = [
     description: 'Long-term relationships',
   },
   {
-    value: '₹20Cr+',
+    value: 'â‚¹20Cr+',
     label: 'Value Unlocked',
     description: 'Operational & market growth',
   },
@@ -300,7 +300,7 @@ function FinanceIllustration() {
       <path d="M 155 20 L 170 20 L 170 35" stroke="#0D9488" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
       <circle cx="205" cy="85" r="22" fill="#F59E0B" stroke="#D97706" strokeWidth="2" />
       <circle cx="205" cy="85" r="16" stroke="#FBBF24" strokeWidth="2" fill="none" />
-      <text x="200" y="91" fill="#FFFFFF" fontWeight="900" fontSize="16">₹</text>
+      <text x="200" y="91" fill="#FFFFFF" fontWeight="900" fontSize="16">â‚¹</text>
     </svg>
   );
 }
@@ -442,9 +442,9 @@ function VaidimiAdvantageZigZag() {
               </p>
 
               <div className="mt-6 flex flex-wrap gap-2 text-xs font-bold text-slate-700">
-                <span className="rounded-full bg-slate-100 px-3 py-1.5 border border-slate-200">✔ Executive Alignment</span>
-                <span className="rounded-full bg-slate-100 px-3 py-1.5 border border-slate-200">✔ Bottleneck Analysis</span>
-                <span className="rounded-full bg-slate-100 px-3 py-1.5 border border-slate-200">✔ Commercial Roadmap</span>
+                <span className="rounded-full bg-slate-100 px-3 py-1.5 border border-slate-200">âœ” Executive Alignment</span>
+                <span className="rounded-full bg-slate-100 px-3 py-1.5 border border-slate-200">âœ” Bottleneck Analysis</span>
+                <span className="rounded-full bg-slate-100 px-3 py-1.5 border border-slate-200">âœ” Commercial Roadmap</span>
               </div>
             </div>
 
@@ -462,7 +462,7 @@ function VaidimiAdvantageZigZag() {
                   />
                 </div>
                 <div className="absolute top-4 right-4 rounded-full bg-white/90 px-3 py-1 text-[10px] font-extrabold text-indigo-900 shadow-sm border border-slate-100">
-                  💡 Strategy Orbit
+                  ðŸ’¡ Strategy Orbit
                 </div>
               </motion.div>
             </div>
@@ -490,7 +490,7 @@ function VaidimiAdvantageZigZag() {
                   />
                 </div>
                 <div className="absolute top-4 left-4 rounded-full bg-white/90 px-3 py-1 text-[10px] font-extrabold text-emerald-900 shadow-sm border border-slate-100">
-                  💻 Real Code & Systems
+                  ðŸ’» Real Code & Systems
                 </div>
               </motion.div>
             </div>
@@ -510,9 +510,9 @@ function VaidimiAdvantageZigZag() {
               </p>
 
               <div className="mt-6 flex flex-wrap gap-2 text-xs font-bold text-slate-700">
-                <span className="rounded-full bg-slate-100 px-3 py-1.5 border border-slate-200">✔ Custom Software & Web</span>
-                <span className="rounded-full bg-slate-100 px-3 py-1.5 border border-slate-200">✔ Cloud Infrastructure</span>
-                <span className="rounded-full bg-slate-100 px-3 py-1.5 border border-slate-200">✔ Funnel Automation</span>
+                <span className="rounded-full bg-slate-100 px-3 py-1.5 border border-slate-200">âœ” Custom Software & Web</span>
+                <span className="rounded-full bg-slate-100 px-3 py-1.5 border border-slate-200">âœ” Cloud Infrastructure</span>
+                <span className="rounded-full bg-slate-100 px-3 py-1.5 border border-slate-200">âœ” Funnel Automation</span>
               </div>
             </div>
           </motion.div>
@@ -540,9 +540,9 @@ function VaidimiAdvantageZigZag() {
               </p>
 
               <div className="mt-6 flex flex-wrap gap-2 text-xs font-bold text-slate-700">
-                <span className="rounded-full bg-slate-100 px-3 py-1.5 border border-slate-200">✔ Executive KPI Dashboards</span>
-                <span className="rounded-full bg-slate-100 px-3 py-1.5 border border-slate-200">✔ Salesforce Routines</span>
-                <span className="rounded-full bg-slate-100 px-3 py-1.5 border border-slate-200">✔ Repeatable Growth</span>
+                <span className="rounded-full bg-slate-100 px-3 py-1.5 border border-slate-200">âœ” Executive KPI Dashboards</span>
+                <span className="rounded-full bg-slate-100 px-3 py-1.5 border border-slate-200">âœ” Salesforce Routines</span>
+                <span className="rounded-full bg-slate-100 px-3 py-1.5 border border-slate-200">âœ” Repeatable Growth</span>
               </div>
             </div>
 
@@ -560,7 +560,7 @@ function VaidimiAdvantageZigZag() {
                   />
                 </div>
                 <div className="absolute top-4 right-4 rounded-full bg-white/90 px-3 py-1 text-[10px] font-extrabold text-rose-900 shadow-sm border border-slate-100">
-                  🚀 Growth Launchpad
+                  ðŸš€ Growth Launchpad
                 </div>
               </motion.div>
             </div>
@@ -572,194 +572,279 @@ function VaidimiAdvantageZigZag() {
 }
 
 /* =========================================================
-   HERO RIGHT VISUAL (LARGE REAL LADY ON LAPTOP + RICH SKETCH NETWORK)
+   HERO RIGHT VISUAL (ORBIT BUSINESS ECOSYSTEM)
 ========================================================= */
-
 function HeroSketchVisual() {
-  const callouts = [
+  const shouldReduceMotion = useReducedMotion();
+
+  // 5 services evenly spaced in pentagonal orbit (72 degrees apart)
+  // Starting from top (270 deg) going clockwise
+  const orbitServices = [
     {
-      title: 'Web Design & UI/UX',
-      sub: 'High converting brand sites',
-      color: 'text-[#E11D48]',
-      lineColor: '#FB7185',
-      badgeBg: 'bg-rose-50 border-rose-100',
-      pos: 'left-[-15px] top-[15px]',
-      line: 'M 160 90 C 200 70, 230 100, 260 130',
-      arrow: 'M 252 123 L 260 130 L 250 135',
-      rotate: '-rotate-3',
+      title: 'Web & App Development',
+      icon: Globe2,
+      accent: 'text-rose-600',
+      iconBg: 'bg-rose-50 text-rose-600 ring-rose-100',
+      dot: '#E11D48',
+      angle: 270,
     },
     {
-      title: 'Custom SaaS & Web Apps',
-      sub: 'Products built to scale without limits',
-      color: 'text-[#059669]',
-      lineColor: '#34D399',
-      badgeBg: 'bg-emerald-50 border-emerald-100',
-      pos: 'right-[-15px] top-[10px]',
-      line: 'M 440 90 C 400 70, 370 100, 340 130',
-      arrow: 'M 348 123 L 340 130 L 350 135',
-      rotate: 'rotate-3',
+      title: 'Web Design & UI/UX',
+      icon: Layers3,
+      accent: 'text-emerald-600',
+      iconBg: 'bg-emerald-50 text-emerald-600 ring-emerald-100',
+      dot: '#059669',
+      angle: 342,
+    },
+    {
+      title: 'Mobile App Development',
+      icon: PhoneCall,
+      accent: 'text-blue-600',
+      iconBg: 'bg-blue-50 text-blue-600 ring-blue-100',
+      dot: '#2563EB',
+      angle: 54,
     },
     {
       title: 'Digital Marketing & SEO',
-      sub: 'Targeted lead gen & campaigns',
-      color: 'text-[#2563EB]',
-      lineColor: '#60A5FA',
-      badgeBg: 'bg-blue-50 border-blue-100',
-      pos: 'right-[-25px] top-[175px]',
-      line: 'M 450 210 C 405 210, 385 220, 355 210',
-      arrow: 'M 363 205 L 355 210 L 365 217',
-      rotate: 'rotate-2',
+      icon: TrendingUp,
+      accent: 'text-amber-600',
+      iconBg: 'bg-amber-50 text-amber-600 ring-amber-100',
+      dot: '#D97706',
+      angle: 126,
     },
     {
-      title: 'IT & Growth Strategy',
-      sub: 'Clarity before complexity',
-      color: 'text-[#D97706]',
-      lineColor: '#FBBF24',
-      badgeBg: 'bg-amber-50 border-amber-100',
-      pos: 'left-[-20px] top-[180px]',
-      line: 'M 160 210 C 205 210, 225 220, 255 210',
-      arrow: 'M 247 205 L 255 210 L 245 217',
-      rotate: '-rotate-2',
-    },
-    {
-      title: 'Mobile Apps (iOS & Android)',
-      sub: 'Native cross-platform engines',
-      color: 'text-[#9333EA]',
-      lineColor: '#C084FC',
-      badgeBg: 'bg-purple-50 border-purple-100',
-      pos: 'left-[-10px] bottom-[110px]',
-      line: 'M 170 380 C 210 380, 230 340, 260 300',
-      arrow: 'M 252 305 L 260 300 L 258 310',
-      rotate: 'rotate-3',
-    },
-    {
-      title: 'Cloud & Cyber Security',
-      sub: 'AWS / Azure resilient setup',
-      color: 'text-[#0284C7]',
-      lineColor: '#38BDF8',
-      badgeBg: 'bg-sky-50 border-sky-100',
-      pos: 'right-[-10px] bottom-[100px]',
-      line: 'M 430 380 C 390 380, 370 340, 340 300',
-      arrow: 'M 334 306 L 340 300 L 344 309',
-      rotate: '-rotate-2',
-    },
-    {
-      title: 'AI Models & Automation',
-      sub: 'Smart automated workflows',
-      color: 'text-[#0D9488]',
-      lineColor: '#2DD4BF',
-      badgeBg: 'bg-teal-50 border-teal-100',
-      pos: 'left-[45px] bottom-[10px]',
-      line: 'M 210 470 C 230 430, 240 400, 270 340',
-      arrow: 'M 262 346 L 270 340 L 272 350',
-      rotate: '-rotate-1',
-    },
-    {
-      title: 'E-Commerce Systems',
-      sub: 'Omnichannel growth & POS',
-      color: 'text-[#EA580C]',
-      lineColor: '#FB923C',
-      badgeBg: 'bg-orange-50 border-orange-100',
-      pos: 'right-[45px] bottom-[10px]',
-      line: 'M 390 470 C 370 430, 360 400, 330 340',
-      arrow: 'M 326 348 L 330 340 L 338 344',
-      rotate: 'rotate-1',
+      title: 'IT Consulting & Digital Transformation',
+      icon: Lightbulb,
+      accent: 'text-indigo-600',
+      iconBg: 'bg-indigo-50 text-indigo-600 ring-indigo-100',
+      dot: '#4F46E5',
+      angle: 198,
     },
   ];
 
+  const svgCx = 300;
+  const svgCy = 300;
+  const svgR = 205;
+
+  const getSvgDot = (angleDeg: number) => {
+    const rad = (angleDeg * Math.PI) / 180;
+    return {
+      cx: svgCx + svgR * Math.cos(rad),
+      cy: svgCy + svgR * Math.sin(rad),
+    };
+  };
+
+  const connectorPaths = orbitServices.map(({ angle }) => {
+    const { cx, cy } = getSvgDot(angle);
+    const midX = (svgCx + cx) / 2 + (cy - svgCy) * 0.08;
+    const midY = (svgCy + cy) / 2 - (cx - svgCx) * 0.08;
+    return `M ${svgCx} ${svgCy} Q ${midX.toFixed(1)} ${midY.toFixed(1)} ${cx.toFixed(1)} ${cy.toFixed(1)}`;
+  });
+
+  // CSS percent positions for service nodes (orbit radius = 40% of container)
+  const getCssPos = (angleDeg: number) => {
+    const rad = (angleDeg * Math.PI) / 180;
+    const r = 40;
+    return {
+      left: `${(50 + r * Math.cos(rad)).toFixed(2)}%`,
+      top: `${(50 + r * Math.sin(rad)).toFixed(2)}%`,
+    };
+  };
+
   return (
-    <div className="relative mx-auto h-[600px] w-full max-w-[670px] select-none">
-      <div className="pointer-events-none absolute left-1/2 top-1/2 h-[420px] w-[420px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-gradient-to-tr from-rose-100/50 via-indigo-100/50 to-emerald-100/50 blur-3xl" />
+    <div className="relative mx-auto w-full max-w-[670px] select-none">
 
-      <svg
-        viewBox="0 0 600 600"
-        className="pointer-events-none absolute inset-0 h-full w-full overflow-visible"
-        fill="none"
-      >
-        {callouts.map((item, index) => (
-          <g key={item.title}>
-            <motion.path
-              d={item.line}
-              stroke={item.lineColor}
-              strokeWidth="2.5"
-              strokeDasharray="6 6"
-              strokeLinecap="round"
-              initial={{ pathLength: 0, opacity: 0 }}
-              animate={{ pathLength: 1, opacity: 0.95 }}
-              transition={{
-                duration: 1.4,
-                delay: 0.3 + index * 0.1,
-                ease: 'easeInOut',
-              }}
-            />
-            <motion.path
-              d={item.arrow}
-              stroke={item.lineColor}
-              strokeWidth="2.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              initial={{ pathLength: 0, opacity: 0 }}
-              animate={{ pathLength: 1, opacity: 0.95 }}
-              transition={{
-                duration: 0.4,
-                delay: 1.4 + index * 0.1,
-              }}
-            />
-          </g>
-        ))}
-      </svg>
-
-      <motion.div
-        initial={{ opacity: 0, scale: 0.9, y: 15 }}
-        animate={{ opacity: 1, scale: 1, y: [0, -8, 0] }}
-        transition={{
-          y: { duration: 6, repeat: Infinity, ease: 'easeInOut' },
-          opacity: { duration: 0.8, delay: 0.2 },
-          scale: { duration: 0.8, delay: 0.2 },
-        }}
-        className="absolute left-1/2 top-1/2 z-20 flex h-[350px] w-[350px] sm:h-[380px] sm:w-[380px] -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-[36px] border-4 border-white bg-white p-2 shadow-[0_35px_100px_rgba(79,70,229,0.2)]"
-      >
-        <div className="relative h-full w-full overflow-hidden rounded-[28px]">
-          <img
-            src="/images/hero_indian_woman.jpg"
-            alt="Indian female entrepreneur working on laptop"
-            className="h-full w-full object-cover object-top transition-transform duration-700 hover:scale-105"
-          />
-        </div>
-      </motion.div>
-
-      {callouts.map((item, index) => (
-        <motion.div
-          key={item.title}
-          initial={{ opacity: 0, y: 15, scale: 0.9 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
-          transition={{ delay: 0.4 + index * 0.08, duration: 0.6 }}
-          whileHover={{ scale: 1.06, y: -4 }}
-          className={`absolute z-30 ${item.pos} ${item.rotate}`}
-        >
-          <div className={`max-w-[200px] rounded-2xl border p-3 shadow-lg backdrop-blur-md bg-white/95 ${item.badgeBg}`}>
-            <div className={`font-[cursive] text-[16.5px] font-bold italic leading-tight ${item.color}`}>
-              {item.title}
+      {/* ── MOBILE: 2-column grid with center hub ── */}
+      <div className="sm:hidden">
+        <div className="flex flex-col items-center gap-4 py-4 px-3">
+          <motion.div
+            animate={shouldReduceMotion ? {} : { scale: [1, 1.03, 1] }}
+            transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
+            className="relative flex h-[108px] w-[108px] flex-col items-center justify-center rounded-full border border-white/80 bg-white/90 p-1.5 shadow-[0_16px_45px_rgba(79,70,229,0.22)] backdrop-blur-xl"
+          >
+            <div className="absolute inset-[-8px] rounded-full border border-indigo-100/80" />
+            <div className="absolute inset-[7px] rounded-full bg-gradient-to-br from-indigo-600 via-blue-600 to-emerald-500 opacity-95" />
+            <div className="relative flex h-full w-full flex-col items-center justify-center rounded-full bg-[#0D1D32] px-3 text-center text-white ring-1 ring-white/15">
+              <span className="text-[8px] font-bold uppercase tracking-[0.18em] text-emerald-200">Core</span>
+              <strong className="mt-0.5 font-display text-[1rem] font-extrabold leading-none">Business Growth</strong>
+              <span className="mt-1 text-[8px] font-semibold leading-3 text-indigo-100">Strategy • Technology • Growth</span>
             </div>
-            <motion.p
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.9 + index * 0.1, duration: 0.6 }}
-              className="mt-1 text-[10px] font-medium leading-3.5 text-slate-600"
-            >
-              {item.sub}
-            </motion.p>
-          </div>
-        </motion.div>
-      ))}
+          </motion.div>
 
-      <motion.div
-        animate={{ y: [0, -6, 0] }}
-        transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
-        className="absolute left-[42%] top-0 rounded-full border border-slate-200 bg-white px-3.5 py-1 text-[9.5px] font-bold uppercase tracking-widest text-slate-600 shadow-md"
-      >
-        ✨ Strategy First
-      </motion.div>
+          <div className="grid w-full grid-cols-2 gap-2">
+            {orbitServices.map((service, index) => {
+              const Icon = service.icon;
+              return (
+                <motion.div
+                  key={service.title}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.12 + index * 0.07, duration: 0.4 }}
+                  whileHover={{ scale: 1.03, y: -2 }}
+                  className="flex min-h-[58px] items-center gap-2 rounded-2xl border border-white/80 bg-white/95 p-2.5 shadow-[0_8px_20px_rgba(15,23,42,0.09)] backdrop-blur-xl transition-all duration-200 hover:border-indigo-100"
+                >
+                  <div className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-xl ring-1 ${service.iconBg}`}>
+                    <Icon className="h-4 w-4 stroke-[2.2]" />
+                  </div>
+                  <span className="min-w-0 text-[11px] font-extrabold leading-tight text-slate-900">
+                    {service.title}
+                  </span>
+                </motion.div>
+              );
+            })}
+          </div>
+        </div>
+      </div>
+
+      {/* ── DESKTOP / TABLET: Mathematical circular orbit ── */}
+      <div className="relative mx-auto hidden h-[580px] w-full overflow-visible sm:block">
+
+        {/* Ambient glow */}
+        <div className="pointer-events-none absolute left-1/2 top-1/2 h-[420px] w-[420px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-gradient-to-tr from-indigo-100/60 via-white to-emerald-100/60 blur-3xl" />
+
+        {/* SVG orbital rings + connectors + dots */}
+        <svg
+          viewBox="0 0 600 600"
+          className="pointer-events-none absolute left-1/2 top-1/2 h-[510px] w-[510px] -translate-x-1/2 -translate-y-1/2 overflow-visible"
+          fill="none"
+          aria-hidden="true"
+        >
+          <defs>
+            <linearGradient id="heroOrbitStroke2" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#4F46E5" stopOpacity="0.32" />
+              <stop offset="48%" stopColor="#0EA5E9" stopOpacity="0.16" />
+              <stop offset="100%" stopColor="#10B981" stopOpacity="0.28" />
+            </linearGradient>
+            <linearGradient id="heroConnectorStroke2" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#E11D48" stopOpacity="0.45" />
+              <stop offset="50%" stopColor="#4F46E5" stopOpacity="0.32" />
+              <stop offset="100%" stopColor="#10B981" stopOpacity="0.42" />
+            </linearGradient>
+          </defs>
+
+          <motion.circle
+            cx="300" cy="300" r="205"
+            stroke="url(#heroOrbitStroke2)"
+            strokeWidth="1.4"
+            strokeDasharray="8 12"
+            animate={shouldReduceMotion ? undefined : { rotate: 360 }}
+            transition={{ duration: 48, repeat: Infinity, ease: 'linear' }}
+            style={{ transformOrigin: '300px 300px' }}
+          />
+
+          <motion.circle
+            cx="300" cy="300" r="140"
+            stroke="url(#heroOrbitStroke2)"
+            strokeWidth="1"
+            strokeDasharray="3 9"
+            animate={shouldReduceMotion ? undefined : { rotate: -360 }}
+            transition={{ duration: 62, repeat: Infinity, ease: 'linear' }}
+            style={{ transformOrigin: '300px 300px' }}
+          />
+
+          {connectorPaths.map((path, index) => (
+            <motion.path
+              key={index}
+              d={path}
+              stroke="url(#heroConnectorStroke2)"
+              strokeWidth="1.2"
+              strokeDasharray="5 9"
+              strokeLinecap="round"
+              initial={shouldReduceMotion ? false : { pathLength: 0, opacity: 0 }}
+              animate={{ pathLength: 1, opacity: 0.7 }}
+              transition={{
+                duration: shouldReduceMotion ? 0 : 1.0,
+                delay: 0.2 + index * 0.1,
+                ease: 'easeOut',
+              }}
+            />
+          ))}
+
+          {orbitServices.map((service, index) => {
+            const { cx, cy } = getSvgDot(service.angle);
+            return (
+              <motion.circle
+                key={service.title}
+                cx={cx} cy={cy}
+                r="4.5"
+                fill={service.dot}
+                initial={{ scale: 0, opacity: 0 }}
+                animate={{ scale: 1, opacity: 0.9 }}
+                transition={{ delay: 0.6 + index * 0.09, duration: 0.35 }}
+              />
+            );
+          })}
+        </svg>
+
+        {/* Center hub */}
+        <div className="absolute left-1/2 top-1/2 z-20 h-[180px] w-[180px] -translate-x-1/2 -translate-y-1/2">
+          <motion.div
+            animate={shouldReduceMotion ? {} : { scale: [1, 1.028, 1] }}
+            transition={{ duration: 5.5, repeat: Infinity, ease: 'easeInOut' }}
+            className="relative flex h-full w-full items-center justify-center rounded-full border border-white/80 bg-white/90 p-2 shadow-[0_24px_70px_rgba(79,70,229,0.22)] backdrop-blur-xl"
+          >
+            <div className="absolute inset-[-10px] rounded-full border border-indigo-100/80" />
+            <div className="absolute inset-[8px] rounded-full bg-gradient-to-br from-indigo-600 via-blue-600 to-emerald-500 opacity-95" />
+            <div className="relative flex h-full w-full flex-col items-center justify-center rounded-full bg-[#0D1D32] px-5 text-center text-white ring-1 ring-white/15">
+              <span className="text-[10px] font-bold uppercase tracking-[0.18em] text-emerald-200">Core</span>
+              <strong className="mt-1 font-display text-[1.3rem] font-extrabold leading-none">Business Growth</strong>
+              <span className="mt-2 text-[10px] font-semibold leading-4 text-indigo-100">Strategy • Technology • Growth</span>
+            </div>
+          </motion.div>
+        </div>
+
+        {/* Service nodes — mathematically positioned */}
+        {orbitServices.map((service, index) => {
+          const Icon = service.icon;
+          const pos = getCssPos(service.angle);
+          return (
+            <div
+              key={service.title}
+              style={{
+                position: 'absolute',
+                left: pos.left,
+                top: pos.top,
+                transform: 'translate(-50%, -50%)',
+                width: '185px',
+                zIndex: 30,
+              }}
+            >
+              <motion.div
+                initial={{ opacity: 0, scale: 0.85 }}
+                animate={shouldReduceMotion
+                  ? { opacity: 1, scale: 1 }
+                  : {
+                      opacity: 1,
+                      scale: 1,
+                      y: [0, index % 2 === 0 ? -6 : -8, 0],
+                    }
+                }
+                transition={{
+                  opacity: { delay: 0.3 + index * 0.1, duration: 0.5 },
+                  scale: { delay: 0.3 + index * 0.1, duration: 0.5 },
+                  y: {
+                    delay: 0.3 + index * 0.1,
+                    duration: 4.5 + index * 0.35,
+                    repeat: Infinity,
+                    ease: 'easeInOut',
+                  },
+                }}
+                whileHover={{ scale: 1.045, y: -6 }}
+                className="group flex items-center gap-3 rounded-2xl border border-white/80 bg-white/95 p-3 shadow-[0_16px_45px_rgba(15,23,42,0.1)] backdrop-blur-xl transition-all duration-300 hover:border-indigo-100 hover:shadow-[0_22px_60px_rgba(79,70,229,0.18)]"
+              >
+                <div className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-xl ring-1 ${service.iconBg}`}>
+                  <Icon className="h-5 w-5 stroke-[2.2]" />
+                </div>
+                <div className="min-w-0">
+                  <h3 className={`text-sm font-extrabold leading-snug text-slate-900 ${service.accent}`}>
+                    {service.title}
+                  </h3>
+                </div>
+              </motion.div>
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 }
@@ -817,7 +902,7 @@ const SECTOR_DATA = [
     slug: 'financial-services',
     title: 'Financial Services',
     badge: 'Banking & Advisory',
-    metric: '₹28Cr Working Capital Unlocked',
+    metric: 'â‚¹28Cr Working Capital Unlocked',
     description: 'Capital structure optimization, risk due diligence, compliance software, and executive balance sheet guidance.',
     to: '/sector/financial-services',
     theme: 'border-teal-200 bg-teal-50/40 text-teal-700',
@@ -890,7 +975,7 @@ function IndustryPerspectiveSection() {
 
                   <div className="mt-8 pt-5 border-t border-slate-100 flex items-center justify-between">
                     <span className="rounded-lg bg-slate-50 px-3 py-1.5 text-xs font-extrabold text-indigo-700 border border-slate-100">
-                      ⚡ {sector.metric}
+                      âš¡ {sector.metric}
                     </span>
                     <span className="flex h-9 w-9 items-center justify-center rounded-full bg-slate-50 text-slate-700 transition-all duration-300 group-hover:bg-indigo-600 group-hover:text-white">
                       <ArrowUpRight className="h-4 w-4" />
@@ -942,22 +1027,22 @@ const INDIAN_TESTIMONIALS = [
     avatarBg: "bg-rose-600",
   },
   {
-    quote: "The financial advisory and automated ERP workflows provided by Vaidimi brought complete working capital clarity to our executive board. They unlocked ₹28Cr in trapped operational liquidity.",
+    quote: "The financial advisory and automated ERP workflows provided by Vaidimi brought complete working capital clarity to our executive board. They unlocked â‚¹28Cr in trapped operational liquidity.",
     name: "Pooja Agarwal",
     role: "Chief Financial Officer",
     company: "Heritage Financial Services",
     city: "Mumbai, Maharashtra",
-    impact: "₹28Cr Unlocked",
+    impact: "â‚¹28Cr Unlocked",
     stars: 5,
     avatarBg: "bg-teal-600",
   },
   {
-    quote: "Their ground promotion team and dealer conclave event brought 100% distributor turnout and ₹14Cr in spot booking orders in just 2 days. Simply the best growth partner in India.",
+    quote: "Their ground promotion team and dealer conclave event brought 100% distributor turnout and â‚¹14Cr in spot booking orders in just 2 days. Simply the best growth partner in India.",
     name: "Sanjay Verma",
     role: "Head of Commercial Sales",
     company: "North India Durables Corp",
     city: "Lucknow, Uttar Pradesh",
-    impact: "₹14Cr Spot Orders",
+    impact: "â‚¹14Cr Spot Orders",
     stars: 5,
     avatarBg: "bg-amber-600",
   },
@@ -1047,7 +1132,7 @@ function IndianTestimonialsCarousel() {
                 </div>
 
                 <span className="rounded-full bg-emerald-50 px-3.5 py-1.5 text-xs font-extrabold text-emerald-700 border border-emerald-100">
-                  🏆 {current.impact}
+                  ðŸ† {current.impact}
                 </span>
               </div>
 
@@ -1072,7 +1157,7 @@ function IndianTestimonialsCarousel() {
                       {current.name}
                     </h4>
                     <p className="text-xs font-semibold text-slate-600">
-                      {current.role} · <span className="text-indigo-700">{current.company}</span>
+                      {current.role} Â· <span className="text-indigo-700">{current.company}</span>
                     </p>
                   </div>
                 </div>
@@ -1133,7 +1218,7 @@ export default function Home() {
       <HomeHighlightModal />
 
       {/* ===================================================
-          HERO — ADVANCED ALL-IN-ONE PLATFORM & CONSULTING
+          HERO â€” ADVANCED ALL-IN-ONE PLATFORM & CONSULTING
       =================================================== */}
 
       <section className="relative min-h-[calc(100vh-88px)] overflow-hidden bg-white pt-8 pb-16 lg:pt-14 lg:pb-24">
@@ -1142,7 +1227,7 @@ export default function Home() {
 
         <div className="relative mx-auto grid max-w-7xl items-center gap-12 px-6 lg:grid-cols-12 lg:gap-8 lg:px-10">
 
-          {/* LEFT — MESSAGE & FEATURE GRID */}
+          {/* LEFT â€” MESSAGE & FEATURE GRID */}
           <motion.div
             initial="hidden"
             animate="show"
@@ -1165,61 +1250,60 @@ export default function Home() {
 
             <motion.h1
               variants={fadeUp}
-              className="mt-6 max-w-[650px] font-display text-[2.85rem] font-extrabold leading-[1.05] tracking-[-0.04em] text-slate-950 sm:text-[3.75rem] lg:text-[4.15rem] xl:text-[4.5rem]"
+              className="mt-6 max-w-[21rem] break-words font-display text-[1.95rem] font-extrabold leading-[1.08] tracking-[-0.04em] text-slate-950 sm:max-w-[680px] sm:text-[3.45rem] lg:text-[3.85rem] xl:text-[4.25rem]"
             >
-              Simplify Your{' '}
+              Looking to Grow Your{' '}
               <span className="bg-gradient-to-r from-indigo-600 via-purple-600 to-emerald-600 bg-clip-text text-transparent">
-                Business Operations
-              </span>{' '}
-              in One Place
+                Customers, Sales &amp; Client Relationships?
+              </span>
             </motion.h1>
 
             <motion.p
               variants={fadeUp}
               className="mt-6 max-w-[580px] text-base leading-7 text-slate-600 sm:text-lg sm:leading-8"
             >
-              Manage sales, inventory, finance, custom software, digital marketing and strategy — with powerful tools designed for growing MSMEs and ambitious businesses.
+              Meet our consultants for expert guidance in Marketing, Sales, Finance &amp; Digital Transformation.
             </motion.p>
 
             {/* 4 Feature Boxes Grid */}
             <motion.div variants={fadeUp} className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-3.5">
               <div className="flex items-start gap-3 rounded-2xl border border-slate-100 bg-white p-3.5 shadow-sm transition-all duration-300 hover:shadow-md hover:border-emerald-200 hover:-translate-y-0.5">
                 <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-emerald-500 text-white shadow-md shadow-emerald-200">
-                  <BarChart3 className="h-5 w-5" />
+                  <Globe2 className="h-5 w-5" />
                 </div>
-                <div>
-                  <h4 className="text-sm font-bold text-slate-900">Sales & CRM</h4>
-                  <p className="text-xs text-slate-500">Grow your customer base</p>
+                <div className="min-w-0">
+                  <h4 className="text-sm font-bold text-slate-900">Web App Development</h4>
+                  <p className="break-words text-xs leading-5 text-slate-500">Build powerful websites and business applications</p>
                 </div>
               </div>
 
               <div className="flex items-start gap-3 rounded-2xl border border-slate-100 bg-white p-3.5 shadow-sm transition-all duration-300 hover:shadow-md hover:border-indigo-200 hover:-translate-y-0.5">
                 <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-indigo-600 text-white shadow-md shadow-indigo-200">
-                  <Box className="h-5 w-5" />
+                  <TrendingUp className="h-5 w-5" />
                 </div>
-                <div>
-                  <h4 className="text-sm font-bold text-slate-900">Inventory & Tech</h4>
-                  <p className="text-xs text-slate-500">Track stock & custom software</p>
+                <div className="min-w-0">
+                  <h4 className="text-sm font-bold text-slate-900">Digital Marketing</h4>
+                  <p className="break-words text-xs leading-5 text-slate-500">Grow your online visibility, leads and customers</p>
                 </div>
               </div>
 
               <div className="flex items-start gap-3 rounded-2xl border border-slate-100 bg-white p-3.5 shadow-sm transition-all duration-300 hover:shadow-md hover:border-amber-200 hover:-translate-y-0.5">
                 <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-amber-500 text-white shadow-md shadow-amber-200">
-                  <Landmark className="h-5 w-5" />
+                  <MapPin className="h-5 w-5" />
                 </div>
-                <div>
-                  <h4 className="text-sm font-bold text-slate-900">Finance & Advisory</h4>
-                  <p className="text-xs text-slate-500">Keep cash flow healthy</p>
+                <div className="min-w-0">
+                  <h4 className="text-sm font-bold text-slate-900">Ground Marketing</h4>
+                  <p className="break-words text-xs leading-5 text-slate-500">Reach customers through targeted local marketing</p>
                 </div>
               </div>
 
               <div className="flex items-start gap-3 rounded-2xl border border-slate-100 bg-white p-3.5 shadow-sm transition-all duration-300 hover:shadow-md hover:border-sky-200 hover:-translate-y-0.5">
                 <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-sky-500 text-white shadow-md shadow-sky-200">
-                  <Users2 className="h-5 w-5" />
+                  <Target className="h-5 w-5" />
                 </div>
-                <div>
-                  <h4 className="text-sm font-bold text-slate-900">HR & Marketing</h4>
-                  <p className="text-xs text-slate-500">Build a stronger team</p>
+                <div className="min-w-0">
+                  <h4 className="text-sm font-bold text-slate-900">Advertising & Promotion</h4>
+                  <p className="break-words text-xs leading-5 text-slate-500">Promote your brand, products and services effectively</p>
                 </div>
               </div>
             </motion.div>
@@ -1250,15 +1334,10 @@ export default function Home() {
             </motion.div>
           </motion.div>
 
-          {/* RIGHT — LADY WITH LAPTOP & COLORFUL SKETCH ANNOTATIONS */}
-          <motion.div
-            initial="hidden"
-            animate="show"
-            variants={fadeRight}
-            className="relative z-10 lg:col-span-6"
-          >
+          {/* RIGHT â€” LADY WITH LAPTOP & COLORFUL SKETCH ANNOTATIONS */}
+          <div className="relative z-10 lg:col-span-6">
             <HeroSketchVisual />
-          </motion.div>
+          </div>
         </div>
 
         <motion.div
@@ -1272,7 +1351,7 @@ export default function Home() {
       </section>
 
       {/* ===================================================
-          IMPACT STRIP (STATS) — PURE WHITE BACKGROUND
+          IMPACT STRIP (STATS) â€” PURE WHITE BACKGROUND
       =================================================== */}
 
       <section className="relative border-y border-slate-100 bg-white py-4">
@@ -1331,7 +1410,7 @@ export default function Home() {
       </section>
 
       {/* ===================================================
-          INTRO / GROWTH PHILOSOPHY — PURE WHITE BACKGROUND
+          INTRO / GROWTH PHILOSOPHY â€” PURE WHITE BACKGROUND
       =================================================== */}
 
       <section className="relative overflow-hidden bg-white py-24 lg:py-32">
@@ -1433,7 +1512,7 @@ export default function Home() {
       </section>
 
       {/* ===================================================
-          WHAT WE DO — REDESIGNED POP-UP EXPERTISE SHOWCASE
+          WHAT WE DO â€” REDESIGNED POP-UP EXPERTISE SHOWCASE
       =================================================== */}
 
       <section className="relative overflow-hidden bg-white py-24 lg:py-32 border-t border-slate-100">
@@ -1601,7 +1680,7 @@ export default function Home() {
       <VaidimiAdvantageZigZag />
 
       {/* ===================================================
-          METHODOLOGY — PURE WHITE BACKGROUND
+          METHODOLOGY â€” PURE WHITE BACKGROUND
       =================================================== */}
 
       <section className="bg-white py-24 lg:py-32 border-t border-slate-100">
@@ -1910,7 +1989,7 @@ export default function Home() {
       <IndianTestimonialsCarousel />
 
       {/* ===================================================
-          FINAL CTA — PURE WHITE CONTAINER
+          FINAL CTA â€” PURE WHITE CONTAINER
       =================================================== */}
 
       <section className="bg-white px-6 py-20 lg:px-10 lg:py-28">
@@ -2123,3 +2202,4 @@ export default function Home() {
     </>
   );
 }
+
