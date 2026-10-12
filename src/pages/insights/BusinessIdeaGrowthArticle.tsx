@@ -14,12 +14,11 @@ import {
   Target,
   Layers,
   BarChart3,
-  Lightbulb,
   Building2,
   PhoneCall,
   Sparkles,
+  ChevronRight,
 } from 'lucide-react';
-import PageBanner from '@/components/ui/PageBanner';
 import { Button } from '@/components/ui/Button';
 
 export default function BusinessIdeaGrowthArticle() {
@@ -70,19 +69,22 @@ export default function BusinessIdeaGrowthArticle() {
 
   return (
     <>
-      {/* Banner */}
-      <PageBanner
-        eyebrow="Insights · Strategy & Growth Advisory"
-        title="From Business Idea to Sustainable Growth: A Practical Roadmap"
-        description="A battle-tested strategic framework for founders and executive leaders transitioning from early validation to compounding enterprise growth."
-        accent="accent"
-        crumbs={[
-          { label: 'Insights', to: '/insights' },
-          { label: 'Latest Articles', to: '/insights/latest-articles' },
-          { label: 'Business Growth Roadmap' },
-        ]}
-      />
-
+      {/* Hero Section */}
+      <section className="relative w-full overflow-hidden">
+        <img
+          src="/images/business-growth-roadmap.jpg"
+          alt="Executive business growth roadmap discussion at Vaidimi Consulting"
+          className="w-full h-[480px] object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 to-transparent flex flex-col justify-end p-6 md:p-12">
+          <h1 className="font-display text-3xl md:text-4xl lg:text-5xl font-extrabold text-white drop-shadow-md">
+            From Business Idea to Sustainable Growth: A Practical Roadmap
+          </h1>
+          <p className="mt-2 text-sm md:text-base text-white/90">
+            A battle‑tested strategic framework for founders and executive leaders transitioning from early validation to compounding enterprise growth.
+          </p>
+        </div>
+      </section>
       <main className="py-12 lg:py-20 bg-slate-50/50">
         <div className="max-w-4xl mx-auto px-6 lg:px-8">
           {/* Navigation Bar / Return Link */}

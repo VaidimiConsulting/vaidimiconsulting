@@ -1,7 +1,6 @@
 import { motion } from 'motion/react';
 import { Link } from 'react-router-dom';
 import { ArrowUpRight, Quote } from 'lucide-react';
-import PageBanner from '@/components/ui/PageBanner';
 import { Button } from '@/components/ui/Button';
 import type { DetailPageData } from '@/components/templates/DetailPageTemplate';
 import insightBanner from '@/assets/illustrations/insight-banner.svg';
@@ -14,7 +13,13 @@ export default function InsightDetailTemplate({ data }: { data: DetailPageData }
 
   return (
     <>
-      <PageBanner eyebrow={eyebrow} title={title} description={description} accent={accent} crumbs={[{ label: crumbLabel, to: crumbTo }, { label: title }]} />
+      <section className="relative w-full overflow-hidden">
+  <img src={insightBanner} alt={`${title} illustration`} className="w-full h-[480px] object-cover" />
+  <div className="absolute inset-0 bg-gradient-to-b from-black/40 to-transparent flex flex-col justify-end p-6 md:p-12">
+    <h1 className="font-display text-3xl md:text-4xl lg:text-5xl font-extrabold text-white drop-shadow-md">{title}</h1>
+    <p className="mt-2 text-sm md:text-base text-white/90">{description}</p>
+  </div>
+</section>
 
       {/* Featured magazine image */}
       <section className="py-16 lg:py-20">
@@ -23,7 +28,7 @@ export default function InsightDetailTemplate({ data }: { data: DetailPageData }
             <img src={insightBanner} alt={`${title} illustration`} className="w-full h-auto block" />
           </motion.div>
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.1 }} className="space-y-5">
-            {overview.map((p, i) => (
+            {overview.slice(0, 2).map((p, i) => (
               <p key={i} className="text-text-secondary text-base leading-relaxed">{p}</p>
             ))}
           </motion.div>
