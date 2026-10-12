@@ -134,151 +134,265 @@ export default function LatestArticles() {
   return (
     <>
       {/* ============================================================
-          HERO — Dark Editorial Magazine Style
+          HERO — Clean White with SVG Chart Graphic
       ============================================================ */}
-      <section className="relative overflow-hidden bg-[#070E1C] pt-32 pb-20 lg:pt-44 lg:pb-28">
-        {/* Ambient gradient orbs */}
-        <div className="absolute -top-32 -left-32 w-[520px] h-[520px] rounded-full bg-emerald-600/10 blur-[100px] pointer-events-none" />
-        <div className="absolute -bottom-24 right-0 w-[400px] h-[400px] rounded-full bg-blue-600/10 blur-[90px] pointer-events-none" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[300px] rounded-full bg-emerald-500/5 blur-[80px] pointer-events-none" />
+      <section className="relative overflow-hidden bg-white pt-32 pb-0 lg:pt-40">
+        {/* Subtle top border accent */}
+        <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-emerald-500 via-teal-400 to-emerald-600" />
 
-        {/* Animated dot grid pattern */}
+        {/* Light grid lines background */}
         <div
-          className="absolute inset-0 pointer-events-none opacity-[0.06]"
+          className="absolute inset-0 pointer-events-none"
           style={{
-            backgroundImage: 'radial-gradient(circle, #ffffff 1px, transparent 1px)',
-            backgroundSize: '36px 36px',
+            backgroundImage: 'linear-gradient(to right, #f1f5f9 1px, transparent 1px), linear-gradient(to bottom, #f1f5f9 1px, transparent 1px)',
+            backgroundSize: '60px 60px',
+            opacity: 0.7,
           }}
         />
 
-        {/* Floating tag chips */}
-        <motion.div
-          initial={{ opacity: 0, x: -20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ delay: 0.8, duration: 0.6 }}
-          className="hidden lg:flex absolute top-36 right-[8%] items-center gap-2 bg-white/8 backdrop-blur-md border border-white/10 rounded-full px-4 py-2 text-xs font-semibold text-emerald-300"
-        >
-          <Sparkles className="w-3 h-3 text-emerald-400" /> Featured Article
-        </motion.div>
-        <motion.div
-          animate={{ y: [0, -8, 0] }}
-          transition={{ duration: 3.5, repeat: Infinity, ease: 'easeInOut' }}
-          className="hidden lg:flex absolute bottom-24 right-[22%] items-center gap-2 bg-white/6 backdrop-blur-md border border-white/10 rounded-full px-4 py-2 text-xs font-semibold text-blue-300"
-        >
-          <FileText className="w-3 h-3" /> 6 Articles
-        </motion.div>
-
         <div className="relative max-w-7xl mx-auto px-6 lg:px-10">
           {/* Breadcrumb */}
-          <div className="flex items-center gap-2 text-xs text-slate-500 mb-8">
-            <Link to="/" className="hover:text-slate-300 transition-colors">Home</Link>
+          <div className="flex items-center gap-2 text-xs text-slate-400 mb-10">
+            <Link to="/" className="hover:text-slate-700 transition-colors">Home</Link>
             <ChevronRight className="w-3 h-3" />
-            <Link to="/insights" className="hover:text-slate-300 transition-colors">Insights</Link>
+            <Link to="/insights" className="hover:text-slate-700 transition-colors">Insights</Link>
             <ChevronRight className="w-3 h-3" />
-            <span className="text-slate-400">Latest Articles</span>
+            <span className="text-slate-600 font-medium">Latest Articles</span>
           </div>
 
-          <div className="max-w-4xl">
-            {/* Eyebrow tag */}
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest bg-emerald-500/15 text-emerald-400 border border-emerald-500/25 mb-7"
-            >
-              <Pen className="w-3 h-3" />
-              Latest Articles & Insights
-            </motion.div>
+          <div className="grid lg:grid-cols-2 gap-10 items-end pb-0">
+            {/* LEFT — Text content */}
+            <div className="pb-16 lg:pb-20">
+              {/* Eyebrow tag */}
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest bg-emerald-50 text-emerald-700 border border-emerald-200 mb-7"
+              >
+                <Pen className="w-3 h-3" />
+                Insights · Latest Articles
+              </motion.div>
 
-            {/* Main headline */}
-            <motion.h1
-              initial={{ opacity: 0, y: 18 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="font-display font-extrabold text-white leading-[1.08] mb-6"
-              style={{ fontSize: 'clamp(2.4rem, 5.5vw, 4rem)' }}
-            >
-              Ideas That{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-300">
-                Shape Industries
-              </span>
-              <br />
-              — Read by Executive Leaders
-            </motion.h1>
+              {/* Main headline */}
+              <motion.h1
+                initial={{ opacity: 0, y: 18 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+                className="font-display font-extrabold text-slate-900 leading-[1.1] mb-5"
+                style={{ fontSize: 'clamp(2.2rem, 4.5vw, 3.6rem)' }}
+              >
+                Ideas That Shape
+                <br />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-teal-500">
+                  Industries & Leaders
+                </span>
+              </motion.h1>
 
-            {/* Subtext */}
-            <motion.p
-              initial={{ opacity: 0, y: 14 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.18 }}
-              className="text-slate-400 text-lg md:text-xl leading-relaxed max-w-2xl mb-10"
-            >
-              Field-tested frameworks, sector deep-dives, and sharp advisory perspectives from Vaidimi Consulting&apos;s senior practitioners.
-            </motion.p>
+              {/* Subtext */}
+              <motion.p
+                initial={{ opacity: 0, y: 14 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.18 }}
+                className="text-slate-500 text-base md:text-lg leading-relaxed max-w-lg mb-8"
+              >
+                Field-tested frameworks, sector deep-dives, and sharp advisory perspectives from Vaidimi Consulting's senior practitioners.
+              </motion.p>
 
-            {/* Hero Search Bar */}
-            <motion.div
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.25 }}
-              className="relative max-w-xl mb-10"
-            >
-              <Search className="w-5 h-5 text-slate-500 absolute left-5 top-1/2 -translate-y-1/2" />
-              <input
-                type="text"
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="Search articles, topics, sectors..."
-                className="w-full pl-13 pl-12 pr-5 py-4 text-sm md:text-base bg-white/8 backdrop-blur-sm border border-white/15 rounded-2xl focus:outline-none focus:border-emerald-500/60 focus:bg-white/12 transition-all text-white placeholder:text-slate-500 shadow-xl"
-              />
-              {searchQuery && (
-                <button
-                  onClick={() => setSearchQuery('')}
-                  className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-500 hover:text-white text-xs font-semibold px-2 py-1 rounded-lg hover:bg-white/10 transition-colors"
-                >
-                  Clear
-                </button>
+              {/* Hero Search Bar */}
+              <motion.div
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.25 }}
+                className="relative max-w-md mb-8"
+              >
+                <Search className="w-5 h-5 text-slate-400 absolute left-4 top-1/2 -translate-y-1/2" />
+                <input
+                  type="text"
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  placeholder="Search articles, topics, sectors..."
+                  className="w-full pl-12 pr-5 py-3.5 text-sm bg-white border-2 border-slate-200 rounded-xl focus:outline-none focus:border-emerald-500 transition-all text-slate-900 placeholder:text-slate-400 shadow-sm"
+                />
+                {searchQuery && (
+                  <button
+                    onClick={() => setSearchQuery('')}
+                    className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-700 text-xs font-semibold px-2 py-1 rounded-lg hover:bg-slate-100 transition-colors"
+                  >
+                    Clear
+                  </button>
               )}
             </motion.div>
 
-            {/* Topic quick-filter pills */}
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.32 }}
-              className="flex flex-wrap gap-2"
-            >
-              {TOPIC_PILLS.map(({ label, icon: Icon }) => (
-                <button
-                  key={label}
-                  onClick={() => setSearchQuery(label)}
-                  className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-white/6 border border-white/10 text-slate-400 hover:bg-white/12 hover:text-white hover:border-white/25 transition-all"
-                >
-                  <Icon className="w-3 h-3" />
-                  {label}
-                </button>
-              ))}
-            </motion.div>
-          </div>
+              {/* Topic quick-filter pills */}
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.32 }}
+                className="flex flex-wrap gap-2"
+              >
+                {TOPIC_PILLS.map(({ label, icon: Icon }) => (
+                  <button
+                    key={label}
+                    onClick={() => setSearchQuery(label)}
+                    className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-slate-100 border border-slate-200 text-slate-600 hover:bg-emerald-50 hover:text-emerald-700 hover:border-emerald-200 transition-all"
+                  >
+                    <Icon className="w-3 h-3" />
+                    {label}
+                  </button>
+                ))}
+              </motion.div>
 
-          {/* Stats row */}
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.42 }}
-            className="flex flex-wrap items-center gap-8 mt-14 pt-10 border-t border-white/8"
-          >
-            {[
-              { val: '6+', label: 'Expert Articles' },
-              { val: '5', label: 'Practice Areas' },
-              { val: '7 min', label: 'Avg. Read Time' },
-            ].map((stat) => (
-              <div key={stat.label}>
-                <p className="font-display text-2xl font-bold text-white">{stat.val}</p>
-                <p className="text-xs text-slate-500 mt-0.5 font-medium">{stat.label}</p>
-              </div>
-            ))}
-          </motion.div>
+              {/* Stats row */}
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.42 }}
+                className="flex flex-wrap items-center gap-8 mt-10 pt-8 border-t border-slate-100"
+              >
+                {[
+                  { val: '6+', label: 'Expert Articles' },
+                  { val: '5', label: 'Practice Areas' },
+                  { val: '7 min', label: 'Avg. Read Time' },
+                ].map((stat) => (
+                  <div key={stat.label}>
+                    <p className="font-display text-2xl font-bold text-slate-900">{stat.val}</p>
+                    <p className="text-xs text-slate-400 mt-0.5 font-medium">{stat.label}</p>
+                  </div>
+                ))}
+              </motion.div>
+            </div>
+
+            {/* RIGHT — Animated SVG Chart Graphic */}
+            <div className="hidden lg:flex items-end justify-center relative">
+              <motion.div
+                initial={{ opacity: 0, x: 30 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.7, delay: 0.3 }}
+                className="relative w-full max-w-[520px]"
+              >
+                {/* Floating insight cards */}
+                <motion.div
+                  animate={{ y: [0, -6, 0] }}
+                  transition={{ duration: 3.2, repeat: Infinity, ease: 'easeInOut' }}
+                  className="absolute -top-6 right-6 bg-white border border-slate-200 rounded-2xl px-4 py-3 shadow-lg text-xs font-semibold text-slate-700 flex items-center gap-2 z-10"
+                >
+                  <Sparkles className="w-4 h-4 text-emerald-500" />
+                  Featured Article Published
+                </motion.div>
+
+                <motion.div
+                  animate={{ y: [0, 5, 0] }}
+                  transition={{ duration: 2.8, repeat: Infinity, ease: 'easeInOut', delay: 0.5 }}
+                  className="absolute top-24 -left-8 bg-emerald-600 text-white rounded-2xl px-4 py-3 shadow-lg text-xs font-bold flex items-center gap-2 z-10"
+                >
+                  <BarChart2 className="w-4 h-4" />
+                  Strategy & Growth
+                </motion.div>
+
+                {/* Main SVG Graph Illustration */}
+                <svg
+                  viewBox="0 0 520 420"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="w-full h-auto drop-shadow-xl"
+                >
+                  {/* Card background */}
+                  <rect x="10" y="10" width="500" height="400" rx="24" fill="white" stroke="#e2e8f0" strokeWidth="1.5" />
+
+                  {/* Card header */}
+                  <rect x="10" y="10" width="500" height="60" rx="24" fill="#f8fafc" />
+                  <rect x="10" y="46" width="500" height="24" fill="#f8fafc" />
+                  <circle cx="44" cy="40" r="14" fill="#ecfdf5" />
+                  <rect x="66" y="28" width="120" height="8" rx="4" fill="#94a3b8" />
+                  <rect x="66" y="42" width="80" height="6" rx="3" fill="#cbd5e1" />
+                  <rect x="400" y="30" width="80" height="22" rx="11" fill="#059669" />
+                  <rect x="412" y="37" width="56" height="8" rx="4" fill="white" />
+
+                  {/* Y-axis grid lines */}
+                  {[90, 140, 190, 240, 290, 340].map((y, i) => (
+                    <line key={i} x1="60" y1={y} x2="490" y2={y} stroke="#f1f5f9" strokeWidth="1.5" />
+                  ))}
+
+                  {/* Y-axis labels */}
+                  {['100', '80', '60', '40', '20', '0'].map((label, i) => (
+                    <text key={i} x="48" y={96 + i * 50} textAnchor="end" fontSize="10" fill="#94a3b8" fontFamily="Inter, sans-serif">{label}</text>
+                  ))}
+
+                  {/* X-axis labels */}
+                  {['Jan', 'Mar', 'May', 'Jul', 'Sep', 'Oct'].map((label, i) => (
+                    <text key={i} x={90 + i * 72} y="372" textAnchor="middle" fontSize="10" fill="#94a3b8" fontFamily="Inter, sans-serif">{label}</text>
+                  ))}
+
+                  {/* Bar chart — Strategy articles performance */}
+                  <rect x="72" y="220" width="36" height="130" rx="6" fill="#dcfce7" />
+                  <rect x="72" y="220" width="36" height="130" rx="6" fill="url(#barGrad1)" />
+
+                  <rect x="144" y="180" width="36" height="170" rx="6" fill="url(#barGrad1)" />
+                  <rect x="216" y="150" width="36" height="200" rx="6" fill="url(#barGrad1)" />
+                  <rect x="288" y="130" width="36" height="220" rx="6" fill="url(#barGrad2)" />
+                  <rect x="360" y="100" width="36" height="250" rx="6" fill="url(#barGrad2)" />
+                  <rect x="432" y="80" width="36" height="270" rx="6" fill="url(#barGrad3)" />
+
+                  {/* Growth line on top */}
+                  <polyline
+                    points="90,220 162,180 234,150 306,130 378,100 450,80"
+                    stroke="#059669"
+                    strokeWidth="2.5"
+                    fill="none"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeDasharray="4 2"
+                  />
+
+                  {/* Trend line dots */}
+                  {[[90,220],[162,180],[234,150],[306,130],[378,100],[450,80]].map(([cx, cy], i) => (
+                    <circle key={i} cx={cx} cy={cy} r={i === 5 ? 6 : 4} fill={i === 5 ? '#059669' : 'white'} stroke="#059669" strokeWidth="2" />
+                  ))}
+
+                  {/* Peak annotation */}
+                  <rect x="380" y="64" width="90" height="24" rx="8" fill="#059669" />
+                  <text x="425" y="80" textAnchor="middle" fontSize="10" fill="white" fontWeight="700" fontFamily="Inter, sans-serif">↑ 48% Growth</text>
+
+                  {/* Gradient defs */}
+                  <defs>
+                    <linearGradient id="barGrad1" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stopColor="#a7f3d0" />
+                      <stop offset="100%" stopColor="#d1fae5" />
+                    </linearGradient>
+                    <linearGradient id="barGrad2" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stopColor="#6ee7b7" />
+                      <stop offset="100%" stopColor="#a7f3d0" />
+                    </linearGradient>
+                    <linearGradient id="barGrad3" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stopColor="#059669" />
+                      <stop offset="100%" stopColor="#34d399" />
+                    </linearGradient>
+                  </defs>
+
+                  {/* Bottom tags */}
+                  <rect x="30" y="380" width="70" height="18" rx="9" fill="#f0fdf4" />
+                  <text x="65" y="392" textAnchor="middle" fontSize="9" fill="#059669" fontWeight="600" fontFamily="Inter, sans-serif">Strategy</text>
+                  <rect x="110" y="380" width="60" height="18" rx="9" fill="#eff6ff" />
+                  <text x="140" y="392" textAnchor="middle" fontSize="9" fill="#2563eb" fontWeight="600" fontFamily="Inter, sans-serif">Finance</text>
+                  <rect x="180" y="380" width="68" height="18" rx="9" fill="#fff7ed" />
+                  <text x="214" y="392" textAnchor="middle" fontSize="9" fill="#ea580c" fontWeight="600" fontFamily="Inter, sans-serif">Operations</text>
+                  <rect x="258" y="380" width="56" height="18" rx="9" fill="#fdf4ff" />
+                  <text x="286" y="392" textAnchor="middle" fontSize="9" fill="#9333ea" fontWeight="600" fontFamily="Inter, sans-serif">HR & Talent</text>
+                </svg>
+
+                {/* Article count badge */}
+                <motion.div
+                  animate={{ scale: [1, 1.05, 1] }}
+                  transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
+                  className="absolute bottom-8 right-4 bg-[#0B1528] text-white rounded-2xl px-4 py-3 shadow-xl text-xs font-bold flex items-center gap-2"
+                >
+                  <FileText className="w-4 h-4 text-emerald-400" />
+                  6 Articles Published
+                </motion.div>
+              </motion.div>
+            </div>
+          </div>
         </div>
       </section>
 
