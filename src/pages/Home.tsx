@@ -106,7 +106,7 @@ const STATS = [
     description: 'Long-term relationships',
   },
   {
-    value: 'â‚¹20Cr+',
+    value: '20Cr+',
     label: 'Value Unlocked',
     description: 'Operational & market growth',
   },
@@ -300,7 +300,7 @@ function FinanceIllustration() {
       <path d="M 155 20 L 170 20 L 170 35" stroke="#0D9488" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
       <circle cx="205" cy="85" r="22" fill="#F59E0B" stroke="#D97706" strokeWidth="2" />
       <circle cx="205" cy="85" r="16" stroke="#FBBF24" strokeWidth="2" fill="none" />
-      <text x="200" y="91" fill="#FFFFFF" fontWeight="900" fontSize="16">â‚¹</text>
+      <text x="200" y="91" fill="#FFFFFF" fontWeight="900" fontSize="16">₹</text>
     </svg>
   );
 }
@@ -980,12 +980,12 @@ const INDIAN_TESTIMONIALS = [
     avatarBg: "bg-rose-600",
   },
   {
-    quote: "The financial advisory and automated ERP workflows provided by Vaidimi brought complete working capital clarity to our executive board. They unlocked â‚¹28Cr in trapped operational liquidity.",
+    quote: "The financial advisory and automated ERP workflows provided by Vaidimi brought complete working capital clarity to our executive board. They unlocked ₹28Cr in trapped operational liquidity.",
     name: "Sneha",
     avatarBg: "bg-teal-600",
   },
   {
-    quote: "Their ground promotion team and dealer conclave event brought 100% distributor turnout and â‚¹14Cr in spot booking orders in just 2 days. Simply the best growth partner in India.",
+    quote: "Their ground promotion team and dealer conclave event brought 100% distributor turnout and ₹14Cr in spot booking orders in just 2 days. Simply the best growth partner in India.",
     name: "Vikram",
     avatarBg: "bg-amber-600",
   },
