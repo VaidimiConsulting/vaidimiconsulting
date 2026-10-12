@@ -43,6 +43,7 @@ import Retail from "@/pages/sector/Retail";
 // Insights
 import InsightsListing from "@/pages/insights/InsightsListing";
 import LatestArticles from "@/pages/insights/LatestArticles";
+import BusinessIdeaGrowthArticle from "@/pages/insights/BusinessIdeaGrowthArticle";
 import ResearchReports from "@/pages/insights/ResearchReports";
 import Whitepapers from "@/pages/insights/Whitepapers";
 import CaseStudies from "@/pages/insights/CaseStudies";
@@ -230,6 +231,11 @@ export default function App() {
           <Route
             path="/insights/latest-articles"
             element={<LatestArticles />}
+          />
+
+          <Route
+            path="/insights/business-idea-to-sustainable-growth"
+            element={<BusinessIdeaGrowthArticle />}
           />
 
           <Route
