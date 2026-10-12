@@ -1,4 +1,4 @@
-﻿import { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence, useReducedMotion } from 'motion/react';
 import { Link } from 'react-router-dom';
 import {
@@ -328,7 +328,7 @@ function QuirkyThinkIllustration() {
     <svg viewBox="0 0 320 220" fill="none" className="h-full w-full">
       <circle cx="160" cy="110" r="85" fill="#EEF2FF" />
       <circle cx="250" cy="50" r="30" fill="#FEF3C7" opacity="0.8" />
-      
+
       {/* Lightbulb Rocket */}
       <g transform="translate(110, 35)">
         <path d="M 50 15 C 25 15, 10 40, 10 65 C 10 85, 25 100, 35 110 L 35 125 L 65 125 L 65 110 C 75 100, 90 85, 90 65 C 90 40, 75 15, 50 15 Z" fill="#FBBF24" stroke="#D97706" strokeWidth="3" />
@@ -354,12 +354,12 @@ function QuirkyBuildIllustration() {
   return (
     <svg viewBox="0 0 320 220" fill="none" className="h-full w-full">
       <circle cx="160" cy="110" r="85" fill="#D1FAE5" opacity="0.7" />
-      
+
       <rect x="50" y="45" width="160" height="110" rx="14" fill="#0F172A" stroke="#10B981" strokeWidth="3" />
       <circle cx="68" cy="60" r="4" fill="#EF4444" />
       <circle cx="80" cy="60" r="4" fill="#F59E0B" />
       <circle cx="92" cy="60" r="4" fill="#10B981" />
-      
+
       <rect x="68" y="78" width="45" height="6" rx="3" fill="#34D399" />
       <rect x="120" y="78" width="65" height="6" rx="3" fill="#60A5FA" />
       <rect x="78" y="94" width="85" height="6" rx="3" fill="#F472B6" />
@@ -440,12 +440,6 @@ function VaidimiAdvantageZigZag() {
               <p className="mt-4 text-base leading-7 text-slate-600 sm:text-lg">
                 We dive deep into your real business context to eliminate bottlenecks, sharpen positioning, and pinpoint your highest-leverage growth opportunities before spending a rupee on execution.
               </p>
-
-              <div className="mt-6 flex flex-wrap gap-2 text-xs font-bold text-slate-700">
-                <span className="rounded-full bg-slate-100 px-3 py-1.5 border border-slate-200">âœ” Executive Alignment</span>
-                <span className="rounded-full bg-slate-100 px-3 py-1.5 border border-slate-200">âœ” Bottleneck Analysis</span>
-                <span className="rounded-full bg-slate-100 px-3 py-1.5 border border-slate-200">âœ” Commercial Roadmap</span>
-              </div>
             </div>
 
             <div className="relative lg:col-span-6">
@@ -461,9 +455,7 @@ function VaidimiAdvantageZigZag() {
                     className="h-full w-full object-cover transition-transform duration-500 hover:scale-105"
                   />
                 </div>
-                <div className="absolute top-4 right-4 rounded-full bg-white/90 px-3 py-1 text-[10px] font-extrabold text-indigo-900 shadow-sm border border-slate-100">
-                  ðŸ’¡ Strategy Orbit
-                </div>
+
               </motion.div>
             </div>
           </motion.div>
@@ -489,9 +481,7 @@ function VaidimiAdvantageZigZag() {
                     className="h-full w-full object-cover transition-transform duration-500 hover:scale-105"
                   />
                 </div>
-                <div className="absolute top-4 left-4 rounded-full bg-white/90 px-3 py-1 text-[10px] font-extrabold text-emerald-900 shadow-sm border border-slate-100">
-                  ðŸ’» Real Code & Systems
-                </div>
+
               </motion.div>
             </div>
 
@@ -509,11 +499,6 @@ function VaidimiAdvantageZigZag() {
                 We don't leave you with a passive PDF presentation. We build your custom web applications, cloud architecture, inventory portals, and marketing funnels so strategy works every day.
               </p>
 
-              <div className="mt-6 flex flex-wrap gap-2 text-xs font-bold text-slate-700">
-                <span className="rounded-full bg-slate-100 px-3 py-1.5 border border-slate-200">âœ” Custom Software & Web</span>
-                <span className="rounded-full bg-slate-100 px-3 py-1.5 border border-slate-200">âœ” Cloud Infrastructure</span>
-                <span className="rounded-full bg-slate-100 px-3 py-1.5 border border-slate-200">âœ” Funnel Automation</span>
-              </div>
             </div>
           </motion.div>
 
@@ -536,14 +521,8 @@ function VaidimiAdvantageZigZag() {
               </h3>
 
               <p className="mt-4 text-base leading-7 text-slate-600 sm:text-lg">
-                We engineer operational routines, real-time executive KPI dashboards, and salesforce training scorecards so your business continues to hit revenue benchmarks long after launch.
+                We build systems, frameworks, and digital infrastructure designed to sustain business performance — so your growth doesn’t stop when the project ends.
               </p>
-
-              <div className="mt-6 flex flex-wrap gap-2 text-xs font-bold text-slate-700">
-                <span className="rounded-full bg-slate-100 px-3 py-1.5 border border-slate-200">âœ” Executive KPI Dashboards</span>
-                <span className="rounded-full bg-slate-100 px-3 py-1.5 border border-slate-200">âœ” Salesforce Routines</span>
-                <span className="rounded-full bg-slate-100 px-3 py-1.5 border border-slate-200">âœ” Repeatable Growth</span>
-              </div>
             </div>
 
             <div className="relative lg:col-span-6">
@@ -559,9 +538,7 @@ function VaidimiAdvantageZigZag() {
                     className="h-full w-full object-cover transition-transform duration-500 hover:scale-105"
                   />
                 </div>
-                <div className="absolute top-4 right-4 rounded-full bg-white/90 px-3 py-1 text-[10px] font-extrabold text-rose-900 shadow-sm border border-slate-100">
-                  ðŸš€ Growth Launchpad
-                </div>
+
               </motion.div>
             </div>
           </motion.div>
@@ -814,10 +791,10 @@ function HeroSketchVisual() {
                 animate={shouldReduceMotion
                   ? { opacity: 1, scale: 1 }
                   : {
-                      opacity: 1,
-                      scale: 1,
-                      y: [0, index % 2 === 0 ? -6 : -8, 0],
-                    }
+                    opacity: 1,
+                    scale: 1,
+                    y: [0, index % 2 === 0 ? -6 : -8, 0],
+                  }
                 }
                 transition={{
                   opacity: { delay: 0.3 + index * 0.1, duration: 0.5 },
@@ -858,7 +835,6 @@ const SECTOR_DATA = [
     slug: 'msme',
     title: 'MSME Modernization',
     badge: 'Manufacturing & Industry',
-    metric: '+45% Operational Speed',
     description: 'Transforming legacy operations, inventory workflows, and compliance with modern software and digital strategy.',
     to: '/sector/msme',
     theme: 'border-emerald-200 bg-emerald-50/40 text-emerald-700',
@@ -869,7 +845,6 @@ const SECTOR_DATA = [
     slug: 'sme',
     title: 'SME Scale & Growth',
     badge: 'Commercial Enterprise',
-    metric: '3.2x Pipeline Growth',
     description: 'Enabling fast-growing mid-market companies to expand market share, optimize distribution, and scale teams.',
     to: '/sector/sme',
     theme: 'border-indigo-200 bg-indigo-50/40 text-indigo-700',
@@ -880,7 +855,6 @@ const SECTOR_DATA = [
     slug: 'agribusiness',
     title: 'Agribusiness Tech',
     badge: 'Agriculture & Supply Chain',
-    metric: '100% Traceability',
     description: 'Connecting farmers, processors, and distributor networks with real-time tracking, ERP tools, and field apps.',
     to: '/sector/agribusiness',
     theme: 'border-amber-200 bg-amber-50/40 text-amber-700',
@@ -891,7 +865,6 @@ const SECTOR_DATA = [
     slug: 'logistics',
     title: 'Logistics & Fleet Ops',
     badge: 'Depot & Freight Tech',
-    metric: '68% Manual Time Saved',
     description: 'Custom dispatch portals, vehicle tracking, route optimization, and automated billing for transport operators.',
     to: '/sector/logistics',
     theme: 'border-blue-200 bg-blue-50/40 text-blue-700',
@@ -902,7 +875,6 @@ const SECTOR_DATA = [
     slug: 'financial-services',
     title: 'Financial Services',
     badge: 'Banking & Advisory',
-    metric: 'â‚¹28Cr Working Capital Unlocked',
     description: 'Capital structure optimization, risk due diligence, compliance software, and executive balance sheet guidance.',
     to: '/sector/financial-services',
     theme: 'border-teal-200 bg-teal-50/40 text-teal-700',
@@ -913,7 +885,6 @@ const SECTOR_DATA = [
     slug: 'retail',
     title: 'Retail & Consumer',
     badge: 'Omnichannel & D2C',
-    metric: '+50% Store Footfall',
     description: 'Integrating POS systems, customer loyalty, ground activations, and high-converting e-commerce web applications.',
     to: '/sector/retail',
     theme: 'border-rose-200 bg-rose-50/40 text-rose-700',
@@ -973,10 +944,7 @@ function IndustryPerspectiveSection() {
                     </p>
                   </div>
 
-                  <div className="mt-8 pt-5 border-t border-slate-100 flex items-center justify-between">
-                    <span className="rounded-lg bg-slate-50 px-3 py-1.5 text-xs font-extrabold text-indigo-700 border border-slate-100">
-                      âš¡ {sector.metric}
-                    </span>
+                  <div className="mt-8 pt-5 border-t border-slate-100 flex items-center justify-end">
                     <span className="flex h-9 w-9 items-center justify-center rounded-full bg-slate-50 text-slate-700 transition-all duration-300 group-hover:bg-indigo-600 group-hover:text-white">
                       <ArrowUpRight className="h-4 w-4" />
                     </span>
@@ -998,82 +966,42 @@ function IndustryPerspectiveSection() {
 const INDIAN_TESTIMONIALS = [
   {
     quote: "Vaidimi didn't just give us a pitch deck; they built our core dispatch web app and digital marketing funnel. Our monthly fleet orders surged by 42% across NCR within 5 months.",
-    name: "Rajesh Sharma",
-    role: "Founder & Managing Director",
-    company: "Apex Logistics India",
-    city: "Gurugram, Haryana",
-    impact: "+42% Order Volume",
-    stars: 5,
+    name: "Arjun",
     avatarBg: "bg-indigo-600",
   },
   {
     quote: "Their strategic IT consulting and branding created immense trust among our distributor networks. Vaidimi helped us expand our organic product distribution across 4 Northern states seamlessly.",
-    name: "Ananya Deshmukh",
-    role: "Chief Executive Officer",
-    company: "Deshmukh Organics & Agribusiness",
-    city: "Pune, Maharashtra",
-    impact: "4 State Expansion",
-    stars: 5,
+    name: "Priya",
     avatarBg: "bg-emerald-600",
   },
   {
     quote: "From building our custom e-commerce web platform to managing targeted search campaigns, Vaidimi transformed our retail brand. Our customer footfall and online revenue doubled.",
-    name: "Vikramaditya Singhania",
-    role: "Director of Operations",
-    company: "Singhania Retail & Textiles",
-    city: "Jaipur, Rajasthan",
-    impact: "2x Online Revenue",
-    stars: 5,
+    name: "Rahul",
     avatarBg: "bg-rose-600",
   },
   {
     quote: "The financial advisory and automated ERP workflows provided by Vaidimi brought complete working capital clarity to our executive board. They unlocked â‚¹28Cr in trapped operational liquidity.",
-    name: "Pooja Agarwal",
-    role: "Chief Financial Officer",
-    company: "Heritage Financial Services",
-    city: "Mumbai, Maharashtra",
-    impact: "â‚¹28Cr Unlocked",
-    stars: 5,
+    name: "Sneha",
     avatarBg: "bg-teal-600",
   },
   {
     quote: "Their ground promotion team and dealer conclave event brought 100% distributor turnout and â‚¹14Cr in spot booking orders in just 2 days. Simply the best growth partner in India.",
-    name: "Sanjay Verma",
-    role: "Head of Commercial Sales",
-    company: "North India Durables Corp",
-    city: "Lucknow, Uttar Pradesh",
-    impact: "â‚¹14Cr Spot Orders",
-    stars: 5,
+    name: "Vikram",
     avatarBg: "bg-amber-600",
   },
   {
     quote: "Vaidimi's HR consulting and structured role scorecards completely resolved our senior hiring bottlenecks. We scaled our core tech team from 15 to 60 without losing quality.",
-    name: "Kavita Reddy",
-    role: "Co-Founder & HR Director",
-    company: "TechEdge Software Solutions",
-    city: "Bengaluru, Karnataka",
-    impact: "4x Team Scaling",
-    stars: 5,
+    name: "Divya",
     avatarBg: "bg-purple-600",
   },
   {
     quote: "Strategy paired directly with custom software execution. Vaidimi is our single trusted partner for all our web applications, inventory management, and digital marketing.",
-    name: "Rohan Mehta",
-    role: "Managing Director",
-    company: "Mehta Industrial Equipment",
-    city: "Ahmedabad, Gujarat",
-    impact: "68% Time Saved",
-    stars: 5,
+    name: "Karan",
     avatarBg: "bg-blue-600",
   },
   {
     quote: "Their regional market understanding and web design completely revitalized our consumer brand positioning in Tier-2 Indian cities. Inbound enquiries tripled in record time.",
-    name: "Amitabh Srivastava",
-    role: "Founder & Chairman",
-    company: "Kashi Consumer Goods",
-    city: "Varanasi, Uttar Pradesh",
-    impact: "3.2x Qualified Leads",
-    stars: 5,
+    name: "Nisha",
     avatarBg: "bg-indigo-600",
   },
 ];
@@ -1107,8 +1035,8 @@ function IndianTestimonialsCarousel() {
       <div className="mx-auto max-w-6xl px-6 lg:px-10">
         <SectionHeading
           eyebrow="CLIENT SUCCESS & TESTIMONIALS"
-          title="Trusted by Leaders Across India."
-          description="Hear from Indian founders, CFOs, and enterprise directors who scaled their business operations with Vaidimi."
+          title="Results That Speak for Themselves."
+          description="From startups to established enterprises, our clients share how Vaidimi helped them transform operations, accelerate growth, and build lasting competitive advantage."
           align="center"
         />
 
@@ -1131,16 +1059,9 @@ function IndianTestimonialsCarousel() {
                   <Quote className="h-6 w-6" />
                 </div>
 
-                <span className="rounded-full bg-emerald-50 px-3.5 py-1.5 text-xs font-extrabold text-emerald-700 border border-emerald-100">
-                  ðŸ† {current.impact}
-                </span>
               </div>
 
-              <div className="mt-6 flex items-center gap-1">
-                {[...Array(current.stars)].map((_, i) => (
-                  <Star key={i} className="h-5 w-5 fill-amber-400 text-amber-400" />
-                ))}
-              </div>
+
 
               <blockquote className="mt-6 font-display text-xl font-bold leading-relaxed text-slate-900 sm:text-2xl lg:text-[1.65rem]">
                 "{current.quote}"
@@ -1156,16 +1077,10 @@ function IndianTestimonialsCarousel() {
                     <h4 className="font-display text-base font-bold text-slate-950">
                       {current.name}
                     </h4>
-                    <p className="text-xs font-semibold text-slate-600">
-                      {current.role} Â· <span className="text-indigo-700">{current.company}</span>
-                    </p>
                   </div>
                 </div>
 
-                <div className="flex items-center gap-1.5 text-xs font-semibold text-slate-500">
-                  <MapPin className="h-3.5 w-3.5 text-rose-500" />
-                  {current.city}
-                </div>
+
               </div>
             </motion.div>
           </AnimatePresence>
@@ -1176,9 +1091,8 @@ function IndianTestimonialsCarousel() {
                 <button
                   key={idx}
                   onClick={() => setCurrentIndex(idx)}
-                  className={`h-2.5 rounded-full transition-all duration-300 ${
-                    idx === currentIndex ? 'w-8 bg-indigo-600' : 'w-2.5 bg-slate-200 hover:bg-slate-300'
-                  }`}
+                  className={`h-2.5 rounded-full transition-all duration-300 ${idx === currentIndex ? 'w-8 bg-indigo-600' : 'w-2.5 bg-slate-200 hover:bg-slate-300'
+                    }`}
                   aria-label={`Go to slide ${idx + 1}`}
                 />
               ))}

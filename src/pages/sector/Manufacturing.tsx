@@ -43,11 +43,12 @@ export default function Manufacturing() {
         'Predictive maintenance workflows and critical parts inventory rationalization',
         'Capex feasibility analysis and asset-backed debt structuring for expansion'
       ],
-      metric: '32% Reduction in Unscheduled Downtime'
+      metric: '32% Reduction in Unscheduled Downtime',
+      image: 'https://images.unsplash.com/photo-1565514020179-026b92b84bb6?w=800&q=80'
     },
     {
       id: 'textiles-garments',
-      title: 'Textiles & Garments',
+      title: 'Textiles',
       tagline: 'Yarn-to-garment supply predictability, export compliance & yield.',
       icon: Scissors,
       badge: 'Textiles & Apparel',
@@ -62,11 +63,12 @@ export default function Manufacturing() {
         'Export quality management systems compliant with EU/US buyer standards',
         'Raw material procurement hedging and hedging advisory frameworks'
       ],
-      metric: '18% Improvement in Cut-to-Ship Ratio'
+      metric: '18% Improvement in Cut-to-Ship Ratio',
+      image: 'https://images.unsplash.com/photo-1605289355680-75fb41239154?w=800&q=80'
     },
     {
       id: 'consumer-retail-goods',
-      title: 'Consumer Retail & Packaged Goods',
+      title: 'Consumer Retail',
       tagline: 'High-velocity FMCG line efficiency, packaging & distributor fill rates.',
       icon: ShoppingBag,
       badge: 'FMCG Manufacturing',
@@ -81,11 +83,12 @@ export default function Manufacturing() {
         'Packaging line throughput acceleration and vendor quality scorecards',
         'Distributor fill-rate SLAs and secondary sales tracking systems'
       ],
-      metric: '96.5% On-Time In-Full (OTIF) Fill Rate'
+      metric: '96.5% On-Time In-Full (OTIF) Fill Rate',
+      image: 'https://images.unsplash.com/photo-1604719312566-8912e9227c6a?w=800&q=80'
     },
     {
       id: 'automobiles-components',
-      title: 'Automobiles & Auto Components',
+      title: 'Automobiles',
       tagline: 'Zero-defect Tier-1/2 machining, lean cellular assembly & EV readiness.',
       icon: Car,
       badge: 'Automotive & Precision',
@@ -100,11 +103,12 @@ export default function Manufacturing() {
         'Single-Minute Exchange of Die (SMED) workshops reducing setup times by 40%',
         'EV diversification roadmaps and OEM vendor qualification advisory'
       ],
-      metric: '< 40 PPM Defect Rate Achieved'
+      metric: '< 40 PPM Defect Rate Achieved',
+      image: 'https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?w=800&q=80'
     },
     {
       id: 'agri-production',
-      title: 'Agri Production & Processing',
+      title: 'Agri Production',
       tagline: 'Cold chain integration, FPO aggregation & food safety standards.',
       icon: Wheat,
       badge: 'Agro-Processing',
@@ -119,11 +123,12 @@ export default function Manufacturing() {
         'Direct FPO contract sourcing models with transparent quality testing',
         'HACCP & international food safety audit certification support'
       ],
-      metric: '26% Post-Harvest Shrinkage Reduction'
+      metric: '26% Post-Harvest Shrinkage Reduction',
+      image: 'https://images.unsplash.com/photo-1595841696677-6489ff3f8cd1?w=800&q=80'
     },
     {
       id: 'building-construction',
-      title: 'Building & Construction Materials',
+      title: 'Building & Construction',
       tagline: 'Cement, steel, tiles & modular fabrication supply chain scale.',
       icon: HardHat,
       badge: 'Construction Materials',
@@ -138,11 +143,12 @@ export default function Manufacturing() {
         'Channel financing and credit-insurance-backed dealer agreements',
         'Influencer contractor loyalty schemes and distributor margin structures'
       ],
-      metric: '14% Reduction in Outbound Logistics Cost'
+      metric: '14% Reduction in Outbound Logistics Cost',
+      image: 'https://images.unsplash.com/photo-1541888081604-09ee8646b5ce?w=800&q=80'
     },
     {
       id: 'infrastructure-companies',
-      title: 'Infrastructure & Heavy Fabrication',
+      title: 'Infrastructure Companies',
       tagline: 'EPC project milestones, heavy fabrication & working capital control.',
       icon: Boxes,
       badge: 'Infrastructure & EPC',
@@ -157,7 +163,8 @@ export default function Manufacturing() {
         'Price escalation tracking clauses and back-to-back vendor subcontracts',
         'Centralized heavy equipment scheduling and site productivity audits'
       ],
-      metric: '₹65Cr+ Released in Trapped Retention Monies'
+      metric: '₹65Cr+ Released in Trapped Retention Monies',
+      image: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80'
     }
   ];
 
@@ -256,7 +263,7 @@ export default function Manufacturing() {
                 <div className="absolute inset-0 bg-gradient-to-tr from-indigo-100 via-purple-100 to-emerald-100 rounded-3xl transform rotate-2 -z-10 shadow-lg" />
                 <div className="overflow-hidden rounded-3xl border-4 border-white bg-white shadow-2xl">
                   <img
-                    src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=800&auto=format&fit=crop"
+                    src="/images/advantage2.jpg"
                     alt="Modern Manufacturing Plant Advisory by Vaidimi"
                     className="w-full h-[360px] sm:h-[420px] object-cover"
                   />
@@ -296,121 +303,79 @@ export default function Manufacturing() {
             </p>
           </div>
 
-          {/* Submenu Navigation Pills */}
-          <div className="flex flex-wrap justify-center gap-2.5 mb-12">
+          {/* All Sub-Sectors Listed */}
+          <div className="space-y-16">
             {subSectors.map((sub, idx) => {
-              const Icon = sub.icon;
-              const isActive = activeTab === idx;
+              const isEven = idx % 2 === 0;
               return (
-                <button
-                  key={sub.id}
-                  onClick={() => setActiveTab(idx)}
-                  className={`flex items-center gap-2 px-4 py-3 rounded-2xl text-xs sm:text-sm font-bold transition-all ${
-                    isActive
-                      ? 'bg-slate-900 text-white shadow-lg shadow-slate-900/20 scale-105'
-                      : 'bg-white text-slate-700 border border-slate-200 hover:bg-slate-100'
-                  }`}
-                >
-                  <Icon className={`w-4 h-4 ${isActive ? 'text-emerald-400' : 'text-slate-500'}`} />
-                  <span>{sub.title}</span>
-                </button>
+                <div key={sub.id} className={`flex flex-col lg:flex-row gap-10 items-center ${isEven ? '' : 'lg:flex-row-reverse'}`}>
+                  {/* Image Side */}
+                  <div className="w-full lg:w-5/12">
+                    <div className="relative rounded-3xl overflow-hidden shadow-xl border border-slate-200 group">
+                      <div className="absolute inset-0 bg-indigo-900/10 group-hover:bg-transparent transition-colors z-10" />
+                      <img src={sub.image} alt={sub.title} className="w-full h-[350px] object-cover transform group-hover:scale-105 transition-transform duration-700" />
+                    </div>
+                  </div>
+
+                  {/* Content Side */}
+                  <div className="w-full lg:w-7/12 bg-white rounded-3xl border border-slate-200/90 shadow-lg p-8 sm:p-10">
+                    <div className="flex flex-wrap items-center justify-between gap-4 border-b border-slate-100 pb-5 mb-5">
+                      <div>
+                        <span className="text-xs font-bold uppercase tracking-wider px-3.5 py-1.5 rounded-full border border-indigo-200 bg-indigo-50 text-indigo-700">
+                          {sub.badge}
+                        </span>
+                        <h3 className="font-display text-2xl sm:text-3xl font-extrabold text-slate-950 mt-3">
+                          {sub.title}
+                        </h3>
+                        <p className="font-display text-base font-bold bg-gradient-to-r from-indigo-600 via-purple-600 to-emerald-600 bg-clip-text text-transparent mt-1">
+                          {sub.tagline}
+                        </p>
+                      </div>
+                      <div className="bg-emerald-50 border border-emerald-200 px-4 py-2 rounded-xl text-emerald-800 text-center">
+                        <p className="text-[10px] font-bold uppercase tracking-wider text-emerald-600">Key Impact</p>
+                        <p className="text-sm sm:text-base font-black">{sub.metric}</p>
+                      </div>
+                    </div>
+
+                    <p className="text-slate-600 text-base leading-relaxed font-medium mb-6">
+                      {sub.desc}
+                    </p>
+
+                    <div className="grid sm:grid-cols-2 gap-6">
+                      <div className="bg-rose-50/50 p-5 rounded-2xl border border-rose-100">
+                        <h4 className="text-xs font-bold uppercase tracking-wider text-[#D95C5C] flex items-center gap-2 mb-3">
+                          <span className="text-[#D95C5C] text-lg leading-none">&#10022;</span> Bottlenecks
+                        </h4>
+                        <ul className="space-y-2">
+                          {sub.challenges.map((ch, cIdx) => (
+                            <li key={cIdx} className="text-sm text-slate-700 font-medium flex items-start gap-2">
+                              <span className="w-1.5 h-1.5 rounded-full bg-[#D95C5C] mt-2 shrink-0" />
+                              <span>{ch}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                      <div className="bg-emerald-50/50 p-5 rounded-2xl border border-emerald-100">
+                        <h4 className="text-xs font-bold uppercase tracking-wider text-emerald-700 flex items-center gap-2 mb-3">
+                          <CheckCircle2 className="w-4 h-4 text-emerald-600" /> Solutions
+                        </h4>
+                        <ul className="space-y-2">
+                          {sub.solutions.map((sol, sIdx) => (
+                            <li key={sIdx} className="text-sm text-slate-700 font-medium flex items-start gap-2">
+                              <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 mt-0.5 shrink-0" />
+                              <span>{sol}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               );
             })}
           </div>
-
-          {/* Active Sub-Sector Card Display */}
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={subSectors[activeTab].id}
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -15 }}
-              transition={{ duration: 0.4 }}
-              className="bg-white rounded-3xl border border-slate-200/90 shadow-xl overflow-hidden p-8 sm:p-12"
-            >
-              <div className="space-y-8">
-                
-                {/* Header Tag and Title */}
-                <div className="flex flex-wrap items-center justify-between gap-4 border-b border-slate-100 pb-6">
-                  <div>
-                    <span className="text-xs font-bold uppercase tracking-wider px-3.5 py-1.5 rounded-full border border-indigo-200 bg-indigo-50 text-indigo-700">
-                      {subSectors[activeTab].badge}
-                    </span>
-                    <h3 className="font-display text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-950 mt-3">
-                      {subSectors[activeTab].title}
-                    </h3>
-                    <p className="font-display text-base sm:text-lg font-bold bg-gradient-to-r from-indigo-600 via-purple-600 to-emerald-600 bg-clip-text text-transparent mt-1">
-                      {subSectors[activeTab].tagline}
-                    </p>
-                  </div>
-
-                  <div className="bg-emerald-50 border border-emerald-200 px-5 py-3 rounded-2xl text-emerald-800">
-                    <p className="text-[11px] font-bold uppercase tracking-wider text-emerald-600">Key Measured Impact</p>
-                    <p className="text-base sm:text-lg font-black">{subSectors[activeTab].metric}</p>
-                  </div>
-                </div>
-
-                <p className="text-slate-600 text-base sm:text-lg leading-relaxed font-medium">
-                  {subSectors[activeTab].desc}
-                </p>
-
-                {/* 2 Column Breakdown: Challenges vs Solutions */}
-                <div className="grid md:grid-cols-2 gap-8">
-                  
-                  {/* Common Industry Bottlenecks */}
-                  <div className="bg-rose-50/50 p-6 rounded-2xl border border-rose-100 space-y-4">
-                    <h4 className="text-xs font-bold uppercase tracking-wider text-[#D95C5C] flex items-center gap-2">
-                      <span>✦</span> Common Operational Bottlenecks
-                    </h4>
-                    <ul className="space-y-3">
-                      {subSectors[activeTab].challenges.map((ch, cIdx) => (
-                        <li key={cIdx} className="text-sm text-slate-700 font-medium flex items-start gap-2.5">
-                          <span className="w-1.5 h-1.5 rounded-full bg-[#D95C5C] mt-2 shrink-0" />
-                          <span>{ch}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  {/* Vaidimi Advisory Interventions */}
-                  <div className="bg-emerald-50/50 p-6 rounded-2xl border border-emerald-100 space-y-4">
-                    <h4 className="text-xs font-bold uppercase tracking-wider text-emerald-700 flex items-center gap-2">
-                      <CheckCircle2 className="w-4 h-4 text-emerald-600" /> Vaidimi Advisory Solutions
-                    </h4>
-                    <ul className="space-y-3">
-                      {subSectors[activeTab].solutions.map((sol, sIdx) => (
-                        <li key={sIdx} className="text-sm text-slate-700 font-medium flex items-start gap-2.5">
-                          <CheckCircle2 className="w-4 h-4 text-emerald-600 mt-0.5 shrink-0" />
-                          <span>{sol}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                </div>
-
-                {/* Footer Action */}
-                <div className="pt-4 border-t border-slate-100 flex flex-wrap items-center justify-between gap-4">
-                  <div className="flex items-center gap-2 text-slate-500 text-sm font-medium">
-                    <ShieldCheck className="w-4 h-4 text-indigo-600" />
-                    <span>Includes plant site audits, ERP integration & CXO review.</span>
-                  </div>
-
-                  <Link
-                    to="/contact"
-                    className="inline-flex items-center gap-2 text-indigo-700 font-bold hover:text-indigo-900 transition-colors text-base group"
-                  >
-                    <span>Consult on {subSectors[activeTab].title}</span>
-                    <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-                  </Link>
-                </div>
-
-              </div>
-            </motion.div>
-          </AnimatePresence>
-
         </div>
-      </section>
+        </section>
 
       {/* BOTTOM CTA */}
       <section className="py-20 lg:py-28 bg-white relative overflow-hidden">

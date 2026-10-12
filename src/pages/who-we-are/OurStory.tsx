@@ -12,6 +12,7 @@ import {
   Megaphone,
   MonitorSmartphone,
   MoveRight,
+  Paintbrush,
   Settings2,
   Sparkles,
   Target,
@@ -35,7 +36,7 @@ const IMAGE_PATHS = {
   story: '/images/our-story.jpg',
   challenge: '/images/unorganized.jpg',
   software: '/images/websoftware.jpg', 
-  erp: '/images/erp-solutions.jpg',
+  graphicDesign: '/images/graphic-design.jpg',
   marketing: '/images/marketing-solutions.jpg',
   approach: '/images/our-approach.jpg',
   vision: '/images/vision.jpg',
@@ -64,18 +65,18 @@ const services = [
   },
   {
     number: '02',
-    icon: Workflow,
-    title: 'Practical ERP Modules',
-    shortTitle: 'Business Operations',
+    icon: Paintbrush,
+    title: 'Graphic Designing',
+    shortTitle: 'Creative Design',
     description:
-      'Simple, practical ERP modules that bring everyday business operations into one structured system.',
+      'Transforming your brand vision into impactful visual designs that resonate with your target audience and stand out in the market.',
     points: [
-      'Inventory management',
-      'Billing and purchases',
-      'Production tracking',
-      'Business reporting',
+      'Brand Identity & Logos',
+      'Marketing Materials',
+      'UI/UX Prototyping',
+      'Social Media Creatives',
     ],
-    accent: 'from-emerald-500 to-teal-400',
+    accent: 'from-amber-500 to-orange-400',
   },
   {
     number: '03',
@@ -213,265 +214,139 @@ export default function OurStory() {
     <main className="bg-white text-slate-900 overflow-hidden">
 
       {/* =====================================================
-          HERO
+          HERO — Editorial inner-page banner style
       ====================================================== */}
 
-      <section className="relative min-h-[680px] lg:min-h-[760px] flex items-center bg-white">
-        {/* Decorative shapes */}
-        <div className="absolute -top-40 -right-40 w-[520px] h-[520px] rounded-full bg-blue-100/40 blur-3xl pointer-events-none" />
-        <div className="absolute bottom-0 -left-40 w-[400px] h-[400px] rounded-full bg-emerald-100/30 blur-3xl pointer-events-none" />
+      <section className="relative bg-slate-50 overflow-hidden border-b border-slate-200">
+        
+        {/* Subtle grid texture */}
+        <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M54.627 0l.83.83v58.34h-58.34l-.83-.83v-58.34h58.34zm-2.07 2.07h-54.2v54.2h54.2v-54.2z' fill='%23000000' fill-opacity='1' fill-rule='evenodd'/%3E%3C/svg%3E")` }} />
 
-        <div className="max-w-7xl mx-auto w-full px-6 lg:px-10 py-20 lg:py-28">
-          <div className="grid lg:grid-cols-[0.95fr_1.05fr] gap-12 lg:gap-20 items-center">
+        {/* Hand drawn sketch blob/lines in background */}
+        <svg className="absolute top-0 right-0 text-emerald-600/10 w-full h-full pointer-events-none sketch-draw is-visible" viewBox="0 0 1000 1000" preserveAspectRatio="none">
+          <path d="M-100 200 C 300 0, 700 400, 1100 100" fill="none" stroke="currentColor" strokeWidth="3" strokeDasharray="15 15" />
+          <path d="M-100 800 C 400 900, 600 500, 1100 700" fill="none" stroke="currentColor" strokeWidth="2" strokeDasharray="10 10" />
+          <circle cx="80%" cy="30%" r="200" fill="none" stroke="currentColor" strokeWidth="1" strokeDasharray="5 5" />
+        </svg>
 
-            {/* Left Content */}
-            <motion.div
-              variants={fadeLeft}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.2 }}
-              className="relative z-10"
-            >
-              <div className="inline-flex items-center gap-2 mb-6 px-4 py-2 rounded-full border border-emerald-200 bg-emerald-50 text-emerald-700 text-xs font-bold uppercase tracking-[0.16em]">
-                <Sparkles className="w-4 h-4" />
-                Who We Are · Our Story
-              </div>
+        <div className="relative max-w-5xl mx-auto px-6 lg:px-10 py-32 lg:py-48 text-center">
+          
+          {/* Breadcrumb - Clean and minimal */}
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="flex justify-center items-center gap-2 text-slate-500 text-xs font-bold uppercase tracking-[0.2em] mb-12"
+          >
+            <span>Who We Are</span>
+            <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
+            <span className="text-emerald-700">Our Story</span>
+          </motion.div>
 
-              <h1 className="font-serif text-4xl sm:text-5xl lg:text-[64px] leading-[1.05] font-bold tracking-tight text-slate-950">
+          <motion.div
+             variants={fadeUp}
+             initial="hidden"
+             whileInView="visible"
+             viewport={{ once: true }}
+          >
+            <h1 className="font-serif text-5xl sm:text-6xl lg:text-[80px] leading-[1.05] font-bold tracking-tight mb-8 relative inline-block">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 via-sky-500 to-indigo-600">
                 Organising India's
-                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-700 via-indigo-600 to-emerald-600">
-                  Unorganised MSMEs.
-                </span>
-              </h1>
+              </span>
+              <br />
+              <span className="relative text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-sky-500 to-emerald-600">
+                Unorganised MSMEs.
+                {/* Sketchy underline */}
+                <svg className="absolute w-[110%] h-5 -bottom-2 -left-[5%] text-emerald-500 sketch-draw is-visible" viewBox="0 0 200 20" preserveAspectRatio="none">
+                  <path d="M5 15 Q 50 5 100 15 T 195 10" fill="none" stroke="currentColor" strokeWidth="5" strokeLinecap="round" />
+                </svg>
+              </span>
+            </h1>
 
-              <p className="mt-7 text-lg lg:text-xl text-slate-600 leading-relaxed max-w-xl">
-                Vaidimi Consulting exists to help India's small and growing
-                businesses move from fragmented operations to structured,
-                data-driven systems.
+            <div className="mt-14 max-w-3xl mx-auto">
+              <p className="text-xl lg:text-2xl text-slate-600 leading-relaxed font-light mb-8">
+                Vaidimi Consulting exists to help India's small and growing businesses move from fragmented operations to structured, data-driven systems.
               </p>
 
-              <p className="mt-5 text-base text-slate-500 leading-relaxed max-w-xl">
-                We combine business consulting, technology and growth
-                strategies to create systems that businesses can actually use
-                every day.
-              </p>
-
-              <div className="mt-9 flex flex-col sm:flex-row gap-4">
-                <Button to="/contact">
-                  Start a Conversation
-                  <ArrowRight className="w-4 h-4 ml-2" />
-                </Button>
-
-                <Link
-                  to="/services"
-                  className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl border border-slate-200 text-sm font-semibold text-slate-700 hover:border-blue-300 hover:text-blue-700 hover:bg-blue-50/50 transition-all"
-                >
-                  Explore What We Do
-                  <ArrowUpRight className="w-4 h-4" />
-                </Link>
+              <div className="inline-block relative">
+                <p className="text-3xl lg:text-4xl text-emerald-700 font-sketch transform -rotate-1 mt-4">
+                  "Where business meets technology."
+                </p>
+                <svg className="absolute -top-4 -right-10 w-8 h-8 text-amber-400 sketch-draw is-visible" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M12 2L15 10L22 12L15 14L12 22L9 14L2 12L9 10L12 2Z" strokeLinejoin="round" />
+                </svg>
               </div>
-            </motion.div>
-
-            {/* Right Visual */}
-            <motion.div
-              variants={fadeRight}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.2 }}
-              className="relative"
-            >
-              <div className="relative max-w-[620px] mx-auto">
-
-                {/* Main image */}
-                <div className="relative rounded-[32px] overflow-hidden border border-slate-200 shadow-2xl shadow-slate-200/70">
-                  <img
-                    src={IMAGE_PATHS.hero}
-                    alt="Vaidimi Consulting"
-                    className="w-full h-[460px] lg:h-[590px] object-cover"
-                  />
-
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/65 via-transparent to-transparent" />
-
-                  <div className="absolute bottom-0 left-0 right-0 p-7 lg:p-9">
-                    <div className="flex items-end justify-between gap-5">
-                      <div>
-                        <p className="text-white/70 text-xs uppercase tracking-[0.18em] font-semibold mb-2">
-                          Vaidimi Consulting
-                        </p>
-                        <p className="text-white text-2xl lg:text-3xl font-bold font-serif">
-                          Business meets technology.
-                        </p>
-                      </div>
-
-                      <div className="hidden sm:flex w-12 h-12 rounded-full bg-white items-center justify-center shrink-0">
-                        <ArrowUpRight className="w-5 h-5 text-slate-900" />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Floating card */}
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.5, duration: 0.6 }}
-                  className="absolute -bottom-7 -left-3 sm:-left-8 bg-white border border-slate-200 rounded-2xl shadow-xl p-4 sm:p-5 max-w-[230px]"
-                >
-                  <div className="flex items-center gap-3">
-                    <div className="w-11 h-11 rounded-xl bg-emerald-50 flex items-center justify-center text-emerald-600">
-                      <Zap className="w-5 h-5" />
-                    </div>
-
-                    <div>
-                      <p className="text-xs text-slate-500 font-medium">
-                        Our focus
-                      </p>
-                      <p className="text-sm font-bold text-slate-900">
-                        Practical growth
-                      </p>
-                    </div>
-                  </div>
-                </motion.div>
-
-                {/* Floating top card */}
-                <div className="absolute -top-5 -right-2 sm:-right-7 bg-white border border-slate-200 rounded-2xl shadow-lg px-5 py-4">
-                  <div className="flex items-center gap-2">
-                    <div className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse" />
-                    <span className="text-xs font-bold text-slate-700">
-                      Built for MSMEs
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-
-          </div>
+            </div>
+          </motion.div>
         </div>
       </section>
 
 
       {/* =====================================================
-          STORY SECTION
+          SKETCHY STORY SECTION (No Image)
       ====================================================== */}
 
-      <section className="relative py-24 lg:py-32 bg-white">
-        <div className="max-w-7xl mx-auto px-6 lg:px-10">
+      <section className="relative py-24 lg:py-36 bg-white overflow-hidden">
+        {/* Decorative corner sketch */}
+        <svg className="absolute top-10 left-10 w-32 h-32 text-slate-100 sketch-draw is-visible -rotate-12" viewBox="0 0 100 100">
+          <path d="M10,50 Q40,10 90,50 T10,50" fill="none" stroke="currentColor" strokeWidth="2" strokeDasharray="5,5" />
+          <circle cx="50" cy="50" r="40" fill="none" stroke="currentColor" strokeWidth="1" />
+        </svg>
 
-          <div className="grid lg:grid-cols-2 gap-14 lg:gap-24 items-center">
+        <div className="max-w-4xl mx-auto px-6 lg:px-10 text-center relative z-10">
+          
+          <motion.div
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+          >
+            <div className="inline-flex flex-col items-center justify-center mb-10">
+              <span className="text-emerald-600 text-sm font-bold uppercase tracking-[0.2em] mb-4">Our Core Philosophy</span>
+              {/* Hand-drawn separator */}
+              <svg className="w-24 h-4 text-slate-300" viewBox="0 0 100 20">
+                <path d="M0 10 Q 25 0 50 10 T 100 10" fill="none" stroke="currentColor" strokeWidth="2" />
+              </svg>
+            </div>
 
-            {/* Image */}
-            <motion.div
-              variants={fadeLeft}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.2 }}
-              className="relative"
-            >
-              <div className="relative rounded-[30px] overflow-hidden border border-slate-200">
-                <img
-                  src={IMAGE_PATHS.story}
-                  alt="Vaidimi Consulting story"
-                  className="w-full h-[430px] lg:h-[570px] object-cover"
-                />
-              </div>
+            <h2 className="font-serif text-4xl md:text-5xl font-bold leading-tight text-slate-900 mb-12">
+              From <span className="font-sketch text-5xl md:text-6xl text-slate-400 mx-2 underline decoration-wavy decoration-slate-200">chaos</span> to <span className="font-sketch text-5xl md:text-6xl text-emerald-600 mx-2">clarity.</span>
+            </h2>
 
-              {/* Image label */}
-              <div className="absolute -bottom-6 right-5 sm:right-8 bg-white rounded-2xl border border-slate-200 shadow-xl px-5 py-4">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center">
-                    <Target className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <p className="text-xs text-slate-400 uppercase tracking-wider font-semibold">
-                      Our purpose
-                    </p>
-                    <p className="text-sm font-bold text-slate-900">
-                      Create operational clarity
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
+            <div className="space-y-8 text-slate-600 leading-relaxed text-lg md:text-xl font-light text-left md:text-center">
+              <p>
+                The story of Vaidimi started with a simple observation: <strong className="font-semibold text-slate-900">Most small businesses in India are running on pure willpower.</strong>
+              </p>
+              
+              <p>
+                They run on memory, handwritten registers, and endless WhatsApp messages. That works perfectly in the beginning. But as competition grows and customer expectations rise, this everyday chaos becomes an expensive bottleneck. Scale becomes impossible when information lives everywhere.
+              </p>
 
-
-            {/* Story Content */}
-            <motion.div
-              variants={fadeRight}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.2 }}
-            >
-              <div className="flex items-center gap-3 text-blue-700 text-xs font-bold uppercase tracking-[0.16em]">
-                <span className="w-9 h-px bg-blue-600" />
-                The Vaidimi Story
-              </div>
-
-              <h2 className="font-serif text-3xl md:text-5xl font-bold leading-tight mt-5 text-slate-950">
-                Turning everyday business chaos into
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-700 to-emerald-600">
-                  {' '}structured growth.
-                </span>
-              </h2>
-
-              <div className="mt-7 space-y-5 text-slate-600 leading-relaxed text-base lg:text-lg">
-                <p>
-                  Most small businesses in India still run on memory,
-                  registers and WhatsApp chats. That works until scale,
-                  competition and customer expectations make chaos expensive.
-                </p>
-
-                <p>
-                  Vaidimi was started to change that.
-                </p>
-
-                <p>
-                  We are a team of business and technology consultants who
-                  specialise in turning fragmented operations into structured,
-                  data-driven systems.
+              <div className="py-8 relative">
+                {/* Sketch highlight box */}
+                <svg className="absolute inset-0 w-full h-full text-amber-100 sketch-draw is-visible scale-110" preserveAspectRatio="none" viewBox="0 0 100 100">
+                  <rect x="5" y="5" width="90" height="90" fill="currentColor" stroke="none" rx="2" transform="rotate(-1 50 50)" />
+                  <rect x="5" y="5" width="90" height="90" fill="none" stroke="#FBBF24" strokeWidth="0.5" rx="2" transform="rotate(1 50 50)" strokeDasharray="4 4" />
+                </svg>
+                
+                <p className="relative z-10 text-2xl md:text-3xl font-serif font-bold text-slate-900 leading-snug px-6">
+                  "Every small business deserves the exact same operational clarity as a large corporation — <span className="text-emerald-600 italic">without</span> the large-corporation complexity."
                 </p>
               </div>
 
-              {/* Highlight */}
-              <div className="mt-8 border-l-4 border-emerald-500 pl-5 py-1">
-                <p className="text-lg lg:text-xl font-semibold text-slate-900 leading-relaxed">
-                  “Every small business deserves the same operational clarity
-                  as a large company — without the large-company complexity.”
-                </p>
+              <p>
+                We built Vaidimi to be the bridge. We don't just hand over expensive software; we combine deep business consulting, tailored technology, and practical growth strategies to create systems that businesses <em className="text-slate-900 font-medium">can actually use every single day.</em>
+              </p>
+            </div>
+            
+            {/* Hand-drawn signature/ending */}
+            <div className="mt-16 flex flex-col items-center">
+              <div className="w-16 h-16 rounded-full bg-emerald-50 flex items-center justify-center text-emerald-600 mb-4 border border-emerald-100">
+                <Target className="w-7 h-7" />
               </div>
-
-              <div className="mt-9 grid sm:grid-cols-2 gap-4">
-                <div className="flex gap-3">
-                  <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0 mt-0.5" />
-                  <span className="text-sm text-slate-600">
-                    Practical solutions
-                  </span>
-                </div>
-
-                <div className="flex gap-3">
-                  <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0 mt-0.5" />
-                  <span className="text-sm text-slate-600">
-                    Data-driven decisions
-                  </span>
-                </div>
-
-                <div className="flex gap-3">
-                  <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0 mt-0.5" />
-                  <span className="text-sm text-slate-600">
-                    Affordable technology
-                  </span>
-                </div>
-
-                <div className="flex gap-3">
-                  <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0 mt-0.5" />
-                  <span className="text-sm text-slate-600">
-                    Measurable outcomes
-                  </span>
-                </div>
-              </div>
-            </motion.div>
-
-          </div>
+              <p className="font-sketch text-3xl text-slate-400">That is our promise.</p>
+            </div>
+          </motion.div>
         </div>
       </section>
 
@@ -691,7 +566,7 @@ export default function OurStory() {
                           index === 0
                             ? IMAGE_PATHS.software
                             : index === 1
-                              ? IMAGE_PATHS.erp
+                              ? IMAGE_PATHS.graphicDesign
                               : IMAGE_PATHS.marketing
                         }
                         alt={service.title}

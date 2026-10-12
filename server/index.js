@@ -142,6 +142,17 @@ const rateLimitMiddleware = (req, res, next) => {
   next();
 };
 
+// Duplicate submission prevention cache (30-second window per email + message)
+const recentSubmissions = new Map();
+setInterval(() => {
+  const now = Date.now();
+  for (const [key, timestamp] of recentSubmissions.entries()) {
+    if (now - timestamp > 60000) {
+      recentSubmissions.delete(key);
+    }
+  }
+}, 60000);
+
 // ======================================================
 // ENQUIRY API ENDPOINT
 // ======================================================
@@ -168,21 +179,19 @@ app.post('/api/enquiries', rateLimitMiddleware, (req, res) => {
     }
 
     try {
-      const {
-        full_name,
-        email,
-        phone,
-        company,
-        designation,
-        enquiry_type,
-        service_required,
-        project_requirement,
-        preferred_contact_method,
-        preferred_contact_time,
-        lead_source,
-        privacy_consent,
-        website_hp // Honeypot field
-      } = req.body;
+      const rawFullName = req.body.full_name || req.body.name;
+      const rawEmail = req.body.email;
+      const rawPhone = req.body.phone || req.body.contact_number;
+      const rawCompany = req.body.company || req.body.organization || '';
+      const rawDesignation = req.body.designation || '';
+      const rawService = req.body.service_required || req.body.service || req.body.service_of_interest || '';
+      const rawEnquiryType = req.body.enquiry_type || (rawService ? `Consultation: ${rawService}` : 'Executive Consultation');
+      const rawMessage = req.body.project_requirement || req.body.message || req.body.brief_message;
+      const rawContactMethod = req.body.preferred_contact_method || 'Email';
+      const rawContactTime = req.body.preferred_contact_time || 'Anytime';
+      const rawLeadSource = req.body.lead_source || 'Website Contact';
+      const rawConsent = req.body.privacy_consent;
+      const website_hp = req.body.website_hp; // Honeypot field
 
       // Anti-spam Honeypot Check
       if (website_hp) {
@@ -191,50 +200,57 @@ app.post('/api/enquiries', rateLimitMiddleware, (req, res) => {
       }
 
       // Mandatory Field Validation
-      if (!full_name || !sanitize(full_name)) {
+      if (!rawFullName || !sanitize(rawFullName)) {
         return res.status(400).json({ success: false, message: 'Full name is required.' });
       }
 
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!email || !emailRegex.test(email.trim())) {
-        return res.status(400).json({ success: false, message: 'Valid email address is required.' });
+      if (!rawEmail || !emailRegex.test(String(rawEmail).trim())) {
+        return res.status(400).json({ success: false, message: 'A valid corporate or work email address is required.' });
       }
 
-      if (!phone || sanitize(phone).length < 7) {
-        return res.status(400).json({ success: false, message: 'Valid phone number is required.' });
+      if (!rawPhone || sanitize(rawPhone).length < 7) {
+        return res.status(400).json({ success: false, message: 'A valid contact phone number is required (min 7 digits).' });
       }
 
-      if (!enquiry_type || !sanitize(enquiry_type)) {
-        return res.status(400).json({ success: false, message: 'Enquiry type is required.' });
+      if (!rawMessage || !sanitize(rawMessage)) {
+        return res.status(400).json({ success: false, message: 'Please provide a brief message or project requirement.' });
       }
 
-      if (!project_requirement || !sanitize(project_requirement)) {
-        return res.status(400).json({ success: false, message: 'Project requirement description is required.' });
-      }
-
-      if (privacy_consent !== 'true' && privacy_consent !== true) {
+      if (rawConsent !== undefined && rawConsent !== 'true' && rawConsent !== true && rawConsent !== '1') {
         return res.status(400).json({ success: false, message: 'Privacy consent agreement is required.' });
       }
 
       // Format clean data
       const cleanData = {
-        full_name: sanitize(full_name),
-        email: email.trim().toLowerCase(),
-        phone: sanitize(phone),
-        company: sanitize(company) || 'N/A',
-        designation: sanitize(designation) || 'N/A',
-        enquiry_type: sanitize(enquiry_type),
-        service_required: Array.isArray(service_required)
-          ? service_required.map(sanitize).join(', ')
-          : sanitize(service_required) || 'N/A',
-        project_requirement: sanitize(project_requirement),
-        preferred_contact_method: sanitize(preferred_contact_method) || 'Email',
-        preferred_contact_time: sanitize(preferred_contact_time) || 'Anytime',
-        lead_source: sanitize(lead_source) || 'Website',
+        full_name: sanitize(rawFullName),
+        email: String(rawEmail).trim().toLowerCase(),
+        phone: sanitize(rawPhone),
+        company: sanitize(rawCompany) || 'N/A',
+        designation: sanitize(rawDesignation) || 'N/A',
+        enquiry_type: sanitize(rawEnquiryType),
+        service_required: Array.isArray(rawService)
+          ? rawService.map(sanitize).join(', ')
+          : sanitize(rawService) || 'N/A',
+        project_requirement: sanitize(rawMessage),
+        preferred_contact_method: sanitize(rawContactMethod) || 'Email',
+        preferred_contact_time: sanitize(rawContactTime) || 'Anytime',
+        lead_source: sanitize(rawLeadSource) || 'Website',
         resume_path: req.file ? req.file.path : null,
         resume_name: req.file ? req.file.originalname : null,
         submitted_at: new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })
       };
+
+      // Duplicate submission protection (prevents fast double clicks or spam burst)
+      const submissionKey = `${cleanData.email}:${cleanData.project_requirement.slice(0, 40)}`;
+      const lastSubmission = recentSubmissions.get(submissionKey);
+      if (lastSubmission && Date.now() - lastSubmission < 30000) {
+        return res.status(200).json({
+          success: true,
+          message: 'Your enquiry has already been received. Our leadership team will review and contact you shortly.'
+        });
+      }
+      recentSubmissions.set(submissionKey, Date.now());
 
       // 1. MySQL DB Insertion (if available)
       if (dbPool) {
@@ -376,10 +392,10 @@ app.post('/api/enquiries', rateLimitMiddleware, (req, res) => {
           await transporter.sendMail(customerMailOptions);
           console.log(`[EMAIL] Enquiry email & auto-reply sent successfully for ${cleanData.email}`);
         } catch (mailErr) {
-          console.error('[EMAIL ERROR] Failed to send email via SMTP:', mailErr);
+          console.error('[EMAIL ERROR] Failed to send email via SMTP:', mailErr.message);
           return res.status(500).json({
             success: false,
-            message: `Email sending failed: ${mailErr.message || 'SMTP Authentication / Network error'}. Please verify SMTP credentials in .env file.`
+            message: "We were unable to deliver your enquiry email at this moment. Please try again or reach out directly to info@vaidimiconsulting.in."
           });
         }
       } else {

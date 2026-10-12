@@ -28,7 +28,7 @@ export default function ServicesSector() {
   const subSectors = [
     {
       id: 'retail-services',
-      title: 'Retail Services & Store Networks',
+      title: 'Retail Services',
       tagline: 'Store-level unit economics, inventory turn & customer experience.',
       icon: Store,
       badge: 'Retail & Multi-Outlet',
@@ -43,11 +43,12 @@ export default function ServicesSector() {
         'Store manager incentive structures tied directly to same-store sales growth (SSSG)',
         'Unified omnichannel inventory visibility reducing stockout loss'
       ],
-      metric: '22% Average Revenue Lift Across Stores'
+      metric: '22% Average Revenue Lift Across Stores',
+      image: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&q=80'
     },
     {
       id: 'fintech-financial',
-      title: 'FinTech & Financial Institutions',
+      title: 'Fintech and Financial Companies',
       tagline: 'Underwriting velocity, regulatory compliance & NPA portfolio health.',
       icon: Landmark,
       badge: 'FinTech & NBFCs',
@@ -62,11 +63,12 @@ export default function ServicesSector() {
         'Automated debt collection cadence with early warning delinquency triggers',
         'Lender compliance audits and co-lending partner syndicate structuring'
       ],
-      metric: '99.4% Regulatory Audit Compliance Score'
+      metric: '99.4% Regulatory Audit Compliance Score',
+      image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80'
     },
     {
       id: 'hotels-resorts',
-      title: 'Hotels & Resort Properties',
+      title: 'Hotels',
       tagline: 'RevPAR optimization, direct booking funnels & banquet monetization.',
       icon: Hotel,
       badge: 'Hotels & Leisure',
@@ -81,11 +83,12 @@ export default function ServicesSector() {
         'Dynamic yield pricing algorithms based on local event and competitor demand',
         'Corporate banquet package structuring for predictable weekday revenue'
       ],
-      metric: '28% Growth in Direct Commission-Free Bookings'
+      metric: '28% Growth in Direct Commission-Free Bookings',
+      image: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800&q=80'
     },
     {
       id: 'tourism-travel',
-      title: 'Tourism & Travel Networks',
+      title: 'Tourism',
       tagline: 'B2B distribution, itinerary packaging & group travel monetization.',
       icon: Compass,
       badge: 'Travel & Tourism',
@@ -100,11 +103,12 @@ export default function ServicesSector() {
         'B2B agent distributor portals with automated pricing and commission settlements',
         'Direct destination vendor contracts with guaranteed SLA protections'
       ],
-      metric: '35% Margin Expansion via Curated MICE Packages'
+      metric: '35% Margin Expansion via Curated MICE Packages',
+      image: 'https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=800&q=80'
     },
     {
       id: 'transport-logistics',
-      title: 'Transport & Fleet Logistics',
+      title: 'Transport',
       tagline: 'Route network optimization, return-load minimization & telematics.',
       icon: Truck,
       badge: 'Transport & 3PL',
@@ -119,11 +123,12 @@ export default function ServicesSector() {
         'GPS telematics integration for driver fuel performance scorecards',
         'Multi-modal transport agreements (Rail + Road) for long-haul routes'
       ],
-      metric: '22% Average Linehaul Cost Reduction'
+      metric: '22% Average Linehaul Cost Reduction',
+      image: 'https://images.unsplash.com/photo-1586528116311-ad8ed745d433?w=800&q=80'
     },
     {
       id: 'hospitality-services',
-      title: 'Hospitality & F&B Management',
+      title: 'Hospitality',
       tagline: 'SOP governance, food cost benchmarking & guest loyalty index.',
       icon: Coffee,
       badge: 'Hospitality & Dining',
@@ -138,11 +143,12 @@ export default function ServicesSector() {
         'Cookbook SOPs and structured frontline hospitality grooming routines',
         'Direct-to-consumer delivery channels and corporate catering contracts'
       ],
-      metric: '8.5% Direct Food Cost Savings'
+      metric: '8.5% Direct Food Cost Savings',
+      image: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&q=80'
     },
     {
       id: 'education-edtech',
-      title: 'Education & EdTech Institutions',
+      title: 'Education',
       tagline: 'Student admissions funnels, hybrid delivery & fee governance.',
       icon: GraduationCap,
       badge: 'Education & Institutions',
@@ -157,11 +163,12 @@ export default function ServicesSector() {
         'Integrated campus ERP with automated fee collection gateways',
         'Accreditation readiness workflows for NAAC, NIRF, and CBSE audits'
       ],
-      metric: '40% Surge in Qualified Admission Inquiries'
+      metric: '40% Surge in Qualified Admission Inquiries',
+      image: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=800&q=80'
     },
     {
       id: 'healthcare-sciences',
-      title: 'Healthcare & Life Sciences',
+      title: 'Healthcare',
       tagline: 'Bed occupancy optimization, clinical supply chain & patient trust.',
       icon: HeartPulse,
       badge: 'Healthcare & Clinics',
@@ -176,7 +183,8 @@ export default function ServicesSector() {
         'Consignment-based surgical inventory agreements with medical device OEMs',
         'Patient loyalty and chronic disease follow-up management systems'
       ],
-      metric: '19% Increase in Average Bed Occupancy'
+      metric: '19% Increase in Average Bed Occupancy',
+      image: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=800&q=80'
     }
   ];
 
@@ -275,7 +283,7 @@ export default function ServicesSector() {
                 <div className="absolute inset-0 bg-gradient-to-tr from-indigo-100 via-purple-100 to-emerald-100 rounded-3xl transform rotate-2 -z-10 shadow-lg" />
                 <div className="overflow-hidden rounded-3xl border-4 border-white bg-white shadow-2xl">
                   <img
-                    src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=800&auto=format&fit=crop"
+                    src="/images/advantage3.jpg"
                     alt="Modern Enterprise Services Advisory by Vaidimi"
                     className="w-full h-[360px] sm:h-[420px] object-cover"
                   />
@@ -315,121 +323,79 @@ export default function ServicesSector() {
             </p>
           </div>
 
-          {/* Submenu Navigation Pills */}
-          <div className="flex flex-wrap justify-center gap-2.5 mb-12">
+          {/* All Sub-Sectors Listed */}
+          <div className="space-y-16">
             {subSectors.map((sub, idx) => {
-              const Icon = sub.icon;
-              const isActive = activeTab === idx;
+              const isEven = idx % 2 === 0;
               return (
-                <button
-                  key={sub.id}
-                  onClick={() => setActiveTab(idx)}
-                  className={`flex items-center gap-2 px-4 py-3 rounded-2xl text-xs sm:text-sm font-bold transition-all ${
-                    isActive
-                      ? 'bg-slate-900 text-white shadow-lg shadow-slate-900/20 scale-105'
-                      : 'bg-white text-slate-700 border border-slate-200 hover:bg-slate-100'
-                  }`}
-                >
-                  <Icon className={`w-4 h-4 ${isActive ? 'text-emerald-400' : 'text-slate-500'}`} />
-                  <span>{sub.title}</span>
-                </button>
+                <div key={sub.id} className={`flex flex-col lg:flex-row gap-10 items-center ${isEven ? '' : 'lg:flex-row-reverse'}`}>
+                  {/* Image Side */}
+                  <div className="w-full lg:w-5/12">
+                    <div className="relative rounded-3xl overflow-hidden shadow-xl border border-slate-200 group">
+                      <div className="absolute inset-0 bg-indigo-900/10 group-hover:bg-transparent transition-colors z-10" />
+                      <img src={sub.image} alt={sub.title} className="w-full h-[350px] object-cover transform group-hover:scale-105 transition-transform duration-700" />
+                    </div>
+                  </div>
+
+                  {/* Content Side */}
+                  <div className="w-full lg:w-7/12 bg-white rounded-3xl border border-slate-200/90 shadow-lg p-8 sm:p-10">
+                    <div className="flex flex-wrap items-center justify-between gap-4 border-b border-slate-100 pb-5 mb-5">
+                      <div>
+                        <span className="text-xs font-bold uppercase tracking-wider px-3.5 py-1.5 rounded-full border border-indigo-200 bg-indigo-50 text-indigo-700">
+                          {sub.badge}
+                        </span>
+                        <h3 className="font-display text-2xl sm:text-3xl font-extrabold text-slate-950 mt-3">
+                          {sub.title}
+                        </h3>
+                        <p className="font-display text-base font-bold bg-gradient-to-r from-indigo-600 via-purple-600 to-emerald-600 bg-clip-text text-transparent mt-1">
+                          {sub.tagline}
+                        </p>
+                      </div>
+                      <div className="bg-emerald-50 border border-emerald-200 px-4 py-2 rounded-xl text-emerald-800 text-center">
+                        <p className="text-[10px] font-bold uppercase tracking-wider text-emerald-600">Key Impact</p>
+                        <p className="text-sm sm:text-base font-black">{sub.metric}</p>
+                      </div>
+                    </div>
+
+                    <p className="text-slate-600 text-base leading-relaxed font-medium mb-6">
+                      {sub.desc}
+                    </p>
+
+                    <div className="grid sm:grid-cols-2 gap-6">
+                      <div className="bg-rose-50/50 p-5 rounded-2xl border border-rose-100">
+                        <h4 className="text-xs font-bold uppercase tracking-wider text-[#D95C5C] flex items-center gap-2 mb-3">
+                          <span className="text-[#D95C5C] text-lg leading-none">&#10022;</span> Bottlenecks
+                        </h4>
+                        <ul className="space-y-2">
+                          {sub.challenges.map((ch, cIdx) => (
+                            <li key={cIdx} className="text-sm text-slate-700 font-medium flex items-start gap-2">
+                              <span className="w-1.5 h-1.5 rounded-full bg-[#D95C5C] mt-2 shrink-0" />
+                              <span>{ch}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                      <div className="bg-emerald-50/50 p-5 rounded-2xl border border-emerald-100">
+                        <h4 className="text-xs font-bold uppercase tracking-wider text-emerald-700 flex items-center gap-2 mb-3">
+                          <CheckCircle2 className="w-4 h-4 text-emerald-600" /> Solutions
+                        </h4>
+                        <ul className="space-y-2">
+                          {sub.solutions.map((sol, sIdx) => (
+                            <li key={sIdx} className="text-sm text-slate-700 font-medium flex items-start gap-2">
+                              <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 mt-0.5 shrink-0" />
+                              <span>{sol}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               );
             })}
           </div>
-
-          {/* Active Sub-Sector Card Display */}
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={subSectors[activeTab].id}
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -15 }}
-              transition={{ duration: 0.4 }}
-              className="bg-white rounded-3xl border border-slate-200/90 shadow-xl overflow-hidden p-8 sm:p-12"
-            >
-              <div className="space-y-8">
-                
-                {/* Header Tag and Title */}
-                <div className="flex flex-wrap items-center justify-between gap-4 border-b border-slate-100 pb-6">
-                  <div>
-                    <span className="text-xs font-bold uppercase tracking-wider px-3.5 py-1.5 rounded-full border border-indigo-200 bg-indigo-50 text-indigo-700">
-                      {subSectors[activeTab].badge}
-                    </span>
-                    <h3 className="font-display text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-950 mt-3">
-                      {subSectors[activeTab].title}
-                    </h3>
-                    <p className="font-display text-base sm:text-lg font-bold bg-gradient-to-r from-indigo-600 via-purple-600 to-emerald-600 bg-clip-text text-transparent mt-1">
-                      {subSectors[activeTab].tagline}
-                    </p>
-                  </div>
-
-                  <div className="bg-emerald-50 border border-emerald-200 px-5 py-3 rounded-2xl text-emerald-800">
-                    <p className="text-[11px] font-bold uppercase tracking-wider text-emerald-600">Key Measured Impact</p>
-                    <p className="text-base sm:text-lg font-black">{subSectors[activeTab].metric}</p>
-                  </div>
-                </div>
-
-                <p className="text-slate-600 text-base sm:text-lg leading-relaxed font-medium">
-                  {subSectors[activeTab].desc}
-                </p>
-
-                {/* 2 Column Breakdown: Challenges vs Solutions */}
-                <div className="grid md:grid-cols-2 gap-8">
-                  
-                  {/* Common Industry Bottlenecks */}
-                  <div className="bg-rose-50/50 p-6 rounded-2xl border border-rose-100 space-y-4">
-                    <h4 className="text-xs font-bold uppercase tracking-wider text-[#D95C5C] flex items-center gap-2">
-                      <span>✦</span> Operational & Retention Bottlenecks
-                    </h4>
-                    <ul className="space-y-3">
-                      {subSectors[activeTab].challenges.map((ch, cIdx) => (
-                        <li key={cIdx} className="text-sm text-slate-700 font-medium flex items-start gap-2.5">
-                          <span className="w-1.5 h-1.5 rounded-full bg-[#D95C5C] mt-2 shrink-0" />
-                          <span>{ch}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  {/* Vaidimi Advisory Interventions */}
-                  <div className="bg-emerald-50/50 p-6 rounded-2xl border border-emerald-100 space-y-4">
-                    <h4 className="text-xs font-bold uppercase tracking-wider text-emerald-700 flex items-center gap-2">
-                      <CheckCircle2 className="w-4 h-4 text-emerald-600" /> Vaidimi Advisory Solutions
-                    </h4>
-                    <ul className="space-y-3">
-                      {subSectors[activeTab].solutions.map((sol, sIdx) => (
-                        <li key={sIdx} className="text-sm text-slate-700 font-medium flex items-start gap-2.5">
-                          <CheckCircle2 className="w-4 h-4 text-emerald-600 mt-0.5 shrink-0" />
-                          <span>{sol}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                </div>
-
-                {/* Footer Action */}
-                <div className="pt-4 border-t border-slate-100 flex flex-wrap items-center justify-between gap-4">
-                  <div className="flex items-center gap-2 text-slate-500 text-sm font-medium">
-                    <ShieldCheck className="w-4 h-4 text-indigo-600" />
-                    <span>Includes customer experience mapping, unit economics audits & SOP digitization.</span>
-                  </div>
-
-                  <Link
-                    to="/contact"
-                    className="inline-flex items-center gap-2 text-indigo-700 font-bold hover:text-indigo-900 transition-colors text-base group"
-                  >
-                    <span>Consult on {subSectors[activeTab].title}</span>
-                    <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-                  </Link>
-                </div>
-
-              </div>
-            </motion.div>
-          </AnimatePresence>
-
         </div>
-      </section>
+        </section>
 
       {/* BOTTOM CTA */}
       <section className="py-20 lg:py-28 bg-white relative overflow-hidden">
