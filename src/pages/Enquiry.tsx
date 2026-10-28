@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import { motion } from 'motion/react';
 import {
   Mail,
@@ -19,20 +19,7 @@ import {
   ShieldCheck
 } from 'lucide-react';
 
-const ENQUIRY_TYPES = [
-  'General Enquiry',
-  'Business Consulting',
-  'IT Consulting',
-  'Software Development',
-  'Web Development',
-  'Digital Marketing',
-  'SEO',
-  'Google Ads',
-  'Meta Ads',
-  'Partnership',
-  'Other'
-];
-
+// Services shown as clickable chips
 const SERVICE_OPTIONS = [
   'Business Consulting',
   'IT Consulting',
@@ -43,6 +30,16 @@ const SERVICE_OPTIONS = [
   'SEO',
   'Google Ads',
   'Meta Ads',
+  'ISO Certification',
+  'Other'
+];
+
+// Dropdown categories: every service is also a category, so both stay in sync
+const ENQUIRY_TYPES = [
+  'General Enquiry',
+  ...SERVICE_OPTIONS.filter((s) => s !== 'Other'),
+  'Multiple Services',
+  'Partnership',
   'Other'
 ];
 
@@ -66,6 +63,12 @@ const CONTACT_TIMES = [
 ];
 
 export default function Enquiry() {
+  // Optional pre-select from URL, e.g. /enquiry?service=ISO%20Certification
+  const [searchParams] = useSearchParams();
+  const presetService = searchParams.get('service');
+  const validPreset =
+    presetService && SERVICE_OPTIONS.includes(presetService) ? presetService : null;
+
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
@@ -75,8 +78,10 @@ export default function Enquiry() {
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
   const [company, setCompany] = useState('');
-  const [enquiryType, setEnquiryType] = useState('General Enquiry');
-  const [selectedServices, setSelectedServices] = useState<string[]>([]);
+  const [enquiryType, setEnquiryType] = useState(validPreset ?? 'General Enquiry');
+  const [selectedServices, setSelectedServices] = useState<string[]>(
+    validPreset ? [validPreset] : []
+  );
   const [projectRequirement, setProjectRequirement] = useState('');
   const [contactMethod, setContactMethod] = useState('Email');
   const [contactTime, setContactTime] = useState('Anytime (Business Hours)');
@@ -87,12 +92,37 @@ export default function Enquiry() {
   // Validation Errors
   const [errors, setErrors] = useState<Record<string, string>>({});
 
+  // Category dropdown -> auto-select matching service chip
+  const handleCategoryChange = (value: string) => {
+    setEnquiryType(value);
+
+    if (SERVICE_OPTIONS.includes(value)) {
+      setSelectedServices([value]);
+    }
+
+    if (errors.enquiryType) {
+      setErrors((prev) => {
+        const next = { ...prev };
+        delete next.enquiryType;
+        return next;
+      });
+    }
+  };
+
+  // Service chips -> auto-update category dropdown
   const toggleService = (service: string) => {
-    setSelectedServices((prev) =>
-      prev.includes(service)
-        ? prev.filter((s) => s !== service)
-        : [...prev, service]
-    );
+    const next = selectedServices.includes(service)
+      ? selectedServices.filter((s) => s !== service)
+      : [...selectedServices, service];
+
+    setSelectedServices(next);
+
+    // Don't override a manually chosen "Partnership"
+    if (enquiryType !== 'Partnership') {
+      if (next.length === 0) setEnquiryType('General Enquiry');
+      else if (next.length === 1) setEnquiryType(next[0]);
+      else setEnquiryType('Multiple Services');
+    }
   };
 
   const validateForm = () => {
@@ -127,16 +157,17 @@ export default function Enquiry() {
     }
 
     setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
+    return newErrors;
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setSubmitError(null);
 
-    if (!validateForm()) {
-      const firstErrorKey = Object.keys(errors)[0];
-      const el = document.getElementById(firstErrorKey);
+    const newErrors = validateForm();
+    const errorKeys = Object.keys(newErrors);
+    if (errorKeys.length > 0) {
+      const el = document.getElementById(errorKeys[0]);
       if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
       return;
     }
@@ -426,16 +457,7 @@ export default function Enquiry() {
                         </label>
                         <select
                           value={enquiryType}
-                          onChange={(e) => {
-                            setEnquiryType(e.target.value);
-                            if (errors.enquiryType) {
-                              setErrors((prev) => {
-                                const next = { ...prev };
-                                delete next.enquiryType;
-                                return next;
-                              });
-                            }
-                          }}
+                          onChange={(e) => handleCategoryChange(e.target.value)}
                           className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white text-sm font-semibold text-slate-900 outline-none focus:border-[#173F69] focus:ring-2 focus:ring-[#173F69]/15 transition-all cursor-pointer"
                         >
                           {ENQUIRY_TYPES.map((type) => (

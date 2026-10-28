@@ -20,6 +20,7 @@ import PromotionAdvertisement from "@/pages/services/PromotionAdvertisement";
 import HRConsulting from "@/pages/services/HRConsulting";
 import FinancialConsulting from "@/pages/services/FinancialConsulting";
 import EventManagement from "@/pages/services/EventManagement";
+import ISOCertification from "@/pages/services/ISOCertification";
 import SubServiceDetail from "@/pages/services/SubServiceDetail";
 
 // Marketing Consulting Sub-Services
@@ -129,6 +130,16 @@ export default function App() {
           <Route
             path="/services/event-management"
             element={<EventManagement />}
+          />
+
+          <Route
+            path="/services/iso-certification"
+            element={<ISOCertification />}
+          />
+
+          <Route
+            path="/iso-certification"
+            element={<ISOCertification />}
           />
 
           <Route

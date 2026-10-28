@@ -34,6 +34,7 @@ const serviceItems = [
   "HR Consulting",
   "Financial Consulting",
   "Event Management",
+  "ISO Certification",
 ];
 
 const sectorItems = [

@@ -350,6 +350,44 @@ export const services: Service[] = [
       clientType: 'Consumer Durables Manufacturer',
     },
   },
+  {
+    slug: 'iso-certification',
+    title: 'ISO Certification',
+    shortDescription: 'Guidance on ISO 9001, 14001, 45001, 27001, and 22000 standards, gap analysis, and documentation support.',
+    longDescription:
+      'We guide businesses through understanding ISO standard requirements, preparing management system documentation, conducting gap reviews, and navigating independent third-party certification.',
+    image: '/images/iso1.jpg',
+    icon: ShieldCheck,
+    accent: 'accent-sage',
+    heroTagline: 'The Right ISO Standard for Your Business',
+    intro:
+      'We support businesses with understanding requirements, preparing documentation, and navigating the certification process through independent third-party certification bodies.',
+    subServices: [
+      subService('iso-9001', 'ISO 9001 Quality Management', 'Improve process consistency and customer satisfaction.', 'Quality management standard system setup and audit prep.', ['Process consistency review', 'Quality objectives formulation', 'Internal audit preparation', 'Documentation alignment'], 'Practical management system alignment.', '/images/iso1.jpg', ShieldCheck),
+      subService('iso-14001', 'ISO 14001 Environmental Management', 'Manage environmental impacts and performance.', 'Environmental management system setup and gap review.', ['Impact assessment', 'Environmental policies & objectives', 'Compliance review', 'Operational control support'], 'Structured environmental practice.', '/images/iso1.jpg', ShieldCheck),
+      subService('iso-45001', 'ISO 45001 Occupational Health & Safety', 'Manage workplace occupational safety risks.', 'Occupational health and safety management system preparation.', ['Hazard identification', 'Safety policy formulation', 'Emergency readiness review', 'Risk assessment frameworks'], 'Safer operational environments.', '/images/iso1.jpg', ShieldCheck),
+      subService('iso-27001', 'ISO/IEC 27001 Information Security', 'Manage and safeguard business information security.', 'Information security management framework implementation.', ['Asset inventory & risk review', 'Security control formulation', 'Access governance routines', 'Incident management procedures'], 'Enterprise data protection.', '/images/iso1.jpg', ShieldCheck),
+      subService('iso-22000', 'ISO 22000 Food Safety Management', 'Structured food safety management system setup.', 'Food safety management systems from supply to processing.', ['Hazard analysis (HACCP)', 'Prerequisite programs review', 'Traceability procedures', 'Food safety policy'], 'End-to-end food safety.', '/images/iso1.jpg', ShieldCheck),
+    ],
+    cta: 'Looking to find the right ISO standard for your organization? Get in touch.',
+    whoItsFor: [
+      'Startups and MSMEs establishing foundational operational standards',
+      'Manufacturers requiring quality and environmental compliance',
+      'IT & service enterprises managing customer data security',
+    ],
+    keyBenefits: [
+      { title: 'Build Credibility', desc: 'Demonstrate a structured approach to quality, safety, or information security.' },
+      { title: 'Improve Processes', desc: 'Encourage consistent procedures and continual improvement.' },
+      { title: 'Manage Risks', desc: 'Identify and address relevant operational or management-system risks.' },
+      { title: 'Support Business Opportunities', desc: 'Help address applicable customer, supplier, or tender requirements where ISO certification is requested.' },
+    ],
+    impactSnapshot: {
+      metric: '100%',
+      metricLabel: 'Independent Audit Readiness',
+      caseSnippet: 'Supported documentation preparation and gap analysis across 5 core standards for growing enterprises.',
+      clientType: 'Multi-Sector Enterprise Clients',
+    },
+  },
 ];
 
 export const getServiceBySlug = (slug: string) => services.find((service) => service.slug === slug);

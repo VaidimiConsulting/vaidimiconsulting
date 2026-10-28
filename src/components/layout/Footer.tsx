@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import {
   Linkedin,
-  Twitter,
+  Facebook,
   Instagram,
   Mail,
   MapPin,
@@ -30,11 +30,20 @@ const SECTORS = [
   { label: 'Retail & Consumer', to: '/sector/retail' },
 ];
 
+const LINKS = {
+  linkedin: 'https://www.linkedin.com/in/mayank-panday-228192436',
+  facebook: 'https://www.facebook.com/share/17rX6H3sbt/',
+  instagram: 'https://www.instagram.com/vaidimi_consulting',
+  email: 'info@vaidimiconsulting.in',
+  phoneDisplay: '+91 8869990973',
+  phoneHref: 'tel:+918869990973',
+};
+
 const SOCIAL_LINKS = [
-  { icon: Linkedin, href: '#', label: 'LinkedIn' },
-  { icon: Twitter, href: '#', label: 'Twitter' },
-  { icon: Instagram, href: '#', label: 'Instagram' },
-  { icon: Mail, href: 'mailto:info@vaidimiconsulting.in', label: 'Email' },
+  { icon: Linkedin, href: LINKS.linkedin, label: 'LinkedIn' },
+  { icon: Facebook, href: LINKS.facebook, label: 'Facebook' },
+  { icon: Instagram, href: LINKS.instagram, label: 'Instagram' },
+  { icon: Mail, href: `mailto:${LINKS.email}`, label: 'Email' },
 ];
 
 export default function Footer() {
@@ -61,8 +70,6 @@ export default function Footer() {
       <div className="relative mx-auto max-w-[1280px] px-6 sm:px-8 lg:px-10">
         <div className="grid grid-cols-1 gap-10 border-b border-white/10 py-14 md:py-16 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-6">
-
-
             <p className="mt-7 max-w-[560px] text-[15px] leading-7 text-slate-200/80 sm:text-base">
               Guidance, growth and success — we partner with ambitious
               enterprises across strategy, digital infrastructure, corporate
@@ -72,11 +79,15 @@ export default function Footer() {
             <div className="mt-7 flex items-center gap-3">
               {SOCIAL_LINKS.map((item) => {
                 const Icon = item.icon;
+                const isExternal = item.href.startsWith('http');
                 return (
                   <a
                     key={item.label}
                     href={item.href}
                     aria-label={item.label}
+                    {...(isExternal
+                      ? { target: '_blank', rel: 'noopener noreferrer' }
+                      : {})}
                     className="group flex h-11 w-11 items-center justify-center rounded-full border border-slate-300/70 bg-white/[0.025] text-slate-300 transition-all duration-300 hover:-translate-y-1 hover:border-[#c8a18d] hover:bg-white/[0.08] hover:text-white"
                   >
                     <Icon className="h-[17px] w-[17px] transition-transform duration-300 group-hover:scale-110" />
@@ -204,19 +215,19 @@ export default function Footer() {
               <div className="flex items-center gap-4">
                 <Phone className="h-5 w-5 shrink-0 text-[#c49a83]" />
                 <a
-                  href="tel:+918869990973"
+                  href={LINKS.phoneHref}
                   className="text-[#e0e5ed] transition-colors hover:text-white"
                 >
-                  +91 8869990973
+                  {LINKS.phoneDisplay}
                 </a>
               </div>
               <div className="flex items-center gap-4">
                 <Mail className="h-5 w-5 shrink-0 text-[#c49a83]" />
                 <a
-                  href="mailto:info@vaidimiconsulting.in"
+                  href={`mailto:${LINKS.email}`}
                   className="break-all text-[#e0e5ed] transition-colors hover:text-white"
                 >
-                  info@vaidimiconsulting.in
+                  {LINKS.email}
                 </a>
               </div>
             </div>
