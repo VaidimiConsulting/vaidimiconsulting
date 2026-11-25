@@ -1,0 +1,21 @@
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # 1. Route /api/enquiries to native Hostinger PHP handler
+  RewriteRule ^api/enquiries/?$ /api/enquiries.php [L,QSA]
+
+  # 2. Allow direct access to real existing files or directories (like assets, images, etc.)
+  RewriteCond %{REQUEST_FILENAME} -f [OR]
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^ - [L]
+
+  # 3. All other routes go to index.html for React Router
+  RewriteRule ^ index.html [L]
+</IfModule>
+
+# Security: Block sensitive files
+<FilesMatch "^\.">
+  Order allow,deny
+  Deny from all
+</FilesMatch>
