@@ -218,7 +218,7 @@ export default function Contact() {
 
                 {/* Phone Action */}
                 <a
-                  href="tel:+918868990973"
+                  href="tel:+918869990973"
                   className="group flex items-center gap-5 p-5 rounded-2xl bg-white border border-slate-200/90 shadow-sm hover:shadow-md hover:border-emerald-300 transition-all duration-300 transform hover:-translate-y-0.5"
                 >
                   <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#173F69] to-emerald-600 text-white flex items-center justify-center flex-shrink-0 shadow-md shadow-[#173F69]/20 group-hover:scale-105 transition-transform">
@@ -229,12 +229,10 @@ export default function Contact() {
                       <span className="text-xs font-bold uppercase tracking-wider text-slate-400">
                         Direct Advisory Line
                       </span>
-                      <span className="text-[10px] font-semibold text-sky-700 bg-sky-50 px-2 py-0.5 rounded-full border border-sky-200/60">
-                        Toll-Free Direct
-                      </span>
+
                     </div>
                     <div className="text-base sm:text-lg font-bold text-slate-900 group-hover:text-[#173F69] transition-colors">
-                      +91 8868990973
+                      +91 8869990973
                     </div>
                     <p className="text-xs text-slate-500 mt-0.5">
                       Monday to Saturday, 9:00 AM – 7:30 PM IST
@@ -256,7 +254,7 @@ export default function Contact() {
                       Varanasi, Uttar Pradesh, India
                     </div>
                     <p className="text-xs text-slate-600 mt-1 leading-relaxed">
-                      SH 9/132, MAA Bhawani Nagar Colony, Airport Road, Varanasi - 221002, Uttar Pradesh, India
+                      SH 9/132, MAA Bhawani Nagar Colony, Airport Road, Varanasi - 221003, Uttar Pradesh, India
                     </p>
                   </div>
                 </div>

@@ -209,7 +209,7 @@ export default function Footer() {
                   <br />
                   Airport Road, Varanasi -
                   <br />
-                  221002
+                  221003
                 </span>
               </div>
               <div className="flex items-center gap-4">
